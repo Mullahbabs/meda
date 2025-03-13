@@ -136,6 +136,9 @@
             }
         }
     });
+
+    new WOW().init();
+
     
 })(jQuery);
 
