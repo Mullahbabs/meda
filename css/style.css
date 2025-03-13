@@ -829,6 +829,7 @@ a:focus {
 
 .team .team-img {
     position: relative;
+    overflow: hidden;
 }
 
 .team .team-img img {
@@ -860,6 +861,7 @@ a:focus {
 .team .team-text p {
     margin-bottom: 20px;
     color: #092a49;
+    
 }
 
 .team .team-social {
@@ -887,6 +889,7 @@ a:focus {
 
 .team .team-item:hover .team-text {
     height: 160px;
+    overflow: visible;
 }
 
 
@@ -925,6 +928,7 @@ a:focus {
 
 .testimonial .testimonial-item p {
     margin-bottom: 15px;
+    text-align: justify;
 }
 
 .testimonial .testimonial-item h2 {
@@ -934,6 +938,7 @@ a:focus {
     letter-spacing: 1px;
     margin-bottom: 5px;
     padding-bottom: 3px;
+    text-align: justify;
 }
 
 .testimonial .testimonial-item h2::before {
@@ -951,12 +956,19 @@ a:focus {
     width: 60px;
 }
 
+.testimonial .testimonial-item a {
+    position: relative;
+    font-size: 16px;
+    color: #0796fe;
+    transition: .3s;
+}    
 .testimonial .testimonial-item h3 {
     color: #999999;
     font-size: 14px;
-    font-weight: 300;
+    font-weight: 700;
     letter-spacing: 2px;
     margin: 0;
+
 }
 
 .testimonial .owl-nav {
@@ -1332,6 +1344,7 @@ a:focus {
 }
 
 .single img {
+    position: relative;
     width: 100%;
     margin: 0 0 25px 0;
 }
@@ -1361,6 +1374,8 @@ a:focus {
 .single .ol-group {
     padding-left: 18px;
 }
+
+
 
 
 /*******************************/
@@ -1515,5 +1530,88 @@ a:focus {
     .footer .copyright .col-md-6:last-child p {
         margin: 5px 0;
         text-align: center;
+    }
+}
+
+/* Banner Container */
+.banner-container {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/m2.jpg') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+  /* Banner Content */
+.banner-content {
+    max-width: 600px;
+    padding: 20px;
+}
+
+.banner-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.banner-content p {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+}
+
+.banner-content .banner-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.banner-content .banner-button:hover {
+    background-color: #0056b3;
+}
+
+  /* Navigation Breadcrumb */
+.banner-nav {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: white;
+}
+
+.banner-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.banner-nav a:hover {
+    text-decoration: underline;
+}
+
+.banner-nav span {
+    margin-right: 10px;
+}
+
+  /* Responsive Styling */
+ @media (max-width: 768px) {
+.banner-content h1 {
+      font-size: 2rem;
+    }
+
+.banner-content p {
+    font-size: 1rem;
+    }
+
+.banner-nav {
+      font-size: 0.8rem;
     }
 }
