@@ -290,7 +290,7 @@ a:focus {
     position: relative;
     width: 100%;
     height: 100%;
-    text-align: left;
+    text-align: center;
     overflow: hidden;
 }
 
@@ -319,7 +319,6 @@ a:focus {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    
     z-index: 2;
 }
 
