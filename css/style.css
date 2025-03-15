@@ -281,8 +281,8 @@ a:focus {
     width: 100%;
     height: calc(100vh - 35px);
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: left;
+    justify-content: left;
     flex-direction: column;
 }
 
@@ -290,7 +290,7 @@ a:focus {
     position: relative;
     width: 100%;
     height: 100%;
-    text-align: right;
+    text-align: left;
     overflow: hidden;
 }
 
@@ -313,26 +313,33 @@ a:focus {
 
 .carousel .carousel-text {
     position: absolute;
-    max-width: 700px;
+    max-width: 800px;
     height: calc(100vh - 35px);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding: 20px;
     z-index: 2;
 }
 
 .carousel .carousel-text h1 {
-    text-align: center;
+    text-align: left;
     color: #ffffff;
     font-size: 60px;
     font-weight: 200;
     margin-bottom: 20px;
 }
 
+.carousel .carousel-text h1 span {
+    color: #0796fe;
+    font-size: 80px; 
+    
+}
+
 .carousel .carousel-text p {
     color: #ffffff;
-    text-align: center;
+    text-align: left;
     font-size: 20px;
     margin-bottom: 25px;
 }
@@ -342,7 +349,7 @@ a:focus {
     font-size: 16px;
     letter-spacing: 1px;
     color: #ffffff;
-    background: none;
+    background-color: var(--bs-primary);
     border: 2px solid #ffffff;
     border-radius: 0;
     transition: .3s;
