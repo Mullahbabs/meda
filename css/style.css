@@ -292,6 +292,7 @@ a:focus {
     height: 100%;
     text-align: right;
     overflow: hidden;
+    object-fit: cover;
 }
 
 .carousel .carousel-img::after {
