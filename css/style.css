@@ -14,7 +14,7 @@ h4,
 h5, 
 h6 {
     color: #092a49;
-    font-family: 'lato', sans-serif;
+    font-family: 'poppins', sans-serif;
 }
 
 a {
@@ -178,7 +178,7 @@ a:focus {
     position: fixed;
     top: 0;
     width: 100%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .6);
     transition: .5s;
 }
 
@@ -206,7 +206,7 @@ a:focus {
 
 .navbar-dark .navbar-nav .nav-link:hover,
 .navbar-dark .navbar-nav .nav-link.active {
-    color: #0796fe;
+    color: lightskyblue;
     transition: none;
 }
 
@@ -223,7 +223,7 @@ a:focus {
         width: 100%;
         top: 35px;
         padding: 20px 60px;
-        background: rgba(9, 42, 73, .2)!important;
+        background: rgba(9, 42, 73, .6)!important;
         z-index: 9;
     }
     
@@ -302,7 +302,7 @@ a:focus {
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(9, 42, 73, .3);
+    background: rgba(245, 240, 230, 0.5);
     z-index: 1;
 }
 
@@ -325,15 +325,15 @@ a:focus {
 
 .carousel .carousel-text h2 {
     text-align: center;
-    color: #ffffff;
+    color: #092a49;
     font-size: 40px;
     font-weight: 200;
     margin-bottom: 20px;
 }
 
 .carousel .carousel-text h2 span {
-    color: #0796fe;
-    font-size: 70px; 
+    color: #092a49;
+    font-size: 50px; 
     
 }
 
@@ -348,7 +348,7 @@ a:focus {
     padding: 10px 20px;
     font-size: 16px;
     letter-spacing: 1px;
-    color: #ffffff;
+    color: #000;
     background-color: var(--bs-primary);
     border: 2px solid #0796fe;
     border-radius: 0;
@@ -754,6 +754,7 @@ a:focus {
     display: flex;
     align-items: flex-end;
     justify-content: flex-start;
+    background: #000;
 }
 
 .feature .feature-img::after {
