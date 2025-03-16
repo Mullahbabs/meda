@@ -2,7 +2,7 @@
 /********* General CSS *********/
 /*******************************/
 body {
-    color: #000;
+    color: #092a49;
     background: #ffffff;
     font-family: 'Lato', sans-serif;
 }
@@ -329,6 +329,7 @@ a:focus {
     font-size: 40px;
     font-weight: 600;
     margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
 .carousel .carousel-text h2 span {
@@ -350,13 +351,14 @@ a:focus {
     letter-spacing: 1px;
     color: #000;
     background-color: var(--bs-primary);
-    border: 2px solid #0796fe;
+    border: 3px solid #0796fe;
     border-radius: 0;
     transition: .3s;
 }
 
 .carousel .carousel-text .btn i {
     margin-right: 5px;
+    
 }
 
 .carousel .carousel-text .btn:hover {
@@ -565,7 +567,7 @@ a:focus {
     box-shadow: none;
 }
 
-.fact .fact-item img {
+.fact .fact-item i {
     max-height: 50px;
     margin-bottom: 15px;
 }
@@ -684,7 +686,7 @@ a:focus {
     margin-bottom: 30px;
     padding: 30px;
     text-align: justify;
-    border: 1px solid rgba(0, 0, 0, .1);
+    border: 2px solid #092a49;
     transition: .3s;
 }
 
@@ -693,7 +695,7 @@ a:focus {
     box-shadow: 0 0 30px rgba(0, 0, 0, .1);
 }
 
-.service .service-item img {
+.service .service-item i {
     max-height: 50px;
     margin-bottom: 20px;
 }
@@ -1246,7 +1248,7 @@ a:focus {
     position: relative;
     display: flex;
     padding: 30px;
-    border: 1px solid rgba(0, 0, 0, .1);
+    border: 2px solid ;
     margin-bottom: 30px;
     transition: .3s;
 }
@@ -1263,7 +1265,7 @@ a:focus {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(0, 0, 0, .1);
+    border: 2px solid ;
 }
 
 .contact .contact-icon i {
@@ -1293,7 +1295,7 @@ a:focus {
 .contact .contact-form {
     position: relative;
     padding: 30px;
-    border: 1px solid rgba(0, 0, 0, .1);
+    border: 2px solid;
     margin-bottom: 30px;
     transition: .3s;
 }
@@ -1307,7 +1309,7 @@ a:focus {
     padding: 15px;
     background: none;
     border-radius: 0;
-    border: 1px solid rgba(0, 0, 0, .1);
+    border: 1px solid ;
 }
 
 .contact .contact-form textarea {
@@ -1315,7 +1317,7 @@ a:focus {
     padding: 8px 15px;
     background: none;
     border-radius: 0;
-    border: 1px solid rgba(0, 0, 0, .1);
+    border: 1px solid #0796fe;
 }
 
 .contact .contact-form .btn {
@@ -1323,7 +1325,7 @@ a:focus {
     font-size: 16px;
     font-weight: 600;
     letter-spacing: 1px;
-    color: #092a49;
+    color: #0796fe;
     background: none;
     border: 2px solid #092a49;
     border-radius: 0;
@@ -1413,7 +1415,7 @@ a:focus {
     font-size: 22px;
     font-weight: 300;
     letter-spacing: 1px;
-    color: #ffffff;
+    color: var(--bs-primary);
 }
 
 .footer .footer-contact h2::after,
@@ -1478,6 +1480,7 @@ a:focus {
 .footer .footer-newsletter .form {
     position: relative;
     width: 100%;
+    color: #0796fe;
 }
 
 .footer .footer-newsletter input {
@@ -1494,7 +1497,7 @@ a:focus {
     padding: 8px 20px;
     font-size: 14px;
     font-weight: 600;
-    color: #092a49;
+    color: #0796fe;
     background: none;
     border-radius: 0;
     border: 2px solid #092a49;
@@ -1623,3 +1626,5 @@ a:focus {
       font-size: 0.8rem;
     }
 }
+
+
