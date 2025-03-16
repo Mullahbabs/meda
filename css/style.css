@@ -599,6 +599,7 @@ a:focus {
     height: 100%;
     overflow: hidden;
     transition: .5s;
+    background: #000;
 }
 
 .about .about-img::after {
