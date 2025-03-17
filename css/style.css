@@ -642,7 +642,7 @@ a:focus {
 }
 
 .about .about-text p {
-    font-size: 16px;
+    font-size: 17px;
 }
 
 .about .about-text a.btn {
@@ -845,6 +845,7 @@ a:focus {
 
 .team .team-img img {
     width: 100%;
+    overflow: hidden;
 }
 
 .team .team-text {
