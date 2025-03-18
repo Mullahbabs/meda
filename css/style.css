@@ -802,8 +802,8 @@ a:focus {
 }
 
 .service .service-item:hover a.btn {
-    color: #092a49;
-    background: #1d2434;
+    color: #fff;
+    background: #0796fe;
     border-color: #1d2434;
 }
 
@@ -828,7 +828,7 @@ a:focus {
     display: flex;
     align-items: flex-end;
     justify-content: flex-start;
-    background: #000;
+    background: #092a49;
 }
 
 .feature .feature-img::after {
@@ -851,7 +851,7 @@ a:focus {
     position: relative;
     max-width: 100%;
     max-height: 100%;
-    margin: 0 30px 30px 30px;
+    margin: 0 25px 25px 25px;
     z-index: 2;
 }
 
@@ -1639,7 +1639,7 @@ a:focus {
 
 .banner-content h1 {
     font-size: 3rem;
-    margin-bottom: 20px;
+    margin-bottom: 60px;
     color: white;
 }
 
