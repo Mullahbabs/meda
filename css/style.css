@@ -1719,7 +1719,7 @@ a:focus {
     position: relative;
     width: 100%;
     height: 70vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/m2.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/06.jpg') no-repeat center center/cover;
     display: flex;
     flex-direction: column;
     align-items: center;
