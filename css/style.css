@@ -1985,6 +1985,12 @@ a:focus {
     margin-bottom: 15px;
 }
 
+.product-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: left;
+    color: #092a49;
+}
 .add-to-cart {
     background-color: #0796fe;
     color: white;
