@@ -996,14 +996,20 @@ a:focus {
 /*********** Team CSS **********/
 /*******************************/
 .team {
+    display: flex;
+    justify-content: center;
     position: relative;
     width: 100%;
+    align-items: center;
     padding: 45px 0 15px 0;
+    
 }
 
 .team .team-item {
+    max-width: cover;
+    justify-content: center; 
     position: relative;
-    margin-bottom: 75px;
+    margin-bottom: 85px;
     
 }
 
@@ -1013,12 +1019,13 @@ a:focus {
     width: 100%; 
     height: 300px; 
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items:center ;
+    justify-content: space-between;
     border-radius: 10px; 
 }
 
 .team .team-img img {
+    display: inline-block;
     width: 100%;
     height: 100%;
     object-fit: cover; 
