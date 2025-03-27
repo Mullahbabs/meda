@@ -139,6 +139,41 @@
 
     new WOW().init();
 
+    // Cart management
+const cart = [];
+const cartCount = document.getElementById("cartCount");
+const cartModal = document.getElementById("cartModal");
+const cartItems = document.getElementById("cartItems");
+const closeModal = document.getElementById("closeModal");
+
+// Add to cart button logic
+document.querySelectorAll(".add-to-cart").forEach(button => {
+    button.addEventListener("click", event => {
+        const productName = event.target.getAttribute("data-name");
+        const productPrice = parseFloat(event.target.getAttribute("data-price"));
+        cart.push({ name: productName, price: productPrice });
+        cartCount.textContent = cart.length;
+        alert(`${productName} has been added to your cart!`);
+    });
+});
+
+// Show cart modal
+document.getElementById("cartBtn").addEventListener("click", () => {
+    cartItems.innerHTML = "";
+    cart.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+        cartItems.appendChild(li);
+    });
+    cartModal.style.display = "flex";
+});
+
+// Close cart modal
+closeModal.addEventListener("click", () => {
+    cartModal.style.display = "none";
+});
+
+
     
 })(jQuery);
 
