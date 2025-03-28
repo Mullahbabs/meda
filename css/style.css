@@ -1963,6 +1963,7 @@ a:focus {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     padding: 20px;
+    background-color: #092a49;
 }
 
 .product-card {
@@ -1972,6 +1973,14 @@ a:focus {
     padding: 15px;
     transition: transform 0.3s ease;
     background: #fff;
+}
+
+.product-card .h3 .star-rating {
+    display: flex;
+    gap: 4px; /* Adds space between the stars */
+    color: #f4b400; /* Gold color for the stars */
+    justify-content: flex-end; /* Aligns stars to the right */
+    margin-bottom: 10px;
 }
 
 .product-card:hover {
@@ -1986,16 +1995,19 @@ a:focus {
 }
 
 .product-card h3 {
+    display: flex;
     font-size: 18px;
     margin-bottom: 10px;
     text-align: left;
     color: #092a49;
+    justify-content: space-between;
 }
+
 .add-to-cart {
     background-color: #0796fe;
     color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 5px 10px;
     cursor: pointer;
     border-radius: 5px;
 }
@@ -2018,17 +2030,18 @@ a:focus {
 }
 
 .modal-content {
-    background: white;
-    padding: 20px;
+    background: #092a49;
+    color: #fff;
+    padding: 40px;
     border-radius: 10px;
-    text-align: center;
+    text-align: left;
     width: 80%;
     max-width: 400px;
 }
 
 .close-modal {
     margin-top: 15px;
-    background-color: #092a49;
+    background-color: #3897f0;
     color: white;
     border: none;
     padding: 10px 15px;
@@ -2041,3 +2054,51 @@ a:focus {
     color: #092a49;
 }
 
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.pagination button {
+    background-color: #092a49;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pagination button:hover {
+    background-color: #0796fe;
+}
+
+.pagination button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+.page-number {
+    margin: 0 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #f4f4f4;
+    color: #092a49;
+    transition: background-color 0.3s;
+}
+
+.page-number.active {
+    background-color: #0796fe;
+    color: #fff;
+}
+
+.page-number:hover {
+    background-color: #ddd;
+}
+
+  
