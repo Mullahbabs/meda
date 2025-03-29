@@ -22,7 +22,8 @@ document.body.appendChild(flashMessage);
 // Total price display
 const totalPriceElement = document.createElement("p");
 totalPriceElement.id = "totalPrice";
-totalPriceElement.style.fontWeight = "bold";
+totalPriceElement.style.fontWeight = "bolder";
+totalPriceElement.style.fontStyle = "arial";
 totalPriceElement.style.marginTop = "20px";
 
 // Load cart from localStorage
@@ -54,7 +55,7 @@ document.getElementById("cartBtn").addEventListener("click", () => {
         li.style.justifyContent = "space-between";
         li.style.alignItems = "center";
         li.style.marginBottom = "10px";
-        li.textContent = `${item.name} - N${item.price.toFixed(3)}`;
+        li.textContent = `${item.name} - ₦ ${item.price.toFixed(3)}`;
         
         // Remove button
         const removeButton = document.createElement("button");
@@ -77,7 +78,7 @@ document.getElementById("cartBtn").addEventListener("click", () => {
 
     // Calculate total price
     const totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
-    totalPriceElement.textContent = `Total Price: N${totalPrice.toFixed(3)}`;
+    totalPriceElement.textContent = `Total Price: ₦ ${totalPrice.toFixed(3)}`;
     cartItems.appendChild(totalPriceElement);
 
     cartModal.style.display = "flex";

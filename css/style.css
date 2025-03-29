@@ -2020,6 +2020,7 @@ a:focus {
 .modal {
     display: none;
     position: fixed;
+    color: #fff;
     top: 0;
     left: 0;
     width: 100%;
