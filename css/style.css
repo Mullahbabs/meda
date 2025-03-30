@@ -302,7 +302,8 @@ a:focus {
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(245, 240, 230, 0.5);
+    background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    transition: filter  0.3s ease;
     z-index: 1;
 }
 
@@ -325,23 +326,26 @@ a:focus {
 
 .carousel .carousel-text h2 {
     text-align: center;
-    color: #092a49;
+    color: #fff;
     font-size: 40px;
     font-weight: 600;
     margin-bottom: 20px;
-    text-transform: uppercase;
+    text-transform: ;
 }
 
 .carousel .carousel-text h2 span {
-    color: #092a49;
+    color: #fff;
     font-size: 50px; 
+    text-transform: uppercase;
     
 }
 
 .carousel .carousel-text p {
     color: #ffffff;
     text-align: center;
-    font-size: 20px;
+    font-size: 27px;
+    font-weight: 300;
+    text-transform: uppercase;
     margin-bottom: 25px;
 }
 
@@ -350,14 +354,15 @@ a:focus {
     font-size: 16px;
     letter-spacing: 1px;
     color: #000;
-    background-color: var(--bs-primary);
-    border: 3px solid #092a49;
+    background-color: #fff;
+    border: 1px solid #092a49;
     border-radius: 0;
     transition: .3s;
 }
 
 .carousel .carousel-text .btn i {
     margin-right: 5px;
+    
     
 }
 
@@ -387,7 +392,7 @@ a:focus {
     align-items: center;
     justify-content: center;
     color: #0796fe;
-    background: #092a49;
+    background: #fff;
     font-size: 22px;
     transition: .3s;
 }
