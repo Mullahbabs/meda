@@ -1988,6 +1988,7 @@ a:focus {
     margin-bottom: 10px;
 }
 
+ 
 .product-card:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -2007,6 +2008,7 @@ a:focus {
     color: #092a49;
     justify-content: space-between;
 }
+
 
 .add-to-cart {
     background-color: #0796fe;
