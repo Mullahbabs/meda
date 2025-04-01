@@ -22,7 +22,7 @@ document.body.appendChild(flashMessage);
 // Total price display
 const totalPriceElement = document.createElement("p");
 totalPriceElement.id = "totalPrice";
-totalPriceElement.style.fontWeight = "bolder";
+totalPriceElement.style.fontWeight = "bolder ";
 totalPriceElement.style.fontStyle = "arial";
 totalPriceElement.style.marginTop = "20px";
 
