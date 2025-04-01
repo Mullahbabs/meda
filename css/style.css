@@ -2053,6 +2053,11 @@ a:focus {
     max-width: 400px;
 }
 
+.modal-content .h3 {
+    margin-bottom: 20px;
+    background-color: #000;
+}
+
 .close-modal {
     margin-top: 15px;
     background-color: #3897f0;
