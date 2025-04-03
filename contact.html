@@ -57,11 +57,10 @@
         </div>
         <!-- Top Bar End -->
 
-        <!-- Nav Bar Start -->
         <div class="navbar navbar-expand-lg bg-dark navbar-dark">
             <div class="container-fluid">
                 <img src="img/download14.png">
-                <a href="index.html" class="navbar-brand">M.E.D.A</a>
+                <a href="index.html" class="navbar-brand" >M.E.D.A</a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -69,32 +68,50 @@
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav ml-auto">
                         <a href="index.html" class="nav-item nav-link">Home</a>
-                        <a href="about.html" class="nav-item nav-link active">About</a>
+                        <a href="about.html" class="nav-item nav-link">About</a>
                         <a href="service.html" class="nav-item nav-link">Services</a>
                         <a href="programs.html" class="nav-item nav-link">Programs</a>
-                        <a href="" class="nav-item nav-link">Advisor</a>
-                        <a href="" class="nav-item nav-link">Review</a>
+                        <a href="" class="nav-item nav-link">Partnerships</a>
+                        <a href="shop.html" class="nav-item nav-link">MARKETPLACE</a>
+                        <a href="" class="nav-item nav-link">Blog</a>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Events</a>
                             <div class="dropdown-menu">
-                                <a href="" class="dropdown-item">Events</a>
-                                <a href="" class="dropdown-item">Blog</a>
+                                <a href="" class="dropdown-item text-primary">MEDA Events</a>
+                                <a href="" class="dropdown-item text-primary">Partner Events</a>
                             </div>
                         </div>
-                        <a href="" class="nav-item nav-link">Contact</a>
+                        <a href="" class="nav-item nav-link active">Contact</a>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Nav Bar End -->
+
+        <div class="banner-container">
+            <!-- Banner Content -->
+                <div class="banner-content">
+                    <h1 class="wow zoomIn" data-wow-delay="0.3s">Our Blog</h1>
+                    <p class="wow fadeInLeft" data-wow-delay="0.3s">Stay Up To Date With Our Latest News & Updates</p>
+                    </p>
+                </div>    
+                    <div class="banner-nav">
+                        <a href="index.html">Home</a>
+                        <span>/</span>
+                        <span>/</span>
+                        <a href="#" class="text-primary">Blog</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Banner Content End -->
         
         
         <!-- Contact Start -->
-        <div class="contact mt-125">
+        <div class="contact">
             <div class="container">
                 <div class="section-header">
-                    <p>Get In Touch</p>
-                    <h2>Get In Touch For Any Query</h2>
+                    <p class="text-justify wow fadeInRight" data-wow-delay="0.4s" style="font-weight: bolder;">Contact Us</p>
+                    <h3 class="text-primary wow fadeInLeft" data-wow-delay="0.8s">Get In Touch For Any Enquiry</h3>
                 </div>
                 <div class="row align-items-center">
                     <div class="col-md-5">
@@ -102,32 +119,32 @@
                             <div class="contact-icon">
                                 <i class="fa fa-map-marker-alt"></i>
                             </div>
-                            <div class="contact-text">
+                            <div class="contact-text wow fadeInDown" data-wow-delay="0.5s">
                                 <h3>Our Head Office</h3>
-                                <p>123 Street, New York, USA</p>
+                                <p>123 Eyo-Ita house, Calabar, Nigeria</p>
                             </div>
                         </div>
                         <div class="contact-info">
                             <div class="contact-icon">
                                 <i class="fa fa-phone-alt"></i>
                             </div>
-                            <div class="contact-text">
-                                <h3>Call for Help</h3>
-                                <p>+012 345 6789</p>
+                            <div class="contact-text wow fadeInDown" data-wow-delay="0.5s">
+                                <h3>Call for Assistance</h3>
+                                <p>+234 345 6789</p>
                             </div>
                         </div>
                         <div class="contact-info">
                             <div class="contact-icon">
                                 <i class="fa fa-envelope"></i>
                             </div>
-                            <div class="contact-text">
+                            <div class="contact-text wow fadeInDown" data-wow-delay="0.5s">
                                 <h3>Email for Information</h3>
-                                <p>info@example.com</p>
+                                <p>info@medacrs.com</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-7">
-                        <div class="contact-form">
+                        <div class="contact-form wow fadeInDown" data-wow-delay="0.6s">
                             <div id="success"></div>
                             <form name="sentMessage" id="contactForm" novalidate="novalidate">
                                 <div class="control-group">
@@ -157,6 +174,23 @@
         </div>
         <!-- Contact End -->
 
+        <!-- Map Container -->
+        
+            <div id="geoLocatorModal" class="geo-modal">
+                <div class="geo-modal-content">
+                    <span class="geo-close">&times;</span>
+                    <h2>Find Us Here</h2>
+                    <div id="geoMap"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Google Maps API -->
+        <script async defer 
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUMMY-KEY-123456789&callback=initGeoMap">
+        </script>
+
+
 
         <!-- Footer Start -->
         <div class="footer">
@@ -167,9 +201,9 @@
                             <div class="col-md-6">
                                 <div class="footer-contact">
                                     <h2>Our Head Office</h2>
-                                    <p><i class="fa fa-map-marker-alt"></i>123 Street, New York, USA</p>
-                                    <p><i class="fa fa-phone-alt"></i>+012 345 67890</p>
-                                    <p><i class="fa fa-envelope"></i>info@example.com</p>
+                                    <p><i class="fa fa-map-marker-alt"></i>123, Eyo-Ita House. Calabar, Nigeria</p>
+                                    <p><i class="fa fa-phone-alt"></i>+234 345 67890</p>
+                                    <p><i class="fa fa-envelope"></i>info@medacrs.com</p>
                                     <div class="footer-social">
                                         <a href=""><i class="fab fa-twitter"></i></a>
                                         <a href=""><i class="fab fa-facebook-f"></i></a>
@@ -182,11 +216,11 @@
                             <div class="col-md-6">
                                 <div class="footer-link">
                                     <h2>Quick Links</h2>
-                                    <a href="">Terms of use</a>
-                                    <a href="">Privacy policy</a>
-                                    <a href="">Cookies</a>
-                                    <a href="">Help</a>
-                                    <a href="">FQAs</a>
+                                    <a href="">About Us</a>
+                                    <a href="">Our Policies</a>
+                                    <a href="">Events</a>
+                                    <a href="">Support</a>
+                                    <a href="">Contact Us</a>
                                 </div>
                             </div>
                         </div>
@@ -195,7 +229,8 @@
                         <div class="footer-newsletter">
                             <h2>Newsletter</h2>
                             <p>
-                                Lorem ipsum dolor sit amet elit. Quisque eu lectus a leo dictum nec non quam. Tortor eu placerat rhoncus, lorem quam iaculis felis, sed lacus neque id eros.
+                                Stay updated with our latest projects, Skill Aquisitions and support programs by signing up for 
+                                our weekly newsletters.
                             </p>
                             <div class="form">
                                 <input class="form-control" placeholder="Email goes here">
@@ -208,10 +243,10 @@
             <div class="container copyright">
                 <div class="row">
                     <div class="col-md-6">
-                        <p>&copy; <a href="#">Your Site Name</a>, All Right Reserved.</p>
+                        <p>&copy; <a href="#">medacrs.com</a>, All Right Reserved.</p>
                     </div>
                     <div class="col-md-6">
-                        <p>Designed By <a href="https://htmlcodex.com">HTML Codex</a></p>
+                        <p>Powered By <a href="#">BellaTECH LTD.</a></p>
                     </div>
                 </div>
             </div>
@@ -225,8 +260,10 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
         <script src="lib/easing/easing.min.js"></script>
         <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="lib/wow/wow.min.js"></script>
         <script src="lib/waypoints/waypoints.min.js"></script>
         <script src="lib/counterup/counterup.min.js"></script>
+        <script src="geoLocator.js"></script>
         
         <!-- Contact Javascript File -->
         <script src="mail/jqBootstrapValidation.min.js"></script>
@@ -234,5 +271,6 @@
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
+
     </body>
 </html>
