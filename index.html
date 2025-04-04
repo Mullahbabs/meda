@@ -82,7 +82,7 @@
                                 <a href="" class="dropdown-item text-primary">Partner Events</a>
                             </div>
                         </div>
-                        <a href="" class="nav-item nav-link">Contact</a>
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
                     </div>
                 </div>
             </div>
@@ -251,6 +251,46 @@
         </div>
         <!-- About End -->
 
+        <div class="feature">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="text-primary wow fadeInRight" data-wow-delay="0.3s">Our Milestones</h2>
+                </div>    
+                <div class="row counters" style="background-color: #092a49;">
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                        <i class="fa fa-user"></i>
+                        <div class="counters-text">
+                            <h2 data-toggle="counter-up">14149</h2>
+                            <p>Trainees</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInRight" data-wow-delay="0.3s">
+                        <i class="fa fa-users"></i>
+                        <div class="counters-text">
+                            <h2 data-toggle="counter-up">3785</h2>
+                            <p>Beneficiaries</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+                        <i class="fa fa-female"></i>
+                        <div class="counters-text">
+                            <h2 data-toggle="counter-up">7350</h2>
+                            <p>Females</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInDown" data-wow-delay="0.5s">
+                        <i class="fa fa-male"></i>
+                        <div class="counters-text">
+                            <h2 data-toggle="counter-up">6808</h2>
+                            <p>Male</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
         <!-- Service Start -->
         <div class="service">
@@ -356,35 +396,6 @@
                             partnerships, our focus remains on driving inclusive economic development that transforms lives 
                             and strengthens communities
                         </p>
-                        <div class="row counters">
-                            <div class="col-6 wow fadeInUp" data-wow-delay="0.2s">
-                                <i class="fa fa-user"></i>
-                                <div class="counters-text">
-                                    <h2 data-toggle="counter-up">14149</h2>
-                                    <p>Trainees</p>
-                                </div>
-                            </div>
-                            <div class="col-6 wow fadeInRight" data-wow-delay="0.3s">
-                                <i class="fa fa-users"></i>
-                                <div class="counters-text">
-                                    <h2 data-toggle="counter-up">3785</h2>
-                                    <p>Beneficiaries</p>
-                                </div>
-                            </div>
-                            <div class="col-6 wow fadeInUp" data-wow-delay="0.4s">
-                                <i class="fa fa-female"></i>
-                                <div class="counters-text">
-                                    <h2 data-toggle="counter-up">7350</h2>
-                                    <p>Females</p>
-                                </div>
-                            </div>
-                            <div class="col-6 wow fadeInDown" data-wow-delay="0.5s">
-                                <i class="fa fa-male"></i>
-                                <div class="counters-text">
-                                    <h2 data-toggle="counter-up">6808</h2>
-                                    <p>Male</p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -469,14 +480,73 @@
             </div>
         </div>
         <!-- Testimonial End -->
-        <div class="banner-container">
+        <div class="banner-container" style="margin-bottom: 20px;">
             <!-- Banner Content -->
                 <div class="banner-content">
                     <h1 class="wow zoomIn" data-wow-delay="0.3s">Apply For Funding</h1>
                 </div>    
                     <a class="btn btn-primary" href="" style="font-weight: bolder;"><i class="fa fa-thumbs-up text-white"></i>  Get Started</a>
                 </div> 
-            </div>       
+            </div>
+        </div>           
+        <div class="container">
+            <div class="section-header">
+                <p style="font-weight:bolder">Testimonials</p>
+                <h3 class="text-primary">Our Success Stories</h3>
+            </div>
+            <div class="video-container">
+                <div class="video-column ">
+                    <div class="video-item" onclick="openModal('video1')">
+                        <img src="img/bpage1.jpg" alt="Video 1">
+                        <div class="radiant-play-btn"></div>
+                        <p>MEDA Project Overview</p>
+                    </div>
+                    <div class="video-item" onclick="openModal('video2')">
+                        <img src="img/bpage2.jpg" alt="Video 2">
+                        <div class="radiant-play-btn"></div>
+                        <p>Enterprise Development</p>
+                    </div>
+                    <div class="video-item" onclick="openModal('video3')">
+                        <img src="img/bpage1.jpg" alt="Video 3">
+                        <div class="radiant-play-btn"></div>
+                        <p>Innovation & Growth</p>
+                    </div>
+                    <div class="video-item" onclick="openModal('video4')">
+                        <img src="img/bpage4.jpg" alt="Video 4">
+                        <div class="radiant-play-btn"></div>
+                        <p>Success Stories</p>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Video Modals -->
+            <div id="video1" class="video-modal">
+                <span class="close" onclick="closeModal('video1')">&times;</span>
+                <div class="modal-content">
+                    <iframe src="https://www.youtube.com/embed/hfaoN7mCaVo" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        
+            <div id="video2" class="video-modal">
+                <span class="close" onclick="closeModal('video2')">&times;</span>
+                <div class="modal-content">
+                    <iframe src="https://www.youtube.com/embed/hfaoN7mCaVo" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        
+            <div id="video3" class="video-modal">
+                <span class="close" onclick="closeModal('video3')">&times;</span>
+                <div class="modal-content">
+                    <iframe src="https://www.youtube.com/embed/hfaoN7mCaVo" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        
+            <div id="video4" class="video-modal">
+                <span class="close" onclick="closeModal('video4')">&times;</span>
+                <div class="modal-content">
+                    <iframe src="https://www.youtube.com/embed/hfaoN7mCaVo" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
         
 
         <!-- Blog Start -->
@@ -709,6 +779,9 @@
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
         <script async src="//www.instagram.com/embed.js"></script>
+        <script src="medaVideos.js"></script>
+
+        
 
         
     </body>

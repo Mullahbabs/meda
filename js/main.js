@@ -138,6 +138,8 @@
     });
 
     new WOW().init();
+
+    
     
 })(jQuery);
 
