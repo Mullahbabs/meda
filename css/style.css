@@ -2429,7 +2429,7 @@ a:focus {
 }
 
 .modal-close, .modal-prev, .modal-next {
-    position: fixed;
+    position: relative;
     top: 50%;
     transform: translateY(-50%);
     background: #092a49;
