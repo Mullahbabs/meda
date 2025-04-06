@@ -87,7 +87,7 @@ document.getElementById("cartBtn").addEventListener("click", () => {
 // Close cart modal
 closeModal.addEventListener("click", () => {
     cartModal.style.display = "none";
-});
+}); 
 
 // Save cart to localStorage
 function saveCart() {
