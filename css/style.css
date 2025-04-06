@@ -2024,7 +2024,7 @@ a:focus {
 
 .product-card img {
     width: 100%;
-    border-radius: 8px;
+    border-radius: 6px;
     margin-bottom: 15px;
     transition: opacity 0.3s ease;
 }
@@ -2045,7 +2045,7 @@ a:focus {
     font-weight: bold;
     opacity: 0;
     transition: opacity 0.3s ease;
-    border-radius: 15px;
+    border-radius: 8px;
 }
 
 .product-card:hover .product-hover-text {
