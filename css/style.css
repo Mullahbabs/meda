@@ -2416,12 +2416,12 @@ a:focus {
     position: absolute;
     top: 25px;
     right: 35px;
-    color: white;
+    color: #007bff;
     font-size: 35px;
     cursor: pointer;
 }
 .nav-btn {
-    color: white;
+    color: #007bff;
     font-size: 40px;
     cursor: pointer;
     padding: 20px;
