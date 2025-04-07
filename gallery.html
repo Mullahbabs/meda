@@ -113,68 +113,154 @@
                         <h2 class="text-primary">M.E.D.A In Pictures</h2>
                     </div>
                 </div>
-            </div>
+            
             <!-- Tab Navigation -->
-            <div class="tabs">
-                <div class="tab active" data-tab="1">Gallery A</div>
-                <div class="tab" data-tab="2">Gallery B</div>
-                <div class="tab" data-tab="3">Gallery C</div>
+            <div class="gallery-tabs">
+                <!-- Tab Buttons -->
+                <div class="tab-buttons" style="align-items: center; justify-content: center;">
+                    <button class="tab-btn active" data-tab="nature">All</button>
+                    <button class="tab-btn" data-tab="cities">Programs</button>
+                    <button class="tab-btn" data-tab="food">Events</button>
+                    <button class="tab-btn" data-tab="tech">Trainings</button>
+                </div><br>
+                
+                <!-- Tab 1: Nature -->
+                <div id="nature" class="tab-content active">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="img/bpage1.jpg" 
+                                 data-fullsize="img/bpage1.jpg" 
+                                 class="thumbnail" alt="Nature 1">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/bpage2.jpg" 
+                                 data-fullsize="img/bpage2.jpg" 
+                                 class="thumbnail" alt="Nature 2">
+                        </div>
+                        <!-- Duplicate example -->
+                        <div class="gallery-item">
+                            <img src="img/bpage3.jpeg" 
+                                 data-fullsize="img/bpage3.jpeg" 
+                                 class="thumbnail" alt="Nature 3">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/bpage3.jpeg" 
+                                 data-fullsize="img/bpage3.jpeg" 
+                                 class="thumbnail" alt="Nature 3">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/bpage4.jpg" 
+                                 data-fullsize="img/bpage4.jpg" 
+                                 class="thumbnail" alt="Nature 3 (Copy)">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tab 2: Cities -->
+                <div id="cities" class="tab-content">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="img/bpage2.jpg" 
+                                 data-fullsize="img/bpage2.jpg" 
+                                 class="thumbnail" alt="City 1">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/bpage3.jpeg" 
+                                 data-fullsize="img/bpage3.jpeg" 
+                                 class="thumbnail" alt="City 2">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/bpage4.jpg" 
+                                 data-fullsize="img/bpage4.jpg" 
+                                 class="thumbnail" alt="City 2">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/bpage1.jpg" 
+                                 data-fullsize="img/bpage1.jpg" 
+                                 class="thumbnail" alt="City 2">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/bpage3.jpeg" 
+                                 data-fullsize="img/bpage3.jpeg" 
+                                 class="thumbnail" alt="Nature 3">
+                        </div>
+                        <!-- More items... -->
+                    </div>
+                </div>
+                
+                <!-- Tab 3: Food -->
+                <div id="food" class="tab-content">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="img/bpage3.jpeg" 
+                                 data-fullsize="img/bpage3.jpeg" 
+                                 class="thumbnail" alt="City 2">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/bpage3.jpeg" 
+                                 data-fullsize="img/bpage3.jpeg" 
+                                 class="thumbnail" alt="City 2">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/bpage3.jpeg" 
+                                 data-fullsize="img/bpage3.jpeg" 
+                                 class="thumbnail" alt="City 2">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/bpage3.jpeg" 
+                                 data-fullsize="img/bpage3.jpeg" 
+                                 class="thumbnail" alt="City 2">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/bpage3.jpeg" 
+                                 data-fullsize="img/bpage3.jpeg" 
+                                 class="thumbnail" alt="Nature 3">
+                        </div>
+                        <!-- Food images... -->
+                    </div>
+                </div>
+                
+                <!-- Tab 4: Tech -->
+                <div id="tech" class="tab-content">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="img/bpage1.jpg" 
+                                 data-fullsize="img/bpage1.jpg" 
+                                 class="thumbnail" alt="City 2">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/bpage3.jpeg" 
+                                 data-fullsize="img/bpage3.jpeg" 
+                                 class="thumbnail" alt="City 2">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/bpage4.jpg" 
+                                 data-fullsize="img/bpage4.jpg" 
+                                 class="thumbnail" alt="City 2">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/bpage2.jpg" 
+                                 data-fullsize="img/bpage2.jpg" 
+                                 class="thumbnail" alt="City 2">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/bpage3.jpeg" 
+                                 data-fullsize="img/bpage3.jpeg" 
+                                 class="thumbnail" alt="Nature 3">
+                        </div>
+                        <!-- Tech images... -->
+                    </div>
+                </div>
+                
+                <!-- Lightbox -->
+                <div class="lightbox" id="lightbox">
+                    <span class="close-btn">&times;</span>
+                    <span class="nav-btn prev-btn">&#10094;</span>
+                    <span class="nav-btn next-btn">&#10095;</span>
+                    <img class="lightbox-img" id="lightbox-img">
+                </div>
             </div>
-            
-            <div class="tab-content active" id="tab1">
-                <div class="gallery-item" data-index="0">
-                  <img src="img/bpage1.jpg" alt="A1">
-                  <div class="hover-text">Gallery A - Image 1</div>
-                </div>
-                <div class="gallery-item" data-index="1">
-                  <img src="img/bpage2.jpg" alt="A2">
-                  <div class="hover-text">Gallery A - Image 2</div>
-                </div>
-                <div class="gallery-item" data-index="2">
-                  <img src="img/bpage3.jpeg" alt="A3">
-                  <div class="hover-text">Gallery A - Image 3</div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="tab2">
-                <div class="gallery-item" data-index="0">
-                  <img src="img/bpage2.jpg" alt="B1">
-                  <div class="hover-text">Gallery B - Image 1</div>
-                </div>
-                <div class="gallery-item" data-index="1">
-                  <img src="img/bpage3.jpeg" alt="B2">
-                  <div class="hover-text">Gallery B - Image 2</div>
-                </div>
-                <div class="gallery-item" data-index="2">
-                  <img src="img/bpage1.jpg" alt="B3">
-                  <div class="hover-text">Gallery B - Image 3</div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="tab3">
-                <div class="gallery-item" data-index="0">
-                  <img src="img/bpage4.jpg" alt="C1">
-                  <div class="hover-text">Gallery C - Image 1</div>
-                </div>
-                <div class="gallery-item" data-index="1">
-                  <img src="img/bpage2.jpg" alt="C2">
-                  <div class="hover-text">Gallery C - Image 2</div>
-                </div>
-                <div class="gallery-item" data-index="2">
-                  <img src="img/bpage1.jpg" alt="C3">
-                  <div class="hover-text">Gallery C - Image 3</div>
-                </div>
-            </div>
-            
-              <!-- Modal -->
-            <div class="modal" id="imageModal">
-                <button class="modal-close" id="closeBtn">&times;</button>
-                <button class="modal-prev" id="prevBtn">&#8249;</button>
-                <div class="modal-content">
-                  <img src="#" alt="Modal Image" id="modalImage">
-                </div>
-                <button class="modal-next" id="nextBtn">&#8250;</button>
-            </div>
+        </div>    
                 
 
 
@@ -256,63 +342,79 @@
         <script src="js/main.js"></script>
 
         <script>
-            const tabs = document.querySelectorAll(".tab");
-            const tabContents = document.querySelectorAll(".tab-content");
-            const modal = document.getElementById("imageModal");
-            const modalImg = document.getElementById("modalImage");
-            const closeBtn = document.getElementById("closeBtn");
-            const nextBtn = document.getElementById("nextBtn");
-            const prevBtn = document.getElementById("prevBtn");
-        
-            let currentGallery = [];
-            let currentIndex = 0;
-        
-            // Tab switcher
-            tabs.forEach(tab => {
-              tab.addEventListener("click", () => {
-                tabs.forEach(t => t.classList.remove("active"));
-                tab.classList.add("active");
-        
-                tabContents.forEach(c => c.classList.remove("active"));
-                document.getElementById("tab" + tab.dataset.tab).classList.add("active");
-              })
+        // Tab Functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all
+                tabBtns.forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                
+                // Activate clicked tab
+                btn.classList.add('active');
+                const tabId = btn.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
             });
+        });
         
-            // Delegate click for images in all tab contents
-            document.querySelectorAll(".tab-content").forEach(container => {
-              container.addEventListener("click", e => {
-                const item = e.target.closest(".gallery-item");
-                if (item) {
-                  currentGallery = [...container.querySelectorAll(".gallery-item")];
-                  currentIndex = Array.from(currentGallery).indexOf(item);
-                  openModal();
-                }
-              });
+        // Lightbox Functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.querySelector('.close-btn');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        
+        let currentImages = [];
+        let currentIndex = 0;
+        
+        // Initialize all thumbnails
+        document.querySelectorAll('.thumbnail').forEach(thumb => {
+            thumb.addEventListener('click', function() {
+                // Get all images in current tab
+                const activeTab = document.querySelector('.tab-content.active');
+                currentImages = Array.from(activeTab.querySelectorAll('.thumbnail'))
+                                  .map(img => img.getAttribute('data-fullsize'));
+                
+                // Find clicked image index
+                currentIndex = currentImages.indexOf(this.getAttribute('data-fullsize'));
+                
+                // Open lightbox
+                lightboxImg.src = this.getAttribute('data-fullsize');
+                lightbox.classList.add('active');
             });
+        });
         
-            function openModal() {
-              modalImg.src = currentGallery[currentIndex].querySelector("img").src;
-              modal.classList.add("open");
+        // Navigation
+        function showImage(index) {
+            if (index >= 0 && index < currentImages.length) {
+                currentIndex = index;
+                lightboxImg.src = currentImages[currentIndex];
             }
+        }
         
-            function closeModal() {
-              modal.classList.remove("open");
+        closeBtn.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+        });
+        
+        prevBtn.addEventListener('click', () => {
+            showImage((currentIndex - 1 + currentImages.length) % currentImages.length);
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            showImage((currentIndex + 1) % currentImages.length);
+        });
+        
+        // Keyboard support
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.classList.contains('active')) {
+                if (e.key === 'ArrowLeft') prevBtn.click();
+                if (e.key === 'ArrowRight') nextBtn.click();
+                if (e.key === 'Escape') closeBtn.click();
             }
-        
-            function showNext() {
-              currentIndex = (currentIndex + 1) % currentGallery.length;
-              modalImg.src = currentGallery[currentIndex].querySelector("img").src;
-            }
-        
-            function showPrev() {
-              currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
-              modalImg.src = currentGallery[currentIndex].querySelector("img").src;
-            }
-        
-            closeBtn.addEventListener("click", closeModal);
-            nextBtn.addEventListener("click", showNext);
-            prevBtn.addEventListener("click", showPrev);
-        </script>
+        });
+    </script>
         
     </body>
 </html>
