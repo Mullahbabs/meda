@@ -311,3 +311,48 @@ document.querySelectorAll(".product-card").forEach(card => {
         alert("Quick view for " + card.querySelector("h3").textContent);
     });
 });
+
+// Add this to your JavaScript file
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('searchInput');
+    const searchButton = document.getElementById('searchButton');
+    const productCards = document.querySelectorAll('.product-card');
+    
+    // Search when button is clicked
+    searchButton.addEventListener('click', performSearch);
+    
+    // Search when Enter key is pressed
+    searchInput.addEventListener('keyup', function(e) {
+        if (e.key === 'Enter') {
+            performSearch();
+        }
+    });
+    
+    function performSearch() {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        
+        
+        productCards.forEach(card => {
+            const productName = card.querySelector('h3').textContent.toLowerCase();
+            const productDesc = card.querySelector('.product-hover-text')?.textContent.toLowerCase() || '';
+            
+            if (productName.includes(searchTerm) || productDesc.includes(searchTerm)) {
+                card.style.display = 'block';
+                // Add animation for found items
+                card.classList.add('wow', 'fadeIn');
+            } else {
+                card.style.display = 'none';
+            }
+        });
+        
+    }
+    
+    // Clear search and show all products when search is empty
+    searchInput.addEventListener('input', function() {
+        if (this.value === '') {
+            productCards.forEach(card => {
+                card.style.display = 'block';
+            });
+        }
+    });
+});

@@ -2079,6 +2079,41 @@ a:focus {
 }
 
 
+.search-container {
+    margin: 20px auto;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.search-input {
+    padding: 10px 15px;
+    width: 70%;
+    border: 1px solid #0796fe;
+    border-radius: 5px 0 0 5px;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-button {
+    padding: 10px 15px;
+    background-color: #0796fe;
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.search-button:hover {
+    background-color: #056bcc;
+}
+
+/* For Font Awesome icons if using */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
 .add-to-cart {
     background-color: #0796fe;
     color: white;
