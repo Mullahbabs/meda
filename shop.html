@@ -161,6 +161,7 @@
             <div class="product-list wow fadeInUp" data-wow-delay="0.3s">
                 <!-- Product 1 -->
                 <div class="product-card wow fadeInLeft" data-wow-delay="0.6s">
+                    <span class="product-badge badge-popular">Popular</span>
                     <img src="img/shop1.jpg" alt="Product 1">
                     <h3>Product 1
                     <span class="star-rating" style="color: #f4b400; font-size: small;">
@@ -360,6 +361,7 @@
             <div class="modal" id="cartModal">
                 <div class="modal-content">
                     <h3 class="text-white" style="font-size: 16px;"><span class="h3">🛒</span> Items in your Cart</h3>
+                     <p id="totalPrice"></p>
                     <ul id="cartItems"></ul>
                     <button class="close-modal" id="closeModal">Check Out</button>
                 </div>
@@ -445,6 +447,13 @@
 
         <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
+        <div id="miniCart" style="display: none; position: fixed; bottom: 20px; right: 20px; background: #092a49; padding: 15px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); z-index: 999; max-width: 300px;">
+            <h3 style="margin-top: 0; color: #fff;">Items In your Cart</h3>
+            <div id="miniCartItems" style="color: #fff;">
+            </div>
+            <button id="closeMiniCart" style="position: absolute; top: 5px; right: 5px; background: none; border: none; cursor: pointer;">×</button>
+        </div>
+
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
@@ -461,6 +470,14 @@
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
+
+        <!-- Add this before closing body tag -->
+        <div id="miniCart" style="display: none; position: fixed; bottom: 20px; right: 20px; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); z-index: 999; max-width: 300px;">
+            <h3 style="margin-top: 0; color: #092a49;">Your Cart</h3>
+            <div id="miniCartItems"></div>
+            <button id="closeMiniCart" style="position: absolute; top: 5px; right: 5px; background: none; border: none; cursor: pointer;">×</button>
+        </div>
+
 
 
         
