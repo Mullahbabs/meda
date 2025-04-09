@@ -1971,7 +1971,7 @@ a:focus {
     border: none;
     padding: 10px 15px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 10px;
     color: #0796fe;
     font-weight: bold;
 }
