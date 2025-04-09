@@ -293,7 +293,7 @@ a:focus {
     height: 100%;
     text-align: justify;
     overflow: hidden;
-    border-radius: 150px;
+    border-radius: 120px;
     
 }
 
@@ -880,7 +880,7 @@ a:focus {
     color: #092a49;
     background: none;
     border: 1px solid #092a49;
-    border-radius: 0;
+    border-radius: 3;
 }
 
 .service .service-item a::after {
