@@ -185,9 +185,9 @@ a:focus {
 .navbar .navbar-brand {
     margin: 0;
     color: #ffffff;
-    font-size: 45px;
+    font-size: 35px;
     line-height: 0px;
-    font-weight: 200;
+    font-weight: 100;
     text-transform: uppercase;
 }
 
@@ -268,8 +268,9 @@ a:focus {
     width: 100%;
     height: calc(100vh - 35px);
     min-height: 400px;
-    background: #092a49;
+    background: #fff;
     margin-bottom: 45px;
+    align-items: center;
 }
 
 .carousel .container-fluid {
@@ -292,6 +293,7 @@ a:focus {
     height: 100%;
     text-align: justify;
     overflow: hidden;
+    border-radius: 150px;
     
 }
 
@@ -648,6 +650,7 @@ a:focus {
     border: 1px solid transparent;
     box-shadow: 0 0 30px rgba(0, 0, 0, .1);
     transition: .3s;
+    border-radius: 15px;
 }
 
 .fact .fact-item:hover {
@@ -688,6 +691,7 @@ a:focus {
     overflow: hidden;
     transition: .5s;
     background: #092a49;
+    border-radius: 50px;
 }
 
 .about .about-img::after {
@@ -831,6 +835,7 @@ a:focus {
     padding: 30px;
     text-align: justify;
     border: 1px solid #092a49;
+    border-radius: 20px;
     transition: .3s;
     background-color: #fff;
     
@@ -906,6 +911,7 @@ a:focus {
 
 .feature .col-md-6 {
     height: 100%;
+    border-radius: 20px;
 }
 
 .feature .feature-img {
@@ -916,6 +922,7 @@ a:focus {
     align-items: flex-end;
     justify-content: flex-start;
     background: #092a49;
+    border-radius: 30px;
 }
 
 .feature .feature-img::after {
@@ -941,6 +948,7 @@ a:focus {
     margin: 0 25px 25px 25px;
     z-index: 2;
     padding: 20px;
+    border-radius: 20px;
 }
 
 @media (max-width: 767.98px) {
@@ -953,6 +961,7 @@ a:focus {
     padding-top: 25px;
     display: flex;
     flex-direction: row;
+    border-radius: 20px;
     
     
 }
@@ -1273,10 +1282,12 @@ a:focus {
     position: relative;
     width: 100%;
     z-index: 1;
+    
 }
 
 .blog .blog-img img {
     width: 100%;
+    border-radius: 20px;
 }
 
 .blog .blog-content {
@@ -1288,6 +1299,7 @@ a:focus {
     background: #ffffff;
     box-shadow: 0 0 30px rgba(0, 0, 0, .1);
     z-index: 2;
+    border-radius: 20px;
 }
 
 .blog .blog-content h2.blog-title {
