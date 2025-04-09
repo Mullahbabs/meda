@@ -306,13 +306,81 @@ document.querySelectorAll(".product-card").forEach(card => {
         quickViewBtn.style.opacity = "0";
     });
     
-    quickViewBtn.addEventListener("click", () => {
-        // You would implement actual quick view functionality here
-        alert("Quick view for " + card.querySelector("h3").textContent);
+    quickViewBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevent triggering card click events
+    
+    const productCard = e.target.closest('.product-card');
+    const productName = productCard.querySelector('h3').textContent;
+    const productPrice = productCard.querySelector('p').textContent;
+    const productImage = productCard.querySelector('img').src;
+    const productRating = productCard.querySelector('.star-rating').innerHTML;
+    const productDescription = productCard.querySelector('.product-hover-text').textContent;
+    
+    // Populate modal
+    const modal = document.getElementById('quickViewModal');
+    const modalBody = modal.querySelector('.quick-view-body');
+    
+    modalBody.innerHTML = `
+        <img src="${productImage}" alt="${productName}" class="quick-view-image">
+        <div class="quick-view-details">
+            <h2 class="quick-view-title">${productName}</h2>
+            <div class="quick-view-rating">${productRating}</div>
+            <p class="quick-view-price">${productPrice}</p>
+            <p class="quick-view-description">${productDescription}</p>
+            <button class="add-to-cart" 
+                    data-name="${productName}" 
+                    data-price="${productPrice.replace(/[^0-9.]/g, '')}">
+                Add to Cart
+            </button>
+        </div>
+    `;
+
+    modal.style.display = 'block';
+    const addToCartButton = modal.querySelector('add-to-cart');
+    addToCartButton.addEventListener('click', (event) => {
+        const productName = event.target.getAttribute("data-name");
+        const productPrice = parseFloat(event.target.getAttribute("data-price"));
+        
+        // Check if product already exists in cart
+        const existingItem = cart.find(item => item.name === productName);
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({ 
+                name: productName, 
+                price: productPrice,
+                quantity: 1 
+            });
+        }
+        
+        saveCart();
+        updateCartDisplay();
+        updateMiniCart();
+
+        // Show flash message
+        showFlashMessage("Added to cart!");
+        
+        // Close the modal
+        document.getElementById('quickViewModal').style.display = 'none';
+    });
+    
     });
 });
 
-// Add this to your JavaScript file
+// Close modal when clicking X
+document.querySelector('.close-quick-view').addEventListener('click', () => {
+    document.getElementById('quickViewModal').style.display = 'none';
+});
+
+// Close modal when clicking outside content
+window.addEventListener('click', (e) => {
+    const modal = document.getElementById('quickViewModal');
+    if (e.target === modal) {
+        modal.style.display = 'none';
+    }
+});
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('searchInput');
     const searchButton = document.getElementById('searchButton');

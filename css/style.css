@@ -2542,3 +2542,105 @@ a:focus {
 }
 .prev-btn { left: 30px; }
 .next-btn { right: 30px; }
+
+/* Quick View Modal Styles */
+.quick-view-modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    transition: opacity 0.3s ease;
+}
+
+.quick-view-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 25px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 700px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.close-quick-view {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.close-quick-view:hover {
+    color: #333;
+}
+
+.quick-view-body {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.quick-view-image {
+    flex: 1;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.quick-view-details {
+    flex: 1;
+    text-align: left;
+}
+
+.quick-view-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #092a49;
+}
+
+.quick-view-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0796fe;
+    margin-bottom: 15px;
+}
+
+.quick-view-description {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.quick-view-rating {
+    color: #f4b400;
+    margin-bottom: 15px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .quick-view-content {
+        width: 90%;
+        margin: 10% auto;
+    }
+    
+    .quick-view-body {
+        flex-direction: column;
+    }
+    
+    .quick-view-image {
+        max-height: 250px;
+    }
+}
