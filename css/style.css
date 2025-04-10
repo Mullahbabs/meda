@@ -2676,6 +2676,7 @@ a:focus {
     flex-wrap: wrap;
     gap: 40px;
     background: white;
+    color: #092a49;
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     overflow: hidden;
@@ -2735,7 +2736,7 @@ a:focus {
 .overview {
     font-size: 16px;
     line-height: 1.6;
-    color: #4a4a4a;
+    color: #092a49;
     margin-bottom: 0;
 }
 
@@ -2837,4 +2838,395 @@ a:focus {
     .title {
         font-size: 26px;
     }
+}
+
+/* Form Container */
+.form-container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    padding: 40px;
+    max-width: 900px;
+    margin: 30px auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.form-container.green-theme {
+    border-top: 5px solid #4CAF50;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-header h2 {
+    color: #092a49;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.form-header p {
+    color: #666;
+    font-size: 16px;
+}
+
+/* Form Grid Layout */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Input Groups */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #444;
+    font-size: 14px;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s;
+    background: #f9fafc;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+    border-color: #0796fe;
+    box-shadow: 0 0 0 3px rgba(7, 150, 254, 0.1);
+    outline: none;
+    background: white;
+}
+
+.input-group.full-width {
+    grid-column: 1 / -1;
+}
+
+/* File Upload */
+.file-upload-group {
+    margin: 25px 0;
+}
+
+.file-upload-box {
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: #f9fafc;
+}
+
+.file-upload-box:hover {
+    border-color: #0796fe;
+    background: #f0f7ff;
+}
+
+.file-upload-box i {
+    font-size: 40px;
+    color: #0796fe;
+    margin-bottom: 15px;
+}
+
+.file-upload-box p {
+    color: #666;
+    margin: 0;
+}
+
+.file-upload-box input[type="file"] {
+    display: none;
+}
+
+/* Submit Button */
+.submit-btn {
+    background: #0796fe;
+    color: white;
+    border: none;
+    padding: 16px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.submit-btn:hover {
+    background: #056bcc;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(7, 150, 254, 0.3);
+}
+
+/* Guarantor Section */
+.guarantor-section {
+    background: #f5f9ff;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 25px 0;
+    border-left: 4px solid #0796fe;
+}
+
+.guarantor-section h4 {
+    margin-top: 0;
+    color: #092a49;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Progress Steps */
+.progress-steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.progress-steps:after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #eee;
+    z-index: 1;
+}
+
+.step {
+    padding: 8px 15px;
+    background: #f0f0f0;
+    border-radius: 20px;
+    position: relative;
+    z-index: 2;
+    font-size: 14px;
+    color: #777;
+}
+
+.step.active {
+    background: #0796fe;
+    color: white;
+}
+
+/* Form Tabs */
+.form-tabs {
+    display: flex;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #ddd;
+}
+
+.tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #666;
+    border-bottom: 3px solid transparent;
+}
+
+.tab.active {
+    color: #0796fe;
+    border-bottom-color: #0796fe;
+    font-weight: 600;
+}
+
+/* Group Members */
+.group-members {
+    background: #fff9f0;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.member-input {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.add-member-btn {
+    background: none;
+    border: none;
+    color: #0796fe;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.outline-btn {
+    background: white;
+    color: #0796fe;
+    border: 2px solid #0796fe;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Theme Colors */
+.purple-theme {
+    border-top: 5px solid #9c27b0;
+}
+
+.purple-theme .submit-btn {
+    background: #9c27b0;
+}
+
+.orange-theme {
+    border-top: 5px solid #ff9800;
+}
+
+.orange-theme .submit-btn {
+    background: #ff9800;
+}
+
+/* Validation Styles */
+.input-group.error input,
+.input-group.error select,
+.input-group.error textarea {
+  border-color: #ff4444;
+  background-color: #fff9f9;
+}
+
+.error-message {
+  color: #ff4444;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.file-upload-group.error .file-upload-box {
+  border-color: #ff4444;
+}
+
+/* Form Toast */
+.form-toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 15px 25px;
+  border-radius: 8px;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 1000;
+  animation: slideIn 0.3s ease-out;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.form-toast.success {
+  background: #4CAF50;
+}
+
+.form-toast.error {
+  background: #ff4444;
+}
+
+/* Multi-step Form */
+.form-step {
+  display: none;
+}
+
+.form-step.active {
+  display: block;
+}
+
+.step.completed {
+  background: #4CAF50;
+  color: white;
+}
+
+/* Calculator Styles */
+#repaymentResult {
+  background: #f5f9ff;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.calculation-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.calculation-row:last-child {
+  border-bottom: none;
+}
+
+.calculation-row.highlight {
+  font-weight: 600;
+  color: #0796fe;
+}
+
+.calculation-row.total {
+  font-weight: 700;
+  font-size: 1.1em;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 2px solid #0796fe;
+}
+
+/* Sample Button */
+.sample-btn {
+  background: #673AB7;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sample-btn:hover {
+  background: #5E35B1;
 }
