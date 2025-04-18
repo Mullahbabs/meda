@@ -3297,39 +3297,81 @@ a:focus {
     margin: 20px 0;
 }
   
+/* File Upload Enhancements */
 .file-upload-box {
-    border: 2px dashed #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.3s;
+  position: relative;
+  transition: all 0.3s ease;
 }
-  
+
 .file-upload-box:hover {
-    border-color: #0796fe;
-    background: #f5faff;
+  border-color: #0796fe;
+  background: #f5faff;
 }
-  
-.file-upload-box i {
-    font-size: 30px;
-    color: #0796fe;
-    margin-bottom: 10px;
-  }
-  
-.file-upload-box p {
-    color: #666;
-    margin: 5px 0;
+
+.file-preview {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
-  
-.checkbox-group {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+
+.file-item {
+  background: #f5f5f5;
+  padding: 8px 12px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
 }
-  
-  .checkbox-group input {
-    width: auto;
+
+.file-thumbnail {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.remove-file {
+  background: none;
+  border: none;
+  color: #ff4444;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 5px;
+}
+
+/* Error States */
+.input-group.error input,
+.input-group.error select,
+.input-group.error textarea,
+.file-upload-group.error .file-upload-box {
+  border-color: #ff4444;
+  background-color: #fff9f9;
+}
+
+.error-message {
+  color: #ff4444;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+/* Success Message */
+.form-success {
+  background: #4CAF50;
+  color: white;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
   
 .submit-btn {

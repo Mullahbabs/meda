@@ -59,7 +59,7 @@
         <div class="navbar navbar-expand-lg bg-dark navbar-dark">
             <div class="container-fluid">
                 <img src="img/download14.png">
-                <a href="index.html" class="navbar-brand" >M.E.D.A</a>
+                 <a href="index.html" class="navbar-brand" >M.E.D.A</a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -109,185 +109,189 @@
         
         <!-- Contact Start -->
         <div class="meda-form-container">
-            <h2><i class="fas fa-hand-holding-usd"></i> MEDA Micro-Credit Registration</h2>
-            
-            <form id="medaRegistrationForm" class="modern-form">
+          <h2><i class="fas fa-hand-holding-usd"></i> MEDA Micro-Credit Registration</h2>
+          
+          <form id="medaRegistrationForm" class="modern-form">
               <!-- Personal Information Section -->
               <div class="form-section">
-                <h3><i class="fas fa-user"></i> Personal Information</h3>
-                <div class="form-grid">
-                  <div class="input-group">
-                    <label>Full Name</label>
-                    <input type="text" placeholder="As on ID card" required>
+                  <h3><i class="fas fa-user"></i> Personal Information</h3>
+                  <div class="form-grid">
+                      <div class="input-group">
+                          <label for="fullName">Full Name</label>
+                          <input type="text" id="fullName" placeholder="As on ID card" required>
+                      </div>
+                      
+                      <div class="input-group">
+                          <label for="phoneNumber">Phone Number</label>
+                          <input type="tel" id="phoneNumber" placeholder="080XXXXXXXX" required>
+                      </div>
                   </div>
                   
-                  <div class="input-group">
-                    <label>Phone Number</label>
-                    <input type="tel" placeholder="080XXXXXXXX" required>
+                  <div class="form-grid">
+                      <div class="input-group">
+                          <label for="email">Email Address</label>
+                          <input type="email" id="email" placeholder="your@email.com">
+                      </div>
+                      
+                      <div class="input-group">
+                          <label for="dob">Date of Birth</label>
+                          <input type="date" id="dob" required>
+                      </div>
                   </div>
-                </div>
-                
-                <div class="form-grid">
-                  <div class="input-group">
-                    <label>Email Address</label>
-                    <input type="email" placeholder="your@email.com">
-                  </div>
-                  
-                  <div class="input-group">
-                    <label>Date of Birth</label>
-                    <input type="date" required>
-                  </div>
-                </div>
               </div>
-          
+  
               <!-- Identification Section -->
               <div class="form-section">
-                <h3><i class="fas fa-id-card"></i> Identification</h3>
-                
-                <div class="form-grid">
-                  <div class="input-group">
-                    <label>ID Card Type</label>
-                    <select required>
-                      <option value="">Select ID type</option>
-                      <option>National ID</option>
-                      <option>Voter's Card</option>
-                      <option>Driver's License</option>
-                      <option>International Passport</option>
-                    </select>
+                  <h3><i class="fas fa-id-card"></i> Identification</h3>
+                  
+                  <div class="form-grid">
+                      <div class="input-group">
+                          <label for="idType">ID Card Type</label>
+                          <select id="idType" required>
+                              <option value="">Select ID type</option>
+                              <option>National ID</option>
+                              <option>Voter's Card</option>
+                              <option>Driver's License</option>
+                              <option>International Passport</option>
+                          </select>
+                      </div>
+                      
+                      <div class="input-group">
+                          <label for="idNumber">ID Card Number</label>
+                          <input type="text" id="idNumber" placeholder="ID number" required>
+                      </div>
                   </div>
                   
-                  <div class="input-group">
-                    <label>ID Card Number</label>
-                    <input type="text" placeholder="ID number" required>
+                  <div class="file-upload-group">
+                      <label>Upload ID Card (Front & Back)</label>
+                      <div class="file-upload-box" id="idUploadBox">
+                          <i class="fas fa-camera"></i>
+                          <p>Upload clear images of your ID card (JPEG/PNG, max 2MB each)</p>
+                          <input type="file" id="idFiles" accept="image/*" multiple required>
+                      </div>
+                      <div class="file-preview" id="idPreview"></div>
                   </div>
-                </div>
-                
-                <div class="file-upload-group">
-                  <label>Upload ID Card (Front & Back)</label>
-                  <div class="file-upload-box">
-                    <i class="fas fa-camera"></i>
-                    <p>Upload clear images of your ID card (JPEG/PNG, max 2MB each)</p>
-                    <input type="file" accept="image/*" multiple required>
-                  </div>
-                </div>
               </div>
-          
+  
               <!-- Business Information Section -->
               <div class="form-section">
-                <h3><i class="fas fa-briefcase"></i> Business Information</h3>
-                
-                <div class="form-grid">
-                  <div class="input-group">
-                    <label>Business Name</label>
-                    <input type="text" placeholder="Registered business name" required>
+                  <h3><i class="fas fa-briefcase"></i> Business Information</h3>
+                  
+                  <div class="form-grid">
+                      <div class="input-group">
+                          <label for="businessName">Business Name</label>
+                          <input type="text" id="businessName" placeholder="Registered business name" required>
+                      </div>
+                      
+                      <div class="input-group">
+                          <label for="businessType">Type of Business</label>
+                          <select id="businessType" required>
+                              <option value="">Select business type</option>
+                              <option>Retail</option>
+                              <option>Services</option>
+                              <option>Manufacturing</option>
+                              <option>Agriculture</option>
+                              <option>Food & Beverage</option>
+                          </select>
+                      </div>
                   </div>
                   
-                  <div class="input-group">
-                    <label>Type of Business</label>
-                    <select required>
-                      <option value="">Select business type</option>
-                      <option>Retail</option>
-                      <option>Services</option>
-                      <option>Manufacturing</option>
-                      <option>Agriculture</option>
-                      <option>Food & Beverage</option>
-                    </select>
-                  </div>
-                </div>
-                
-                <div class="form-grid">
-                  <div class="input-group">
-                    <label>Years of Experience</label>
-                    <select required>
-                      <option value="">Select years</option>
-                      <option>Less than 1 year</option>
-                      <option>1-2 years</option>
-                      <option>3-5 years</option>
-                      <option>5+ years</option>
-                    </select>
+                  <div class="form-grid">
+                      <div class="input-group">
+                          <label for="experience">Years of Experience</label>
+                          <select id="experience" required>
+                              <option value="">Select years</option>
+                              <option>Less than 1 year</option>
+                              <option>1-2 years</option>
+                              <option>3-5 years</option>
+                              <option>5+ years</option>
+                          </select>
+                      </div>
+                      
+                      <div class="input-group">
+                          <label for="revenue">Monthly Revenue (₦)</label>
+                          <input type="number" id="revenue" placeholder="Average monthly income" required>
+                      </div>
                   </div>
                   
-                  <div class="input-group">
-                    <label>Monthly Revenue (₦)</label>
-                    <input type="number" placeholder="Average monthly income" required>
+                  <div class="file-upload-group">
+                      <label>CAC Certificate/Registration</label>
+                      <div class="file-upload-box" id="cacUploadBox">
+                          <i class="fas fa-file-alt"></i>
+                          <p>Upload your business registration document (PDF/JPEG, max 5MB)</p>
+                          <input type="file" id="cacFile" accept=".pdf,.jpg,.jpeg,.png" required>
+                      </div>
+                      <div class="file-preview" id="cacPreview"></div>
                   </div>
-                </div>
-                
-                <div class="file-upload-group">
-                  <label>CAC Certificate/Registration</label>
-                  <div class="file-upload-box">
-                    <i class="fas fa-file-alt"></i>
-                    <p>Upload your business registration document (PDF/JPEG, max 5MB)</p>
-                    <input type="file" accept=".pdf,.jpg,.jpeg,.png" required>
-                  </div>
-                </div>
               </div>
-          
+  
               <!-- Location Information -->
               <div class="form-section">
-                <h3><i class="fas fa-map-marker-alt"></i> Location Information</h3>
-                
-                <div class="form-grid">
-                  <div class="input-group">
-                    <label>State of Origin</label>
-                    <select required>
-                      <option value="">Select state</option>
-                      <option>Lagos</option>
-                      <option>Abia</option>
-                      <option>Oyo</option>
-                      <option>Kano</option>
-                      <!-- Add all 36 states -->
-                    </select>
+                  <h3><i class="fas fa-map-marker-alt"></i> Location Information</h3>
+                  
+                  <div class="form-grid">
+                      <div class="input-group">
+                          <label for="state">State of Origin</label>
+                          <select id="state" required>
+                              <option value="">Select state</option>
+                              <option>Lagos</option>
+                              <option>Abia</option>
+                              <option>Oyo</option>
+                              <option>Kano</option>
+                              <!-- Add all states here -->
+                          </select>
+                      </div>
+                      
+                      <div class="input-group">
+                          <label for="lga">Local Government Area</label>
+                          <input type="text" id="lga" placeholder="Your LGA" required>
+                      </div>
                   </div>
                   
                   <div class="input-group">
-                    <label>Local Government Area</label>
-                    <input type="text" placeholder="Your LGA" required>
+                      <label for="address">Business Address</label>
+                      <textarea id="address" placeholder="Full physical address of your business" rows="2" required></textarea>
                   </div>
-                </div>
-                
-                <div class="input-group">
-                  <label>Business Address With L.G.A</label>
-                  <textarea placeholder="Full physical address of your business" rows="2" required></textarea>
-                </div>
               </div>
-          
+  
               <!-- Additional Documents -->
               <div class="form-section">
-                <h3><i class="fas fa-file-upload"></i> Additional Documents</h3>
-                
-                <div class="file-upload-group">
-                  <label>Proof of Business Address</label>
-                  <div class="file-upload-box">
-                    <i class="fas fa-file-invoice"></i>
-                    <p>Utility bill or lease agreement (PDF/JPEG, max 5MB)</p>
-                    <input type="file" accept=".pdf,.jpg,.jpeg,.png" required>
+                  <h3><i class="fas fa-file-upload"></i> Additional Documents</h3>
+                  
+                  <div class="file-upload-group">
+                      <label>Proof of Business Address</label>
+                      <div class="file-upload-box" id="proofUploadBox">
+                          <i class="fas fa-file-invoice"></i>
+                          <p>Utility bill or lease agreement (PDF/JPEG, max 5MB)</p>
+                          <input type="file" id="proofFile" accept=".pdf,.jpg,.jpeg,.png" required>
+                      </div>
+                      <div class="file-preview" id="proofPreview"></div>
                   </div>
-                </div>
-                
-                <div class="file-upload-group">
-                  <label>Recent Passport Photograph</label>
-                  <div class="file-upload-box">
-                    <i class="fas fa-user-circle"></i>
-                    <p>White background, taken within last 6 months (JPEG/PNG, max 2MB)</p>
-                    <input type="file" accept="image/*" required>
+                  
+                  <div class="file-upload-group">
+                      <label>Recent Passport Photograph</label>
+                      <div class="file-upload-box" id="passportUploadBox">
+                          <i class="fas fa-user-circle"></i>
+                          <p>White background, taken within last 6 months (JPEG/PNG, max 2MB)</p>
+                          <input type="file" id="passportFile" accept="image/*" required>
+                      </div>
+                      <div class="file-preview" id="passportPreview"></div>
                   </div>
-                </div>
               </div>
-          
+  
               <!-- Terms and Submission -->
               <div class="form-section">
-                <div class="input-group checkbox-group">
-                  <input type="checkbox" id="termsAgreement" required>
-                  <label for="termsAgreement">I certify that all information provided is accurate and agree to MEDA's <a href="#">Terms and Conditions</a></label>
-                </div>
-                
-                <button type="submit" class="submit-btn">
-                  <i class="fas fa-paper-plane"></i> Submit Application
-                </button>
+                  <div class="checkbox-group">
+                      <input type="checkbox" id="termsAgreement" required>
+                      <label for="termsAgreement">I certify that all information provided is accurate and agree to MEDA's <a href="#">Terms and Conditions</a></label>
+                  </div>
+                  
+                  <button type="submit" class="submit-btn">
+                      <i class="fas fa-paper-plane"></i> Submit Application
+                  </button>
               </div>
-            </form>
-          </div>
+          </form>
+      </div>
 
         <!-- Map Container -->
         
@@ -379,6 +383,7 @@
         <script src="lib/waypoints/waypoints.min.js"></script>
         <script src="lib/counterup/counterup.min.js"></script>
         <script src="geoLocator.js"></script>
+        <script src="registration.js"></script>
         
         <!-- Contact Javascript File -->
         <script src="mail/jqBootstrapValidation.min.js"></script>
@@ -386,6 +391,8 @@
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
+
+        
 
     </body>
 </html>
