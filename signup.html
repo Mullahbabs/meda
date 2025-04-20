@@ -332,8 +332,9 @@
     <div class="signup-container">
         <div class="signup-header">
             <h1>Create Account</h1>
-            <p>Join us to get started</p>
-            
+            <p>Sign up to get started</p>
+            <i class="fa fa-house"><a href="index.html" 
+            style="color: aliceblue; text-decoration:none"> Home</a></i>
             <div class="progress-steps">
                 <div class="step active">1</div>
                 <div class="step">2</div>
@@ -452,17 +453,64 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="country">Country</label>
-                    <div class="input-field">
-                        <select id="country">
-                            <option value="">Select country</option>
-                            <option selected>Nigeria</option>
-                            <option>Ghana</option>
-                            <option>South Africa</option>
-                            <option>Kenya</option>
-                            <option>Other</option>
-                        </select>
-                        <i class="fas fa-globe-africa"></i>
+                    <h4 style="margin: 20px 0 15px; color: var(--text); border-bottom: 1px solid #eee; padding-bottom: 8px;">
+                        <i class="fas fa-map-marker-alt"></i> Address Information
+                    </h4>
+                    
+                    <div class="address-group">
+                        <label for="street">Street Address</label>
+                        <div class="input-field">
+                            <input type="text" id="street" placeholder="123 Marian Road">
+                            <i class="fas fa-road"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="address-grid">
+                        <div class="form-group">
+                            <label for="city">City/Town</label>
+                            <div class="input-field">
+                                <input type="text" id="city" placeholder="Calabar, Igoli, Ugep, Etc">
+                                <i class="fas fa-city"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="state">Closest Landmark</label>
+                            <div class="input-field">
+                                <input type="text" id="state" placeholder="Waterboard, Union Bank, Church of Christ, Etc">
+                                <i class="fas fa-map"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="address-grid">
+                        <div class="form-group">
+                            <label for="country">L.G.A</label>
+                            <div class="input-field">
+                                <select id="country">
+                                    <option selected value="">Select L.G.A</option>
+                                    <option value="1">Calabar Municipal</option>
+                                    <option value="2">Calabar South</option>
+                                    <option value="3">Abi</option>
+                                    <option value="4">Akamkpa</option>
+                                    <option value="5">Akpabuyo</option>
+                                    <option value="6">Bakassi</option>
+                                    <option value="7">Bekwarra</option>
+                                    <option value="8">Biase</option>
+                                    <option value="9">Boki</option>
+                                    <option value="10">Etung</option>
+                                    <option value="11">Ikom</option>
+                                    <option value="12">Obubra</option>
+                                    <option value="13">Obudu</option>
+                                    <option value="14">Odukpani</option>
+                                    <option value="15">Ogoja</option>
+                                    <option value="16">Okuku</option>
+                                    <option value="17">Ugep</option>
+                                    <option value="18">Yala</option>
+                                </select>
+                                <i class="fas fa-globe-africa"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
@@ -487,6 +535,7 @@
                 </div>
             </div>
         </form>
+        <h5 style="text-align: center; margin: 20px;"><a href="bella.com">Powered by BellaTECH NG</a></h5>
     </div>
 
     <script>
