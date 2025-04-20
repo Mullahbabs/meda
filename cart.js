@@ -340,7 +340,6 @@ document.querySelectorAll(".product-card").forEach(card => {
     addToCartButton.addEventListener('click', (event) => {
         const productName = event.target.getAttribute("data-name");
         const productPrice = parseFloat(event.target.getAttribute("data-price"));
-        
         // Check if product already exists in cart
         const existingItem = cart.find(item => item.name === productName);
         if (existingItem) {
