@@ -303,6 +303,19 @@
             animation: fadeIn 0.4s ease-out;
         }
 
+        .footer-text {
+            text-align: center;
+            font-size: 16px;
+            color: var(--text);
+            margin: 20px;
+        }
+
+        .footer-text a {
+            color: var(--primary);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
         @media (max-width: 480px) {
             .signup-container {
                 border-radius: 12px;
@@ -535,7 +548,9 @@
                 </div>
             </div>
         </form>
-        <h5 style="text-align: center; margin: 20px;"><a href="bella.com">Powered by BellaTECH NG</a></h5>
+        <div class="footer-text">
+            Powered by<a href="#"> BellaTECH NG</a>
+        </div>
     </div>
 
     <script>
