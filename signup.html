@@ -303,6 +303,22 @@
             animation: fadeIn 0.4s ease-out;
         }
 
+        .signup-link {
+            text-align: center;
+            font-size: 15px;
+            color: var(--text);
+        }
+
+        .signup-link a {
+            color: var(--primary);
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+
         .footer-text {
             text-align: center;
             font-size: 16px;
@@ -344,10 +360,9 @@
 <body>
     <div class="signup-container">
         <div class="signup-header">
-            <h1>Create Account</h1>
-            <p>Sign up to get started</p>
-            <i class="fa fa-house"><a href="index.html" 
-            style="color: aliceblue; text-decoration:none"> Home</a></i>
+            <h1>Welcome to M.E.D.A</h1>
+            <a href="index.html"><img src="img/download14.png"></a>
+            <p>Create an account to get started</p>
             <div class="progress-steps">
                 <div class="step active">1</div>
                 <div class="step">2</div>
@@ -548,6 +563,9 @@
                 </div>
             </div>
         </form>
+        <div class="signup-link">
+            Already have an account? <a href="login.html">Sign in</a>
+        </div>
         <div class="footer-text">
             Powered by<a href="#"> BellaTECH NG</a>
         </div>

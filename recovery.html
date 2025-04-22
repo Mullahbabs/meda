@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Recovery | Your Brand</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
         :root {
             --primary: #4361ee;
@@ -130,6 +131,12 @@
             margin-right: 8px;
         }
 
+        .g-recaptcha {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
         .submit-btn {
             width: 100%;
             padding: 14px;
@@ -151,6 +158,13 @@
             background: var(--primary-dark);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+
+        .submit-btn:disabled {
+            background: var(--gray);
+            cursor: not-allowed;
+            transform: none !important;
+            box-shadow: none !important;
         }
 
         .submit-btn:active {
@@ -203,6 +217,35 @@
             display: none;
         }
 
+        .resend-link {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .resend-link a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .resend-link a:hover {
+            text-decoration: underline;
+        }
+
+        .resend-link .disabled {
+            color: var(--gray);
+            cursor: not-allowed;
+            text-decoration: none;
+        }
+
+        .countdown {
+            color: var(--gray);
+            display: inline-block;
+            margin-left: 5px;
+        }
+
         @media (max-width: 480px) {
             .recovery-container {
                 border-radius: 12px;
@@ -215,20 +258,26 @@
             .recovery-form {
                 padding: 25px 20px;
             }
+            
+            .g-recaptcha {
+                transform: scale(0.85);
+                transform-origin: center left;
+            }
         }
     </style>
 </head>
 <body>
     <div class="recovery-container">
         <div class="recovery-header">
-            <h1>Reset Your Password</h1>
+            <h1>M.E.D.A Password Reset</h1>
+            <a href="index.html"><img src="img/download14.png"></a>
             <p>Enter your email to receive reset instructions</p>
         </div>
         
         <div class="recovery-form">
             <div class="instructions">
                 <i class="fas fa-info-circle"></i>
-                We'll send you a link to reset your password. This link will expire in 30 minutes.
+                We'll send you a link to reset your password. This link is only valid for 30 minutes.
             </div>
             
             <form id="passwordRecoveryForm">
@@ -241,14 +290,22 @@
                     <div class="error-message" id="emailError">Please enter a valid email address</div>
                 </div>
                 
-                <button type="submit" class="submit-btn">
+                <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
+                <div class="error-message" id="captchaError">Please complete the CAPTCHA</div>
+                
+                <button type="submit" class="submit-btn" id="submitBtn">
                     <i class="fas fa-paper-plane"></i> Send Reset Link
                 </button>
             </form>
             
             <div class="success-message" id="successMessage">
                 <i class="fas fa-check-circle" style="color: var(--success); margin-right: 8px;"></i>
-                <span>Password reset link sent! Check your email.</span>
+                <span>Password reset link sent to your email! Check your inbox.</span>
+            </div>
+            
+            <div class="resend-link" id="resendSection" style="display: none;">
+                Didn't receive the email? <a id="resendLink">Resend link</a>
+                <span class="countdown" id="countdown"></span>
             </div>
             
             <div class="back-to-login">
@@ -265,13 +322,34 @@
             const form = document.getElementById('passwordRecoveryForm');
             const emailInput = document.getElementById('email');
             const emailError = document.getElementById('emailError');
+            const captchaError = document.getElementById('captchaError');
             const successMessage = document.getElementById('successMessage');
+            const submitBtn = document.getElementById('submitBtn');
+            const resendSection = document.getElementById('resendSection');
+            const resendLink = document.getElementById('resendLink');
+            const countdownElement = document.getElementById('countdown');
             
+            let captchaVerified = false;
+            let resendTimer = null;
+            let resendCountdown = 60; // 60 seconds cooldown
+            
+            // CAPTCHA callback
+            window.onCaptchaVerified = function(token) {
+                captchaVerified = true;
+                captchaError.style.display = 'none';
+            };
+            
+            window.onCaptchaExpired = function() {
+                captchaVerified = false;
+            };
+            
+            // Form submission
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
                 // Reset errors
                 emailError.style.display = 'none';
+                captchaError.style.display = 'none';
                 
                 // Validate email
                 const email = emailInput.value.trim();
@@ -280,28 +358,71 @@
                     return;
                 }
                 
+                // Validate CAPTCHA
+                if (!captchaVerified) {
+                    captchaError.style.display = 'block';
+                    return;
+                }
+                
                 // Show loading state
-                const submitBtn = this.querySelector('button[type="submit"]');
-                const originalText = submitBtn.innerHTML;
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
                 submitBtn.disabled = true;
                 
                 // Simulate API call
                 setTimeout(() => {
-                    // Reset button
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                    
                     // Show success message
                     successMessage.style.display = 'block';
                     form.style.display = 'none';
+                    resendSection.style.display = 'block';
+                    
+                    // Start resend countdown
+                    startResendCountdown();
                     
                     // In a real app, you would:
                     // 1. Send the reset link to the user's email
                     // 2. Handle any errors that might occur
-                    // 3. Redirect to confirmation page if needed
+                    console.log('Reset link sent to:', email);
                 }, 1500);
             });
+            
+            // Resend link functionality
+            resendLink.addEventListener('click', function() {
+                if (resendTimer !== null) return;
+                
+                // Reset UI
+                successMessage.style.display = 'none';
+                form.style.display = 'block';
+                emailInput.value = '';
+                grecaptcha.reset();
+                captchaVerified = false;
+                
+                // Show new CAPTCHA
+                const captchaContainer = document.querySelector('.g-recaptcha');
+                captchaContainer.style.display = 'flex';
+            });
+            
+            // Start resend countdown timer
+            function startResendCountdown() {
+                resendLink.classList.add('disabled');
+                updateCountdownText();
+                
+                resendTimer = setInterval(function() {
+                    resendCountdown--;
+                    updateCountdownText();
+                    
+                    if (resendCountdown <= 0) {
+                        clearInterval(resendTimer);
+                        resendTimer = null;
+                        resendCountdown = 60;
+                        resendLink.classList.remove('disabled');
+                        countdownElement.textContent = '';
+                    }
+                }, 1000);
+            }
+            
+            function updateCountdownText() {
+                countdownElement.textContent = `(can resend in ${resendCountdown}s)`;
+            }
             
             // Clear error when typing
             emailInput.addEventListener('input', function() {
