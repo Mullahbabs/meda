@@ -6,6 +6,8 @@
     <title>Password Recovery | Your Brand</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
+    
     <style>
         :root {
             --primary: #4361ee;
@@ -280,7 +282,7 @@
                 We'll send you a link to reset your password. This link is only valid for 30 minutes.
             </div>
             
-            <form id="passwordRecoveryForm">
+            <form id="passwordRecoveryForm" action="?"method="POST">
                 <div class="form-group">
                     <label for="email">Email Address</label>
                     <div class="input-field">
@@ -290,7 +292,7 @@
                     <div class="error-message" id="emailError">Please enter a valid email address</div>
                 </div>
                 
-                <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
+                <div class="g-recaptcha" data-sitekey="6LdrDSArAAAAAMWZ_iLxncaC5oMENMH2H20JWYpR"></div>
                 <div class="error-message" id="captchaError">Please complete the CAPTCHA</div>
                 
                 <button type="submit" class="submit-btn" id="submitBtn">
@@ -432,5 +434,15 @@
             });
         });
     </script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+        async defer>
+    </script>
+    <script type="text/javascript">
+        var onloadCallback = function() {
+          grecaptcha.render('html_element', {
+            'sitekey' : '6LdrDSArAAAAAB65Fe9tEhO2HmYTU1yJkPqjMx3Q'
+          });
+        };
+      </script>
 </body>
 </html>
