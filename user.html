@@ -25,7 +25,7 @@
         }
 
         body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background:  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/Cross-River-State.jpg') no-repeat center center/cover;
             min-height: 100vh;
         }
 
@@ -33,7 +33,7 @@
         .auth-container {
             max-width: 480px;
             margin: 40px auto;
-            background: white;
+            background: transparent;
             border-radius: 16px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             overflow: hidden;
@@ -46,7 +46,7 @@
         }
 
         .auth-header {
-            background: var(--primary);
+            background: transparent;
             color: white;
             padding: 30px;
             text-align: center;
@@ -167,7 +167,7 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
-            color: var(--text);
+            color: var(--light);
             font-size: 14px;
         }
 
@@ -231,10 +231,11 @@
             text-align: center;
             margin-top: 20px;
             font-size: 15px;
+            color: var(--light);
         }
 
         .form-footer a {
-            color: var(--primary);
+            color: var(--gray);
             text-decoration: none;
             font-weight: 500;
         }
@@ -268,6 +269,7 @@
     <div class="auth-container" id="authContainer">
         <div class="auth-header">
             <h1>Welcome to MEDA</h1>
+            <a href="index.html"><img src="img/download14.png"> </a>
             <p id="authType">Sign in to your account</p>
         </div>
         
@@ -306,7 +308,7 @@
                 <div class="form-group">
                     <label for="signupName">Full Name</label>
                     <div class="input-field">
-                        <input type="text" id="signupName" placeholder="John Doe" required>
+                        <input type="text" id="signupName" placeholder="Great Ogban" required>
                         <i class="fas fa-user"></i>
                     </div>
                 </div>
@@ -347,7 +349,7 @@
             <ul class="sidebar-menu">
                 <li><a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
                 <li><a href="#"><i class="fas fa-wallet"></i> My Loans</a></li>
-                <li><a href="#"><i class="fas fa-file-alt"></i> Applications</a></li>
+                <li><a href="service.html"><i class="fas fa-file-alt"></i> Applications</a></li>
                 <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
                 <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
                 <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
@@ -366,7 +368,7 @@
             <div class="stats-cards">
                 <div class="card">
                     <h3>Active Loans</h3>
-                    <div class="value">₦0</div>
+                    <div class="value">₦350,000</div>
                 </div>
                 <div class="card">
                     <h3>Loan Limit</h3>
@@ -374,7 +376,7 @@
                 </div>
                 <div class="card">
                     <h3>Repayment Due</h3>
-                    <div class="value">₦0</div>
+                    <div class="value">₦35,000</div>
                 </div>
             </div>
             
@@ -399,7 +401,7 @@
             
             // Demo user data
             const demoUser = {
-                name: "Demo User",
+                name: "Great Ogban",
                 email: "demo@meda.com",
                 password: "demo123"
             };
