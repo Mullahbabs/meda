@@ -27,7 +27,7 @@
         }
 
         body {
-            background: linear-gradient(135deg, #000 0%, #3a56d4 100%);
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/Cross-River-State.jpg') no-repeat center center/cover;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -36,7 +36,7 @@
         }
 
         .recovery-container {
-            background: white;
+            background: transparent;
             border-radius: 16px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             width: 100%;
@@ -51,7 +51,7 @@
         }
 
         .recovery-header {
-            background: var(--primary);
+            background: transparent;
             color: white;
             padding: 30px;
             text-align: center;
@@ -81,7 +81,7 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
-            color: var(--text);
+            color: var(--light);
             font-size: 14px;
         }
 
@@ -177,10 +177,11 @@
             text-align: center;
             margin-top: 20px;
             font-size: 15px;
+            color: var(--light);
         }
 
         .back-to-login a {
-            color: var(--primary);
+            color: var(--light);
             text-decoration: none;
             font-weight: 500;
         }
@@ -192,12 +193,12 @@
         .footer-text {
             text-align: center;
             font-size: 16px;
-            color: var(--text);
+            color: var(--light);
             margin: 20px;
         }
 
         .footer-text a {
-            color: var(--primary);
+            color: var(--gray);
             font-weight: 700;
             text-decoration: none;
         }

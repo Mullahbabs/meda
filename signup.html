@@ -24,7 +24,7 @@
         }
 
         body {
-            background: linear-gradient(135deg, #000 0%, #3a56d4 100%);
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/Cross-River-State.jpg') no-repeat center center/cover;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -33,7 +33,7 @@
         }
 
         .signup-container {
-            background: white;
+            background: transparent;
             border-radius: 16px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             width: 100%;
@@ -53,7 +53,7 @@
         }
 
         .signup-header {
-            background: var(--primary);
+            background: transparent;
             color: white;
             padding: 30px;
             text-align: center;
@@ -139,7 +139,7 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
-            color: var(--text);
+            color: var(--light);
             font-size: 14px;
         }
 
@@ -227,7 +227,7 @@
 
         .terms label {
             font-size: 14px;
-            color: var(--text);
+            color: var(--light);
         }
 
         .terms a {
@@ -306,11 +306,11 @@
         .signup-link {
             text-align: center;
             font-size: 15px;
-            color: var(--text);
+            color: var(--light);
         }
 
         .signup-link a {
-            color: var(--primary);
+            color: var(--gray);
             font-weight: 500;
             text-decoration: none;
         }
@@ -322,12 +322,12 @@
         .footer-text {
             text-align: center;
             font-size: 16px;
-            color: var(--text);
+            color: var(--light);
             margin: 20px;
         }
 
         .footer-text a {
-            color: var(--primary);
+            color: var(--gray);
             font-weight: 700;
             text-decoration: none;
         }
@@ -430,9 +430,9 @@
                         <div class="strength-meter" id="strengthMeter"></div>
                     </div>
                     <div class="password-hints">
-                        <div style="color: #3a56d4;" id="lengthHint">• At least 8 characters</div>
-                        <div style="color: #3a56d4;" id="numberHint">• Contains a number</div>
-                        <div style="color: #3a56d4;" id="specialHint">• Contains a special character</div>
+                        <div style="color: #fff;" id="lengthHint">• At least 8 characters</div>
+                        <div style="color: #fff;" id="numberHint">• Contains a number</div>
+                        <div style="color: #fff;" id="specialHint">• Contains a special character</div>
                     </div>
                     <div class="error-message" id="passwordError">Password doesn't meet requirements</div>
                 </div>
@@ -481,7 +481,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <h4 style="margin: 20px 0 15px; color: var(--text); border-bottom: 1px solid #eee; padding-bottom: 8px;">
+                    <h4 style="margin: 20px 0 15px; color: var(--light); border-bottom: 1px solid #eee; padding-bottom: 8px;">
                         <i class="fas fa-map-marker-alt"></i> Address Information
                     </h4>
                     
@@ -549,8 +549,8 @@
                 <div class="error-message" id="termsError">You must accept the terms</div>
                 
                 <div class="success-message" id="successMessage">
-                    <i class="fas fa-check-circle" style="color: var(--success); margin-right: 8px;"></i>
-                    <span>All set! Review your information before submitting.</span>
+                    <i class="fas fa-check-circle" style="color: var(--danger); margin-right: 8px;"></i>
+                    <span style="color: #e9ecef;">All set! Review your information before submitting.</span>
                 </div>
                 
                 <div class="form-actions">
