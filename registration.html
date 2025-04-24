@@ -163,6 +163,11 @@
                           <label for="idNumber">ID Card Number</label>
                           <input type="text" id="idNumber" placeholder="ID number" required>
                       </div>
+
+                      <div class="input-group">
+                        <label for="tinNumber">Tax Identification Number</label>
+                        <input type="text" id="tinNumber" placeholder="TIN" required>
+                    </div>
                   </div>
                   
                   <div class="file-upload-group">
@@ -234,23 +239,52 @@
                   
                   <div class="form-grid">
                       <div class="input-group">
-                          <label for="state">State of Origin</label>
+                          <label for="state">L.G.A of Origin</label>
                           <select id="state" required>
-                              <option value="">Select state</option>
-                              <option>Lagos</option>
-                              <option>Abia</option>
-                              <option>Oyo</option>
-                              <option>Kano</option>
+                            <option selected value="">Select L.G.A</option>
+                            <option value="1">Calabar Municipal</option>
+                            <option value="2">Calabar South</option>
+                            <option value="3">Abi</option>
+                            <option value="4">Akamkpa</option>
+                            <option value="5">Akpabuyo</option>
+                            <option value="6">Bakassi</option>
+                            <option value="7">Bekwarra</option>
+                            <option value="8">Biase</option>
+                            <option value="9">Boki</option>
+                            <option value="10">Etung</option>
+                            <option value="11">Ikom</option>
+                            <option value="12">Obubra</option>
+                            <option value="13">Obudu</option>
+                            <option value="14">Odukpani</option>
+                            <option value="15">Ogoja</option>
+                            <option value="16">Okuku</option>
+                            <option value="17">Ugep</option>
+                            <option value="18">Yala</option>
                               <!-- Add all states here -->
                           </select>
                       </div>
                       
                       <div class="input-group">
-                          <label for="lga">Local Government Area</label>
-                          <input type="text" id="lga" placeholder="Your LGA" required>
+                          <label for="lga">Village within L.G.A</label>
+                          <input type="text" id="lga" placeholder="Name of village" required>
                       </div>
                   </div>
                   
+                  <div class="file-upload-group">
+                    <label>L.G.A Certificate</label>
+                    <div class="file-upload-box" id="lgaUploadBox">
+                        <i class="fas fa-file-alt"></i>
+                        <p>Certificate Of Local Government Of Origin (PDF,JPEG,PNG, max 2MB)</p>
+                        <input type="file" id="lgaFile" accept="image/*" required>
+                    </div>
+                    <div class="file-preview" id="lgaPreview"></div>
+                </div>
+
+                <div class="input-group">
+                    <label for="homeAddress">Residential Address</label>
+                    <textarea id="homeAddress" placeholder="Full physical address of residence" rows="2" required></textarea>
+                </div>
+
                   <div class="input-group">
                       <label for="address">Business Address</label>
                       <textarea id="address" placeholder="Full physical address of your business" rows="2" required></textarea>
