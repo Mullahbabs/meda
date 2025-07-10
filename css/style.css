@@ -792,7 +792,7 @@ a:focus {
   letter-spacing: 1px;
   color: #092a49;
   border: 2px solid #092a49;
-  border-radius: 0;
+  border-radius: 10;
   background: none;
   transition: 0.3s;
 }
@@ -1110,7 +1110,8 @@ a:focus {
   left: 15px;
   padding: 25px 15px;
   text-align: center;
-  background: rgba(256, 256, 256, 0.9);
+  border-radius: 10px;
+  background: rgba(256, 256, 256, 0.5);
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
   transition: 0.3s;
   overflow: hidden;
@@ -3601,4 +3602,68 @@ a:focus {
 
 .edc-contact-method p {
   color: #666;
+}
+
+/* POIS Sub-Programs Styles */
+.pois-subprograms {
+  display: none;
+  width: 100%;
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.pois-subprograms.show {
+  display: grid;
+  opacity: 1;
+  max-height: 500px; /* Adjust based on your content height */
+}
+
+/* Adjust the main container for proper grid layout */
+.mvic-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  position: relative;
+}
+
+/* Animation for smooth appearance */
+@keyframes fadeInCards {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pois-subprograms.show .mvic-card {
+  animation: fadeInCards 0.3s ease forwards;
+}
+
+/* Delay animations for each card */
+.pois-subprograms.show .mvic-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.pois-subprograms.show .mvic-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.pois-subprograms.show .mvic-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.pois-subprograms.show .mvic-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+/* Pointer cursor for the explore button */
+.pois-explore-btn {
+  cursor: pointer;
 }
