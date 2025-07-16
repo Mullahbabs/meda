@@ -205,15 +205,31 @@ a:focus {
 
 .navbar-dark .navbar-nav .nav-link:hover,
 .navbar-dark .navbar-nav .nav-link.active {
-  color: lightskyblue;
+  background-color: #fff;
+  color: #0056b3;
   transition: none;
+  border-radius: 8px;
+  border-bottom: 3px solid #0796fe;
+  border-top: 3px solid #0796fe;
+  font-weight: 600;
 }
 
 .navbar .dropdown-menu {
   margin-top: 0;
   border: 0;
-  border-radius: 0;
-  background: #f8f9fa;
+  border-radius: 10px;
+  background: #0056b3;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.navbar .dropdown-menu .dropdown-item {
+  color: #fff;
+}
+.navbar .dropdown-menu .dropdown-item:hover {
+  background-color: #fff;
+  color: #0056b3;
+  border-radius: 8px;
 }
 
 @media (min-width: 992px) {
@@ -3622,13 +3638,13 @@ a:focus {
 .pois-subprograms.show {
   display: grid;
   opacity: 1;
-  max-height: 500px; /* Adjust based on your content height */
+  max-height: 500px;
 }
 
-/* Adjust the main container for proper grid layout */
+/* mvic grid layout - Now fully responsive */
 .mvic-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
   position: relative;
 }
@@ -3666,6 +3682,40 @@ a:focus {
 /* Pointer cursor for the explore button */
 .pois-explore-btn {
   cursor: pointer;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  .pois-subprograms,
+  .mvic-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .pois-subprograms,
+  .mvic-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .pois-subprograms,
+  .mvic-container {
+    grid-template-columns: 1fr;
+  }
+
+  .pois-subprograms.show {
+    max-height: none; /* Allows natural height on mobile */
+  }
+}
+
+/* Ensures cards don't stretch too wide on large screens */
+@media (min-width: 1600px) {
+  .mvic-container {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
 }
 
 /* Events Section Styles */
