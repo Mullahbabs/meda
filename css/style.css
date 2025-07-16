@@ -282,7 +282,7 @@ a:focus {
   width: 100%;
   height: calc(100vh - 35px);
   min-height: 400px;
-  background: #fff;
+  background: #092a49;
   margin-bottom: 45px;
   align-items: center;
 }
@@ -307,7 +307,7 @@ a:focus {
   height: 100%;
   text-align: justify;
   overflow: hidden;
-  border-radius: 120px;
+  border-radius: 50px;
 }
 
 .carousel .carousel-img::after {
