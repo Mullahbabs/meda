@@ -710,6 +710,7 @@ a:focus {
 .fact .fact-item i {
   max-height: 50px;
   margin-bottom: 15px;
+  color: #3498db;
 }
 
 .fact .fact-item h2 {
