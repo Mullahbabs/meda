@@ -893,7 +893,7 @@ a:focus {
   margin-bottom: 30px;
   padding: 30px;
   text-align: justify;
-  border: 1px solid #092a49;
+  border-left: 5px solid #092a49;
   border-radius: 20px;
   transition: 0.3s;
   background-color: #fff;
@@ -907,6 +907,7 @@ a:focus {
 .service .service-item i {
   max-height: 50px;
   margin-bottom: 20px;
+  color: #3498db;
 }
 
 .service .service-item h3 {
@@ -919,6 +920,7 @@ a:focus {
 .service .service-item p {
   margin-bottom: 10px;
   font-size: 17px;
+  color: #666;
 }
 
 .service .service-item a {
@@ -3986,6 +3988,7 @@ a:focus {
 .challenge-card {
   background: #f8f9fa;
   border-radius: 8px;
+  border-right: 5px solid #3498db;
   padding: 30px 25px;
   text-align: center;
   transition: all 0.3s ease;
@@ -3999,7 +4002,7 @@ a:focus {
 
 .challenge-card i {
   font-size: 40px;
-  color: #092a49;
+  color: #3498db;
   margin-bottom: 20px;
 }
 
@@ -4013,7 +4016,8 @@ a:focus {
 
 .challenge-card p {
   color: #454545;
-  font-size: 15px;
+  text-align: justify;
+  font-size: 16px;
   line-height: 1.6;
   margin: 0;
 }
@@ -4072,7 +4076,7 @@ a:focus {
 
 .focus-card i {
   font-size: 50px;
-  color: #092a49;
+  color: #3498db;
   margin-bottom: 25px;
 }
 
@@ -4148,7 +4152,7 @@ a:focus {
 
 .achievement-card i {
   font-size: 42px;
-  color: #092a49;
+  color: #3498db;
   margin-bottom: 20px;
 }
 
