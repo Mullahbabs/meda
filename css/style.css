@@ -2729,6 +2729,10 @@ a:focus {
   border-bottom: 1px solid #eaeaea;
 }
 
+.requirement-item i {
+  color: #3498db;
+}
+
 .requirement-item:last-child {
   border-bottom: none;
 }
