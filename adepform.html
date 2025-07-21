@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>BOI APPLICATION</title>
+        <title>ADEP APPLICATION</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="EMA, SMSE, Enterprise, Development, Agency" name="keywords">
         <meta content="Microfinance Enterprise Development Agency" name="description">
@@ -71,9 +71,9 @@
                     <div class="navbar-nav ml-auto">
                         <a href="index.html" class="nav-item nav-link">Home</a>
                         <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="service.html" class="nav-item nav-link active">Fundings</a>
+                        <a href="service.html" class="nav-item nav-link">Fundings</a>
                         <a href="edc.html" class="nav-item nav-link">CRSEDC</a>
-                        <a href="programs.html" class="nav-item nav-link">Programs</a>
+                        <a href="programs.html" class="nav-item nav-link active">Programs</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Events</a>
                             <div class="dropdown-menu">
@@ -97,123 +97,107 @@
         <div class="banner-container">
             <!-- Banner Content -->
                 <div class="banner-content">
-                    <h1 class="wow zoomIn" data-wow-delay="0.3s">(BOI) Application Form</h1>
-                    <p class="wow fadeInLeft" data-wow-delay="0.3s">Complete The Form Below To Apply For The Bank Of Industry Funding</p>
+                    <h1 class="wow zoomIn" data-wow-delay="0.3s">ADEP Application Form</h1>
+                    <p class="wow fadeInLeft" data-wow-delay="0.3s">Complete The Form Below To Join The ADEP Programme </p>
                     </p>
                 </div>    
                     <div class="banner-nav">
                         <a href="index.html">Home</a>
                         <span>/</span>
-                        <a href="service.html">Fundings</a>
+                        <a href="service.html">Programs</a>
+                        <span>/</span>
+                        <a href="service.html">ADEP</a>
                         <span>/</span>
                         <a href="#" class="text-primary">Application Form</a>
                     </div>
                 </div>
             </div>
             <!-- Banner Content End -->
+
+            <div class="pform-container">
+        <div class="pform-header">
+            <h1 class="pform-title">ADEP Application Form</h1>
+            <p class="pform-subtitle">Agri-Business Development & Empowerment Programme</p>
+        </div>
         
-        
-        <!-- Contact Start -->
-        <div class="form-container">
-            <div class="form-header">
-                <h2><i class="fas fa-industry"></i> BOI Funding Application</h2>
-                <p>Complete this form to apply for industrial development financing</p>
+        <form id="adepForm">
+            <div class="pform-row">
+                <div class="pform-group">
+                    <label class="pform-label" for="firstName">First Name</label>
+                    <input type="text" class="pform-control" id="firstName" required>
+                </div>
+                <div class="pform-group">
+                    <label class="pform-label" for="lastName">Last Name</label>
+                    <input type="text" class="pform-control" id="lastName" required>
+                </div>
             </div>
             
-            <form class="modern-form">
-                <div class="form-grid">
-                    <!-- Column 1 -->
-                    <div class="form-column">
-                        <div class="input-group">
-                            <label>Business Name</label>
-                            <input type="text" placeholder="Your registered company name" required>
-                        </div>
-                        
-                        <div class="input-group">
-                            <label>CAC Registration Number</label>
-                            <input type="text" placeholder="RC12345678" required>
-                        </div>
-                        
-                        <div class="input-group">
-                            <label>Years in Operation</label>
-                            <select required>
-                                <option value="">Select</option>
-                                <option>2-3 years</option>
-                                <option>4-5 years</option>
-                                <option>5+ years</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <!-- Column 2 -->
-                    <div class="form-column">
-                        <div class="input-group">
-                            <label>Loan Amount (₦)</label>
-                            <input type="number" placeholder="5,000,000 - 50,000,000" required>
-                        </div>
-                        
-                        <div class="input-group">
-                            <label>Industry Sector</label>
-                            <select required>
-                                <option value="">Select</option>
-                                <option>Manufacturing</option>
-                                <option>Agro-processing</option>
-                                <option>Renewable Energy</option>
-                            </select>
-                        </div>
-                        
-                        <div class="input-group">
-                            <label>Collateral Type</label>
-                            <select required>
-                                <option value="">Select</option>
-                                <option>Real Estate</option>
-                                <option>Bank Guarantee</option>
-                                <option>Equipment</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="input-group full-width">
-                    <label>Business Plan Summary</label>
-                    <textarea placeholder="Describe your business model, market opportunity, and financial projections (max 500 words)" rows="4"></textarea>
-                </div>
-                
-                <div class="file-upload-group">
-                    <label>Upload Required Documents</label>
-                    <div class="file-upload-box">
-                        <i class="fas fa-cloud-upload-alt"></i>
-                        <p>Drag & drop CAC documents, tax clearance, and financial statements</p>
-                        <input type="file" multiple>
-                    </div>
-                </div>
-                
-                <button type="submit" class="submit-btn">
-                    <i class="fas fa-paper-plane"></i> Submit Application
-                </button>
-            </form>
-        </div>
-        <!-- Contact End -->
-
-        <!-- Map Container -->
-        
-            <div id="geoLocatorModal" class="geo-modal">
-                <div class="geo-modal-content">
-                    <span class="geo-close">&times;</span>
-                    <h2>Find Us Here</h2>
-                    <div id="geoMap"></div>
-                </div>
+            <div class="pform-group">
+                <label class="pform-label" for="gender">Gender</label>
+                <select class="pform-control" id="gender" required>
+                    <option value="">Select gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
             </div>
-        </div>
+            
+            <div class="pform-group">
+                <label class="pform-label" for="email">Email Address</label>
+                <input type="email" class="pform-control" id="email" required>
+            </div>
+            
+            <div class="pform-group">
+                <label class="pform-label" for="phone">Phone Number</label>
+                <input type="tel" class="pform-control" id="phone" required>
+            </div>
+            
+            <div class="pform-group">
+                <label class="pform-label" for="lga">Local Government Area</label>
+                <select class="pform-control" id="lga" required>
+                    <option value="">Select your LGA</option>
+                    <option value="calabar-municipal">Calabar Municipal</option>
+                    <option value="calabar-south">Calabar South</option>
+                    <!-- Add all LGAs -->
+                </select>
+            </div>
+            
+            <div class="pform-group">
+                <label class="pform-label" for="agriInterest">Agricultural Interest</label>
+                <select class="pform-control" id="agriInterest" required>
+                    <option value="">Select interest</option>
+                    <option value="crop-production">Crop Production</option>
+                    <option value="livestock">Livestock Farming</option>
+                    <option value="agro-processing">Agro-Processing</option>
+                    <option value="agri-marketing">Agricultural Marketing</option>
+                </select>
+            </div>
+            
+            <div class="pform-group">
+                <label class="pform-label" for="landAccess">Do you have access to farmland?</label>
+                <select class="pform-control" id="landAccess" required>
+                    <option value="">Select option</option>
+                    <option value="yes-owned">Yes, I own land</option>
+                    <option value="yes-rented">Yes, I rent/lease land</option>
+                    <option value="no">No, I don't have access</option>
+                </select>
+            </div>
+            
+            <div class="pform-group">
+                <label class="pform-label" for="experience">Years of Farming Experience</label>
+                <input type="number" class="pform-control" id="experience" min="0" required>
+            </div>
+            
+            <div class="pform-group">
+                <label class="pform-label" for="businessPlan">Briefly describe your agribusiness idea or existing operation</label>
+                <textarea class="pform-control" id="businessPlan" rows="4" required></textarea>
+            </div>
+            
+            <button type="submit" class="pform-btn">Submit Application</button>
+        </form>
+    </div>
 
-        <!-- Google Maps API -->
-        <script async defer 
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUMMY-KEY-123456789&callback=initGeoMap">
-        </script>
-
-
-
-        <!-- Footer Start -->
+            <!-- Footer Start -->
         <div class="footer">
             <div class="container">
                 <div class="row">

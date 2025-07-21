@@ -4689,3 +4689,82 @@ a:focus {
     font-size: 1.8rem;
   }
 }
+
+.pform-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.pform-header {
+  text-align: center;
+  margin-bottom: 30px;
+  border-bottom: 3px solid var(--primary-color);
+  padding-bottom: 15px;
+}
+
+.pform-title {
+  color: var(--primary-color);
+  font-family: "Poppins", sans-serif;
+  font-size: 2rem;
+}
+
+.pform-subtitle {
+  color: var(--dark-text);
+  font-size: 1.1rem;
+}
+
+.pform-group {
+  margin-bottom: 25px;
+}
+
+.pform-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.pform-control {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+}
+
+.pform-control:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+.pform-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.pform-btn {
+  background-color: #1a3a6a;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.pform-btn:hover {
+  background-color: var(--secondary-color);
+}
+
+@media (max-width: 768px) {
+  .pform-row {
+    grid-template-columns: 1fr;
+  }
+}

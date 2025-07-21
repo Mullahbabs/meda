@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>BOI APPLICATION</title>
+        <title>WO-NEED APPLICATION</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="EMA, SMSE, Enterprise, Development, Agency" name="keywords">
         <meta content="Microfinance Enterprise Development Agency" name="description">
@@ -71,9 +71,9 @@
                     <div class="navbar-nav ml-auto">
                         <a href="index.html" class="nav-item nav-link">Home</a>
                         <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="service.html" class="nav-item nav-link active">Fundings</a>
+                        <a href="service.html" class="nav-item nav-link">Fundings</a>
                         <a href="edc.html" class="nav-item nav-link">CRSEDC</a>
-                        <a href="programs.html" class="nav-item nav-link">Programs</a>
+                        <a href="programs.html" class="nav-item nav-link active">Programs</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Events</a>
                             <div class="dropdown-menu">
@@ -97,123 +97,159 @@
         <div class="banner-container">
             <!-- Banner Content -->
                 <div class="banner-content">
-                    <h1 class="wow zoomIn" data-wow-delay="0.3s">(BOI) Application Form</h1>
-                    <p class="wow fadeInLeft" data-wow-delay="0.3s">Complete The Form Below To Apply For The Bank Of Industry Funding</p>
+                    <h1 class="wow zoomIn" data-wow-delay="0.3s">(WO-NEED) Application Form</h1>
+                    <p class="wow fadeInLeft" data-wow-delay="0.3s">Complete The Form Below To Join WO-NEED</p>
                     </p>
                 </div>    
                     <div class="banner-nav">
                         <a href="index.html">Home</a>
                         <span>/</span>
-                        <a href="service.html">Fundings</a>
+                        <a href="service.html">Programs</a>
+                        <span>/</span>
+                        <a href="service.html">WO-NEED</a>
                         <span>/</span>
                         <a href="#" class="text-primary">Application Form</a>
                     </div>
                 </div>
             </div>
             <!-- Banner Content End -->
+
+            <div class="pform-container">
+        <div class="pform-header">
+            <h1 class="pform-title">WO-NEED Application Form</h1>
+            <p class="pform-subtitle">Women's Neighborhood Economic & Entrepreneurship Development</p>
+        </div>
         
-        
-        <!-- Contact Start -->
-        <div class="form-container">
-            <div class="form-header">
-                <h2><i class="fas fa-industry"></i> BOI Funding Application</h2>
-                <p>Complete this form to apply for industrial development financing</p>
+        <form id="woneedForm">
+            <div class="pform-section-title">
+                <h3>Personal Information</h3>
             </div>
             
-            <form class="modern-form">
-                <div class="form-grid">
-                    <!-- Column 1 -->
-                    <div class="form-column">
-                        <div class="input-group">
-                            <label>Business Name</label>
-                            <input type="text" placeholder="Your registered company name" required>
-                        </div>
-                        
-                        <div class="input-group">
-                            <label>CAC Registration Number</label>
-                            <input type="text" placeholder="RC12345678" required>
-                        </div>
-                        
-                        <div class="input-group">
-                            <label>Years in Operation</label>
-                            <select required>
-                                <option value="">Select</option>
-                                <option>2-3 years</option>
-                                <option>4-5 years</option>
-                                <option>5+ years</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <!-- Column 2 -->
-                    <div class="form-column">
-                        <div class="input-group">
-                            <label>Loan Amount (₦)</label>
-                            <input type="number" placeholder="5,000,000 - 50,000,000" required>
-                        </div>
-                        
-                        <div class="input-group">
-                            <label>Industry Sector</label>
-                            <select required>
-                                <option value="">Select</option>
-                                <option>Manufacturing</option>
-                                <option>Agro-processing</option>
-                                <option>Renewable Energy</option>
-                            </select>
-                        </div>
-                        
-                        <div class="input-group">
-                            <label>Collateral Type</label>
-                            <select required>
-                                <option value="">Select</option>
-                                <option>Real Estate</option>
-                                <option>Bank Guarantee</option>
-                                <option>Equipment</option>
-                            </select>
-                        </div>
-                    </div>
+            <div class="pform-row">
+                <div class="pform-group">
+                    <label class="pform-label" for="fullName">Full Name</label>
+                    <input type="text" class="pform-control" id="fullName" required>
                 </div>
-                
-                <div class="input-group full-width">
-                    <label>Business Plan Summary</label>
-                    <textarea placeholder="Describe your business model, market opportunity, and financial projections (max 500 words)" rows="4"></textarea>
-                </div>
-                
-                <div class="file-upload-group">
-                    <label>Upload Required Documents</label>
-                    <div class="file-upload-box">
-                        <i class="fas fa-cloud-upload-alt"></i>
-                        <p>Drag & drop CAC documents, tax clearance, and financial statements</p>
-                        <input type="file" multiple>
-                    </div>
-                </div>
-                
-                <button type="submit" class="submit-btn">
-                    <i class="fas fa-paper-plane"></i> Submit Application
-                </button>
-            </form>
-        </div>
-        <!-- Contact End -->
-
-        <!-- Map Container -->
-        
-            <div id="geoLocatorModal" class="geo-modal">
-                <div class="geo-modal-content">
-                    <span class="geo-close">&times;</span>
-                    <h2>Find Us Here</h2>
-                    <div id="geoMap"></div>
+                <div class="pform-group">
+                    <label class="pform-label" for="dob">Date of Birth</label>
+                    <input type="date" class="pform-control" id="dob" required>
                 </div>
             </div>
-        </div>
+            
+            <div class="pform-row">
+                <div class="pform-group">
+                    <label class="pform-label" for="maritalStatus">Marital Status</label>
+                    <select class="pform-control" id="maritalStatus" required>
+                        <option value="">Select status</option>
+                        <option value="single">Single</option>
+                        <option value="married">Married</option>
+                        <option value="divorced">Divorced</option>
+                        <option value="widowed">Widowed</option>
+                    </select>
+                </div>
+                <div class="pform-group">
+                    <label class="pform-label" for="dependents">Number of Dependents</label>
+                    <input type="number" class="pform-control" id="dependents" min="0" required>
+                </div>
+            </div>
+            
+            <div class="pform-row">
+                <div class="pform-group">
+                    <label class="pform-label" for="phone">Phone Number</label>
+                    <input type="tel" class="pform-control" id="phone" pattern="[0-9]{11}" required>
+                </div>
+                <div class="pform-group">
+                    <label class="pform-label" for="email">Email Address</label>
+                    <input type="email" class="pform-control" id="email">
+                </div>
+            </div>
+            
+            <div class="pform-section-title">
+                <h3>Residence Information</h3>
+            </div>
+            
+            <div class="pform-row">
+                <div class="pform-group">
+                    <label class="pform-label" for="lga">Local Government Area</label>
+                    <select class="pform-control" id="lga" required>
+                        <option value="">Select LGA</option>
+                        <option value="calabar-municipal">Calabar Municipal</option>
+                        <!-- Add all LGAs -->
+                    </select>
+                </div>
+                <div class="pform-group">
+                    <label class="pform-label" for="community">Community/Village</label>
+                    <input type="text" class="pform-control" id="community" required>
+                </div>
+            </div>
+            
+            <div class="pform-group">
+                <label class="pform-label" for="address">Full Residential Address</label>
+                <textarea class="pform-control" id="address" rows="2" required></textarea>
+            </div>
+            
+            <div class="pform-section-title">
+                <h3>Business Information</h3>
+            </div>
+            
+            <div class="pform-group">
+                <label class="pform-label" for="businessType">Type of Business</label>
+                <select class="pform-control" id="businessType" required>
+                    <option value="">Select business type</option>
+                    <option value="agriculture">Agriculture/Farming</option>
+                    <option value="trading">Trading</option>
+                    <option value="artisan">Artisan/Craft</option>
+                    <option value="service">Service Business</option>
+                    <option value="none">I don't have a business yet</option>
+                </select>
+            </div>
+            
+            <div class="pform-group" id="existingBusinessGroup">
+                <label class="pform-label" for="businessDescription">Briefly describe your business</label>
+                <textarea class="pform-control" id="businessDescription" rows="3"></textarea>
+            </div>
+            
+            <div class="pform-group" id="businessDurationGroup">
+                <label class="pform-label" for="businessDuration">How long have you been in this business? (years)</label>
+                <input type="number" class="pform-control" id="businessDuration" min="0">
+            </div>
+            
+            <div class="pform-group">
+                <label class="pform-label" for="businessChallenge">What is your biggest business challenge?</label>
+                <textarea class="pform-control" id="businessChallenge" rows="3" required></textarea>
+            </div>
+            
+            <div class="pform-section-title">
+                <h3>Program Expectations</h3>
+            </div>
+            
+            <div class="pform-group">
+                <label class="pform-label" for="expectations">What do you hope to gain from WO-NEED? (Minimum 100 words)</label>
+                <textarea class="pform-control" id="expectations" rows="5" required></textarea>
+            </div>
+            
+            <div class="pform-group">
+                <label class="pform-label" for="commitment">Are you willing to commit time to attend training sessions?</label>
+                <select class="pform-control" id="commitment" required>
+                    <option value="">Select option</option>
+                    <option value="yes">Yes, fully committed</option>
+                    <option value="maybe">Yes, but with some limitations</option>
+                    <option value="no">No, I cannot commit</option>
+                </select>
+            </div>
+            
+            <div class="pform-group">
+                <div class="pform-check">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">I certify that all information provided is accurate and I agree to the program terms</label>
+                </div>
+            </div>
+            
+            <button type="submit" class="pform-btn">Submit Application</button>
+        </form>
+    </div>
 
-        <!-- Google Maps API -->
-        <script async defer 
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUMMY-KEY-123456789&callback=initGeoMap">
-        </script>
-
-
-
-        <!-- Footer Start -->
+            <!-- Footer Start -->
         <div class="footer">
             <div class="container">
                 <div class="row">
@@ -294,6 +330,23 @@
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
+
+         <script>
+        // Show/hide business fields based on selection
+        const businessType = document.getElementById('businessType');
+        const existingBusinessGroup = document.getElementById('existingBusinessGroup');
+        const businessDurationGroup = document.getElementById('businessDurationGroup');
+        
+        businessType.addEventListener('change', function() {
+            if (this.value === 'none') {
+                existingBusinessGroup.style.display = 'none';
+                businessDurationGroup.style.display = 'none';
+            } else {
+                existingBusinessGroup.style.display = 'block';
+                businessDurationGroup.style.display = 'block';
+            }
+        });
+    </script>
 
     </body>
 </html>
