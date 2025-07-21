@@ -4192,3 +4192,273 @@ a:focus {
     padding: 30px 20px;
   }
 }
+
+/* Unique Container Styles */
+.ppage-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.ppage-hero-banner {
+  background: linear-gradient(135deg, var(--secondary-accent) 0%, #1a3a6a 100%);
+  color: var(--white);
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.ppage-hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.ppage-hero-title {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.ppage-hero-subtitle {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin-bottom: 30px;
+}
+
+.ppage-program-overview {
+  background-color: var(--white);
+  padding: 60px 0;
+  border-bottom: 4px solid #092a49;
+}
+
+.ppage-section-title {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.ppage-section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background-color: #092a49;
+}
+
+.ppage-program-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.ppage-program-image {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.ppage-program-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform var(--transition-speed);
+}
+
+.ppage-program-image:hover img {
+  transform: scale(1.03);
+}
+
+.ppage-program-description {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+/* Objectives Section */
+.ppage-objectives-section {
+  padding: 80px 0;
+  background-color: var(--light-bg);
+}
+
+.ppage-objectives-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.ppage-objective-card {
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid #092a49;
+  transition: transform var(--transition-speed),
+    box-shadow var(--transition-speed);
+}
+
+.ppage-objective-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.ppage-objective-icon {
+  font-size: 2.5rem;
+  color: var(--primary-accent);
+  margin-bottom: 20px;
+}
+
+.ppage-objective-title {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+}
+
+.ppage-objective-desc {
+  color: var(--text-secondary);
+}
+
+/* Program Details */
+.ppage-details-section {
+  padding: 80px 0;
+  background-color: var(--white);
+}
+
+.ppage-details-accordion {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.ppage-accordion-item {
+  margin-bottom: 15px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.ppage-accordion-header {
+  background-color: #092a49;
+  color: var(--white);
+  padding: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.ppage-accordion-header:hover {
+  background-color: #89afe9;
+  color: #fff;
+}
+
+.ppage-accordion-title {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #fff;
+}
+
+.ppage-accordion-title:hover {
+  color: #fff;
+}
+
+.ppage-accordion-icon {
+  transition: transform var(--transition-speed);
+}
+
+.ppage-accordion-item.active .ppage-accordion-icon {
+  transform: rotate(180deg);
+}
+
+.ppage-accordion-content {
+  background-color: var(--white);
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-speed),
+    padding var(--transition-speed);
+}
+
+.ppage-accordion-item.active .ppage-accordion-content {
+  padding: 20px;
+  max-height: 1000px;
+}
+
+/* Contact Section */
+.ppage-contact-section {
+  padding: 60px 0;
+  background-color: #092a49;
+  color: var(--white);
+}
+
+.ppage-contact-card {
+  background-color: var(--white);
+  color: #092a49;
+  padding: 30px;
+  border-radius: 8px;
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.ppage-contact-title {
+  color: var(--secondary-accent);
+  margin-bottom: 20px;
+}
+
+.ppage-contact-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.ppage-contact-icon {
+  color: #ff4444;
+  font-size: 1.2rem;
+  width: 30px;
+}
+
+/* CTA Section */
+.ppage-cta-section {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.ppage-cta-button {
+  display: inline-block;
+  background-color: #092a49;
+  color: var(--white);
+  padding: 15px 40px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background-color var(--transition-speed),
+    transform var(--transition-speed);
+  box-shadow: 0 5px 15px rgba(255, 68, 68, 0.3);
+}
+
+.ppage-cta-button:hover {
+  background-color: #e03c3c;
+  transform: translateY(-3px);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .ppage-program-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ppage-hero-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .ppage-hero-title {
+    font-size: 1.8rem;
+  }
+
+  .ppage-section-title {
+    font-size: 1.6rem;
+  }
+}
