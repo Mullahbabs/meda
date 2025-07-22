@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MEDA User Portal</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link href="css/auth.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="authScreens">
+      <!-- Sign Up Screen -->
+      <div class="auth-container" id="signupScreen">
+        <div class="auth-left">
+          <img
+            src="https://via.placeholder.com/120x60?text=MEDA"
+            alt="MEDA Logo"
+            class="auth-logo"
+          />
+          <h1>Join MEDA Programs</h1>
+          <p>
+            Access financial empowerment programs, track your loan applications,
+            and grow your business with our support.
+          </p>
+        </div>
+        <div class="auth-right">
+          <form class="auth-form" id="signupForm">
+            <h2>Create Account</h2>
+            <p>Please fill in your details to register</p>
+
+            <div class="form-group">
+              <label class="form-label" for="signupFullName">Full Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="signupFullName"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="signupEmail">Email Address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="signupEmail"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="signupPhone">Phone Number</label>
+              <input
+                type="tel"
+                class="form-control"
+                id="signupPhone"
+                pattern="[0-9]{11}"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="signupPassword">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="signupPassword"
+                minlength="8"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="signupConfirmPassword"
+                >Confirm Password</label
+              >
+              <input
+                type="password"
+                class="form-control"
+                id="signupConfirmPassword"
+                minlength="8"
+                required
+              />
+            </div>
+
+            <button type="submit" class="btn btn-block">Create Account</button>
+
+            <div class="auth-footer">
+              <p>
+                Already have an account? <a href="#" id="showLogin">Log in</a>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Login Screen (Hidden Initially) -->
+      <div class="auth-container" id="loginScreen" style="display: none">
+        <div class="auth-left">
+          <img
+            src="https://via.placeholder.com/120x60?text=MEDA"
+            alt="MEDA Logo"
+            class="auth-logo"
+          />
+          <h1>Welcome Back</h1>
+          <p>
+            Access your MEDA account to manage your loan applications and
+            program participation.
+          </p>
+        </div>
+        <div class="auth-right">
+          <form class="auth-form" id="loginForm">
+            <h2>Login to Your Account</h2>
+            <p>Enter your credentials to continue</p>
+
+            <div class="form-group">
+              <label class="form-label" for="loginUsername"
+                >MEDA ID or Email</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="loginUsername"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="loginPassword">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="loginPassword"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <a href="#" id="showForgotPassword">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="btn btn-block">Login</button>
+
+            <div class="auth-footer">
+              <p>
+                Don't have an account? <a href="#" id="showSignup">Sign up</a>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Forgot Password Screen (Hidden Initially) -->
+      <div
+        class="auth-container"
+        id="forgotPasswordScreen"
+        style="display: none"
+      >
+        <div class="auth-left">
+          <img
+            src="https://via.placeholder.com/120x60?text=MEDA"
+            alt="MEDA Logo"
+            class="auth-logo"
+          />
+          <h1>Reset Your Password</h1>
+          <p>
+            Enter your email or MEDA ID to receive password reset instructions.
+          </p>
+        </div>
+        <div class="auth-right">
+          <form class="auth-form" id="forgotPasswordForm">
+            <h2>Forgot Password</h2>
+            <p>We'll send you a link to reset your password</p>
+
+            <div class="form-group">
+              <label class="form-label" for="forgotEmail"
+                >MEDA ID or Email Address</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="forgotEmail"
+                required
+              />
+            </div>
+
+            <button type="submit" class="btn btn-block">Send Reset Link</button>
+
+            <div class="auth-footer">
+              <p>
+                Remember your password?
+                <a href="#" id="showLoginFromForgot">Log in</a>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dashboard (Hidden Initially) -->
+    <div id="dashboard" style="display: none">
+      <div class="sidebar">
+        <div class="sidebar-header">
+          <img
+            src="https://via.placeholder.com/120x60?text=MEDA"
+            alt="MEDA Logo"
+            class="sidebar-logo"
+          />
+        </div>
+
+        <div class="sidebar-user">
+          <div class="sidebar-user-avatar" id="userAvatar">JD</div>
+          <div class="sidebar-user-info">
+            <h4 id="userName">John Doe</h4>
+            <p id="userId">
+              MEDA-ID: <span id="medaIdDisplay">MEDA123456</span>
+            </p>
+          </div>
+        </div>
+
+        <ul class="sidebar-menu">
+          <li>
+            <a href="#" class="active" id="menuDashboard"
+              ><i class="fas fa-home"></i> Dashboard</a
+            >
+          </li>
+          <li>
+            <a href="#" id="menuLoans"
+              ><i class="fas fa-hand-holding-usd"></i> Loan Applications</a
+            >
+          </li>
+          <li>
+            <a href="#" id="menuPrograms"
+              ><i class="fas fa-project-diagram"></i> My Programs</a
+            >
+          </li>
+          <li>
+            <a href="#" id="menuProfile"><i class="fas fa-user"></i> Profile</a>
+          </li>
+          <li>
+            <a href="#" id="menuSupport"
+              ><i class="fas fa-question-circle"></i> Support</a
+            >
+          </li>
+          <li>
+            <a href="#" id="menuLogout"
+              ><i class="fas fa-sign-out-alt"></i> Logout</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div class="main-content">
+        <div class="header">
+          <h2>Dashboard</h2>
+          <div class="header-actions">
+            <a href="#" class="notification-btn">
+              <i class="fas fa-bell"></i>
+              <span class="notification-badge">3</span>
+            </a>
+            <div class="user-dropdown">
+              <div class="user-dropdown-btn">
+                <div class="user-dropdown-avatar" id="headerUserAvatar">JD</div>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="user-dropdown-menu">
+                <a href="#"><i class="fas fa-user"></i> Profile</a>
+                <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                <a href="#" id="logoutBtn"
+                  ><i class="fas fa-sign-out-alt"></i> Logout</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dashboard Content -->
+        <div id="dashboardContent">
+          <div class="card welcome-card">
+            <div class="card-header">
+              <h3>Welcome back, <span id="welcomeUserName">John</span>!</h3>
+            </div>
+            <p>
+              You're enrolled in the <strong>YOU-LEAP</strong> program. Track
+              your loan applications and program progress below.
+            </p>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <h4>Active Loans</h4>
+              <p id="activeLoansCount">0</p>
+              <!-- Changed to 0 initially -->
+            </div>
+            <div class="stat-card success">
+              <h4>Approved Loans</h4>
+              <p id="approvedLoansCount">0</p>
+              <!-- Changed to 0 initially -->
+            </div>
+            <div class="stat-card">
+              <h4>Total Applications</h4>
+              <p id="totalApplicationsCount">0</p>
+              <!-- Changed to 0 initially -->
+            </div>
+            <div class="stat-card warning">
+              <h4>Pending Applications</h4>
+              <p id="pendingApplicationsCount">0</p>
+              <!-- Changed to 0 initially -->
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h3>Recent Loan Applications</h3>
+              <button class="btn btn-accent" id="newLoanBtn">
+                New Application
+              </button>
+            </div>
+            <div class="table-responsive">
+              <table>
+                <thead>
+                  <!-- ... -->
+                </thead>
+                <tbody id="dashboardLoanTableBody">
+                  <!-- These hardcoded rows will be replaced by data from Firestore -->
+                  <tr>
+                    <td>LN-2023-001</td>
+                    <!-- ... rest of hardcoded loan row -->
+                  </tr>
+                  <tr>
+                    <td>LN-2023-002</td>
+                    <!-- ... -->
+                  </tr>
+                  <tr>
+                    <td>LN-2023-003</td>
+                    <!-- ... -->
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h3>Program Progress</h3>
+            </div>
+            <p>
+              You are currently at <strong>Phase 2</strong> of the YOU-LEAP
+              program. Next training session: <strong>Dec 5, 2023</strong>.
+            </p>
+            <div
+              style="
+                margin-top: 20px;
+                height: 10px;
+                background-color: #eee;
+                border-radius: 5px;
+              "
+            >
+              <div
+                style="
+                  width: 60%;
+                  height: 100%;
+                  background-color: var(--primary-color);
+                  border-radius: 5px;
+                "
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Loan Application Modal (Hidden Initially) -->
+        <div class="modal" id="loanModal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3>New Loan Application</h3>
+              <button class="modal-close" id="closeLoanModal">×</button>
+            </div>
+            <div class="modal-body">
+              <form id="loanApplicationForm" class="loan-form">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="loanAmount"
+                      >Loan Amount (₦)</label
+                    >
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="loanAmount"
+                      min="10000"
+                      max="500000"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="loanPurpose">Purpose</label>
+                    <select class="form-control" id="loanPurpose" required>
+                      <option value="">Select purpose</option>
+                      <option value="business">Business Expansion</option>
+                      <option value="equipment">Equipment Purchase</option>
+                      <option value="inventory">Inventory Restock</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="loanDescription"
+                    >Brief Description</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="loanDescription"
+                    rows="3"
+                    required
+                  ></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="repaymentPlan"
+                    >Preferred Repayment Plan</label
+                  >
+                  <select class="form-control" id="repaymentPlan" required>
+                    <option value="">Select plan</option>
+                    <option value="3months">3 Months</option>
+                    <option value="6months">6 Months</option>
+                    <option value="12months">12 Months</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <div class="form-check">
+                    <input type="checkbox" id="loanTerms" required />
+                    <label for="loanTerms"
+                      >I agree to the loan terms and conditions</label
+                    >
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button class="btn" id="cancelLoanBtn">Cancel</button>
+              <button class="btn btn-accent" id="submitLoanBtn">
+                Submit Application
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Loan Detail Modal (Hidden Initially) -->
+        <div class="modal" id="loanDetailModal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3>Loan Application Details</h3>
+              <button class="modal-close" id="closeLoanDetailModal">×</button>
+            </div>
+            <div class="modal-body">
+              <div id="loanDetailContent">
+                <!-- Content will be loaded here -->
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn" id="closeDetailBtn">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+
+    <!-- Add Firebase products you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+    <!-- Your app's main JavaScript file -->
+    <script src="js.app.js"></script>
+  </body>
+</html>

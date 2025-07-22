@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MEDA User Portal</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary-color: #092a49;
+        --secondary-color: #1a3a6a;
+        --accent-color: #ff4444;
+        --success-color: #4caf50;
+        --warning-color: #ff9800;
+        --light-bg: #f8f9fa;
+        --white: #ffffff;
+        --dark-text: #2c3e50;
+        --light-text: #7f8c8d;
+        --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Lato", sans-serif;
+        background-color: var(--light-bg);
+        color: var(--dark-text);
+        line-height: 1.6;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Poppins", sans-serif;
+        color: var(--primary-color);
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--primary-color);
+        transition: var(--transition);
+      }
+
+      a:hover {
+        color: var(--accent-color);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Auth Pages */
+      .auth-container {
+        display: flex;
+        min-height: 100vh;
+      }
+
+      .auth-left {
+        flex: 1;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          var(--secondary-color) 100%
+        );
+        color: var(--white);
+        padding: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      .auth-left h1 {
+        color: var(--white);
+        margin-bottom: 20px;
+        font-size: 2.5rem;
+      }
+
+      .auth-left p {
+        max-width: 500px;
+        margin-bottom: 40px;
+      }
+
+      .auth-right {
+        flex: 1;
+        background-color: var(--white);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 60px;
+      }
+
+      .auth-logo {
+        width: 120px;
+        margin-bottom: 30px;
+        border-radius: 50px;
+      }
+
+      .auth-form {
+        max-width: 400px;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 1rem;
+        transition: var(--transition);
+      }
+
+      .form-control:focus {
+        border-color: var(--primary-color);
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(9, 42, 73, 0.1);
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        background-color: var(--primary-color);
+        color: var(--white);
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: var(--transition);
+        text-align: center;
+      }
+
+      .btn:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .btn-accent {
+        background-color: var(--accent-color);
+      }
+
+      .btn-accent:hover {
+        background-color: #e53935;
+      }
+
+      .btn-block {
+        display: block;
+        width: 100%;
+      }
+
+      .auth-footer {
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      /* Dashboard */
+      .dashboard {
+        display: flex;
+        min-height: 100vh;
+      }
+
+      .sidebar {
+        width: 250px;
+        background-color: var(--primary-color);
+        color: var(--white);
+        padding: 30px 0;
+        transition: var(--transition);
+      }
+
+      .sidebar-header {
+        padding: 0 20px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: 20px;
+      }
+
+      .sidebar-logo {
+        width: 120px;
+        margin-bottom: 10px;
+        border-radius: 50px;
+      }
+
+      .sidebar-user {
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        margin-bottom: 20px;
+      }
+
+      .sidebar-user-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: var(--accent-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 10px;
+        font-weight: bold;
+      }
+
+      .sidebar-user-info h4 {
+        color: var(--white);
+        margin-bottom: 2px;
+        font-size: 0.9rem;
+      }
+
+      .sidebar-user-info p {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.8rem;
+      }
+
+      .sidebar-menu {
+        list-style: none;
+      }
+
+      .sidebar-menu li a {
+        display: flex;
+        align-items: center;
+        padding: 12px 20px;
+        color: rgba(255, 255, 255, 0.8);
+        transition: var(--transition);
+      }
+
+      .sidebar-menu li a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: var(--white);
+      }
+
+      .sidebar-menu li a.active {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: var(--white);
+        border-left: 3px solid var(--accent-color);
+      }
+
+      .sidebar-menu li a i {
+        margin-right: 10px;
+        width: 20px;
+        text-align: center;
+      }
+
+      .main-content {
+        flex: 1;
+        padding: 30px;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+      }
+
+      .header h2 {
+        font-size: 1.8rem;
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+      }
+
+      .notification-btn {
+        position: relative;
+        margin-right: 20px;
+        color: var(--dark-text);
+        font-size: 1.2rem;
+      }
+
+      .notification-badge {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background-color: var(--accent-color);
+        color: var(--white);
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        font-size: 0.7rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .user-dropdown {
+        position: relative;
+      }
+
+      .user-dropdown-btn {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .user-dropdown-avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background-color: var(--primary-color);
+        color: var(--white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 8px;
+        font-weight: bold;
+      }
+
+      .user-dropdown-menu {
+        position: absolute;
+        right: 0;
+        top: 50px;
+        background-color: var(--white);
+        border-radius: 4px;
+        box-shadow: var(--shadow);
+        width: 200px;
+        padding: 10px 0;
+        z-index: 100;
+        display: none;
+      }
+
+      .user-dropdown:hover .user-dropdown-menu {
+        display: block;
+      }
+
+      .user-dropdown-menu a {
+        display: block;
+        padding: 10px 20px;
+        color: var(--dark-text);
+        transition: var(--transition);
+      }
+
+      .user-dropdown-menu a:hover {
+        background-color: var(--light-bg);
+        color: var(--primary-color);
+      }
+
+      .card {
+        background-color: var(--white);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .card-header h3 {
+        font-size: 1.2rem;
+      }
+
+      .welcome-card {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          var(--secondary-color) 100%
+        );
+        color: var(--white);
+      }
+
+      .welcome-card h3 {
+        color: var(--white);
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+      }
+
+      .stat-card {
+        background-color: var(--white);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        padding: 20px;
+        text-align: center;
+      }
+
+      .stat-card h4 {
+        color: var(--light-text);
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+      }
+
+      .stat-card p {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: var(--primary-color);
+      }
+
+      .stat-card.success p {
+        color: var(--success-color);
+      }
+
+      .stat-card.warning p {
+        color: var(--warning-color);
+      }
+
+      .table-responsive {
+        overflow-x: auto;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #eee;
+      }
+
+      th {
+        background-color: var(--light-bg);
+        font-weight: 600;
+      }
+
+      tr:hover {
+        background-color: var(--light-bg);
+      }
+
+      .status-badge {
+        display: inline-block;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      .status-pending {
+        background-color: #fff3cd;
+        color: #856404;
+      }
+
+      .status-approved {
+        background-color: #d4edda;
+        color: #155724;
+      }
+
+      .status-disbursed {
+        background-color: #d1ecf1;
+        color: #0c5460;
+      }
+
+      .status-rejected {
+        background-color: #f8d7da;
+        color: #721c24;
+      }
+
+      .loan-form .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+
+      .loan-form .form-group {
+        margin-bottom: 0;
+      }
+
+      /* Modal */
+      .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+      }
+
+      .modal.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .modal-content {
+        background-color: var(--white);
+        border-radius: 8px;
+        width: 90%;
+        max-width: 500px;
+        max-height: 90vh;
+        overflow-y: auto;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        transform: translateY(-20px);
+        transition: var(--transition);
+      }
+
+      .modal.active .modal-content {
+        transform: translateY(0);
+      }
+
+      .modal-header {
+        padding: 20px;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .modal-header h3 {
+        font-size: 1.3rem;
+      }
+
+      .modal-close {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--light-text);
+      }
+
+      .modal-body {
+        padding: 20px;
+      }
+
+      .modal-footer {
+        padding: 20px;
+        border-top: 1px solid #eee;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      /* Responsive */
+      @media (max-width: 992px) {
+        .auth-container {
+          flex-direction: column;
+        }
+
+        .auth-left,
+        .auth-right {
+          padding: 40px 20px;
+        }
+
+        .dashboard {
+          flex-direction: column;
+        }
+
+        .sidebar {
+          width: 100%;
+          padding: 20px;
+        }
+
+        .sidebar-menu {
+          display: flex;
+          overflow-x: auto;
+        }
+
+        .sidebar-menu li {
+          flex-shrink: 0;
+        }
+
+        .sidebar-menu li a {
+          padding: 10px 15px;
+        }
+
+        .main-content {
+          padding: 20px;
+        }
+
+        .loan-form .form-row {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .stats-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .header-actions {
+          margin-top: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Auth Screens -->
+    <div id="authScreens">
+      <!-- Sign Up Screen -->
+      <div class="auth-container" id="signupScreen">
+        <div class="auth-left">
+          <img src="IMG/loggo9.jpeg" alt="MEDA Logo" class="auth-logo" />
+          <h1>Join MEDA Programs</h1>
+          <p>
+            Access financial empowerment programs, track your loan applications,
+            and grow your business with our support.
+          </p>
+        </div>
+        <div class="auth-right">
+          <form class="auth-form" id="signupForm">
+            <h2>Create Account</h2>
+            <p>Please fill in your details to register</p>
+
+            <div class="form-group">
+              <label class="form-label" for="signupFullName">Full Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="signupFullName"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="signupEmail">Email Address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="signupEmail"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="signupPhone">Phone Number</label>
+              <input
+                type="tel"
+                class="form-control"
+                id="signupPhone"
+                pattern="[0-9]{11}"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="signupPassword">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="signupPassword"
+                minlength="8"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="signupConfirmPassword"
+                >Confirm Password</label
+              >
+              <input
+                type="password"
+                class="form-control"
+                id="signupConfirmPassword"
+                minlength="8"
+                required
+              />
+            </div>
+
+            <button type="submit" class="btn btn-block">Create Account</button>
+
+            <div class="auth-footer">
+              <p>
+                Already have an account? <a href="#" id="showLogin">Log in</a>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Login Screen (Hidden Initially) -->
+      <div class="auth-container" id="loginScreen" style="display: none">
+        <div class="auth-left">
+          <img src="img/loggo9.jpeg" alt="MEDA Logo" class="auth-logo" />
+          <h1>Welcome Back</h1>
+          <p>
+            Access your MEDA account to manage your loan applications and
+            program participation.
+          </p>
+        </div>
+        <div class="auth-right">
+          <form class="auth-form" id="loginForm">
+            <h2>Login to Your Account</h2>
+            <p>Enter your credentials to continue</p>
+
+            <div class="form-group">
+              <label class="form-label" for="loginUsername"
+                >MEDA ID or Email</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="loginUsername"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="loginPassword">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="loginPassword"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <a href="#" id="showForgotPassword">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="btn btn-block">Login</button>
+
+            <div class="auth-footer">
+              <p>
+                Don't have an account? <a href="#" id="showSignup">Sign up</a>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Forgot Password Screen (Hidden Initially) -->
+      <div
+        class="auth-container"
+        id="forgotPasswordScreen"
+        style="display: none"
+      >
+        <div class="auth-left">
+          <img src="img/loggo9.jpeg" alt="MEDA Logo" class="auth-logo" />
+          <h1>Reset Your Password</h1>
+          <p>
+            Enter your email or MEDA ID to receive password reset instructions.
+          </p>
+        </div>
+        <div class="auth-right">
+          <form class="auth-form" id="forgotPasswordForm">
+            <h2>Forgot Password</h2>
+            <p>We'll send you a link to reset your password</p>
+
+            <div class="form-group">
+              <label class="form-label" for="forgotEmail"
+                >MEDA ID or Email Address</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="forgotEmail"
+                required
+              />
+            </div>
+
+            <button type="submit" class="btn btn-block">Send Reset Link</button>
+
+            <div class="auth-footer">
+              <p>
+                Remember your password?
+                <a href="#" id="showLoginFromForgot">Log in</a>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dashboard (Hidden Initially) -->
+    <div id="dashboard" style="display: none">
+      <div class="sidebar">
+        <div class="sidebar-header">
+          <img src="img/loggo9.jpeg" alt="MEDA Logo" class="sidebar-logo" />
+        </div>
+
+        <div class="sidebar-user">
+          <div class="sidebar-user-avatar" id="userAvatar">MU</div>
+          <div class="sidebar-user-info">
+            <h4 id="userName">MEDA USER</h4>
+            <p id="userId">
+              MEDA-ID: <span id="medaIdDisplay">MEDA123456</span>
+            </p>
+          </div>
+        </div>
+
+        <ul class="sidebar-menu">
+          <li>
+            <a href="#" class="active" id="menuDashboard"
+              ><i class="fas fa-home"></i> Dashboard</a
+            >
+          </li>
+          <li>
+            <a href="#" id="menuLoans"
+              ><i class="fas fa-hand-holding-usd"></i> Loan Applications</a
+            >
+          </li>
+          <li>
+            <a href="#" id="menuPrograms"
+              ><i class="fas fa-project-diagram"></i> My Programs</a
+            >
+          </li>
+          <li>
+            <a href="#" id="menuProfile"><i class="fas fa-user"></i> Profile</a>
+          </li>
+          <li>
+            <a href="#" id="menuSupport"
+              ><i class="fas fa-question-circle"></i> Support</a
+            >
+          </li>
+          <li>
+            <a href="#" id="menuLogout"
+              ><i class="fas fa-sign-out-alt"></i> Logout</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div class="main-content">
+        <div class="header">
+          <h2>Dashboard</h2>
+          <div class="header-actions">
+            <a href="#" class="notification-btn">
+              <i class="fas fa-bell"></i>
+              <span class="notification-badge">3</span>
+            </a>
+            <div class="user-dropdown">
+              <div class="user-dropdown-btn">
+                <div class="user-dropdown-avatar" id="headerUserAvatar">MU</div>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="user-dropdown-menu">
+                <a href="#"><i class="fas fa-user"></i> Profile</a>
+                <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                <a href="#" id="logoutBtn"
+                  ><i class="fas fa-sign-out-alt"></i> Logout</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dashboard Content -->
+        <div id="dashboardContent">
+          <div class="card welcome-card">
+            <div class="card-header">
+              <h3>Welcome back, <span id="welcomeUserName">User</span>!</h3>
+            </div>
+            <p>
+              You're enrolled in the <strong>YOU-LEAP</strong> program. Track
+              your loan applications and program progress below.
+            </p>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <h4>Active Loans</h4>
+              <p>1</p>
+            </div>
+            <div class="stat-card success">
+              <h4>Approved Loans</h4>
+              <p>2</p>
+            </div>
+            <div class="stat-card">
+              <h4>Total Applications</h4>
+              <p>3</p>
+            </div>
+            <div class="stat-card warning">
+              <h4>Pending Applications</h4>
+              <p>1</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h3>Recent Loan Applications</h3>
+              <button class="btn btn-accent" id="newLoanBtn">
+                New Application
+              </button>
+            </div>
+            <div class="table-responsive">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Loan ID</th>
+                    <th>Amount</th>
+                    <th>Date Applied</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>LN-2025-001</td>
+                    <td>₦150,000</td>
+                    <td>15 Oct 2023</td>
+                    <td>
+                      <span class="status-badge status-disbursed"
+                        >Disbursed</span
+                      >
+                    </td>
+                    <td><a href="#" class="view-loan">View</a></td>
+                  </tr>
+                  <tr>
+                    <td>LN-2025-002</td>
+                    <td>₦75,000</td>
+                    <td>5 Nov 2023</td>
+                    <td>
+                      <span class="status-badge status-approved">Approved</span>
+                    </td>
+                    <td><a href="#" class="view-loan">View</a></td>
+                  </tr>
+                  <tr>
+                    <td>LN-2025-003</td>
+                    <td>₦200,000</td>
+                    <td>20 Nov 2023</td>
+                    <td>
+                      <span class="status-badge status-pending">Pending</span>
+                    </td>
+                    <td><a href="#" class="view-loan">View</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h3>Program Progress</h3>
+            </div>
+            <p>
+              You are currently at <strong>Phase 2</strong> of the YOU-LEAP
+              program. Next training session: <strong>Dec 5, 2023</strong>.
+            </p>
+            <div
+              style="
+                margin-top: 20px;
+                height: 10px;
+                background-color: #eee;
+                border-radius: 5px;
+              "
+            >
+              <div
+                style="
+                  width: 60%;
+                  height: 100%;
+                  background-color: var(--primary-color);
+                  border-radius: 5px;
+                "
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Loan Application Modal (Hidden Initially) -->
+        <div class="modal" id="loanModal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3>New Loan Application</h3>
+              <button class="modal-close" id="closeLoanModal">×</button>
+            </div>
+            <div class="modal-body">
+              <form id="loanApplicationForm" class="loan-form">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="loanAmount"
+                      >Loan Amount (₦)</label
+                    >
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="loanAmount"
+                      min="10000"
+                      max="500000"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="loanPurpose">Purpose</label>
+                    <select class="form-control" id="loanPurpose" required>
+                      <option value="">Select purpose</option>
+                      <option value="business">Business Expansion</option>
+                      <option value="equipment">Equipment Purchase</option>
+                      <option value="inventory">Inventory Restock</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="loanDescription"
+                    >Brief Description</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="loanDescription"
+                    rows="3"
+                    required
+                  ></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="repaymentPlan"
+                    >Preferred Repayment Plan</label
+                  >
+                  <select class="form-control" id="repaymentPlan" required>
+                    <option value="">Select plan</option>
+                    <option value="3months">3 Months</option>
+                    <option value="6months">6 Months</option>
+                    <option value="12months">12 Months</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <div class="form-check">
+                    <input type="checkbox" id="loanTerms" required />
+                    <label for="loanTerms"
+                      >I agree to the loan terms and conditions</label
+                    >
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button class="btn" id="cancelLoanBtn">Cancel</button>
+              <button class="btn btn-accent" id="submitLoanBtn">
+                Submit Application
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Loan Detail Modal (Hidden Initially) -->
+        <div class="modal" id="loanDetailModal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3>Loan Application Details</h3>
+              <button class="modal-close" id="closeLoanDetailModal">×</button>
+            </div>
+            <div class="modal-body">
+              <div id="loanDetailContent">
+                <!-- Content will be loaded here -->
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn" id="closeDetailBtn">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Generate MEDA ID
+      function generateMedaId() {
+        const prefix = "MEDA";
+        const randomNum = Math.floor(100000 + Math.random() * 900000);
+        return prefix + randomNum;
+      }
+
+      // Demo user data
+      const demoUser = {
+        fullName: "MEDA USER",
+        email: "meda.user@example.com",
+        phone: "08012345678",
+        medaId: generateMedaId(),
+        program: "YOU-LEAP",
+        loans: [
+          {
+            id: "LN-2025-001",
+            amount: 150000,
+            date: "15 Oct 2025",
+            status: "disbursed",
+            purpose: "Business Expansion",
+            description:
+              "Purchase of additional inventory for my fashion business",
+            repaymentPlan: "6months",
+            disbursementDate: "25 Oct 2023",
+          },
+          {
+            id: "LN-2023-002",
+            amount: 75000,
+            date: "5 Nov 2025",
+            status: "approved",
+            purpose: "Equipment Purchase",
+            description:
+              "Buying a new sewing machine for my tailoring business",
+            repaymentPlan: "3months",
+            approvalDate: "10 Nov 2023",
+          },
+          {
+            id: "LN-2023-003",
+            amount: 200000,
+            date: "20 Nov 2025",
+            status: "pending",
+            purpose: "Inventory Restock",
+            description: "Restocking materials for my shoe making business",
+            repaymentPlan: "6months",
+          },
+        ],
+      };
+
+      // DOM Elements
+      const authScreens = document.getElementById("authScreens");
+      const signupScreen = document.getElementById("signupScreen");
+      const loginScreen = document.getElementById("loginScreen");
+      const forgotPasswordScreen = document.getElementById(
+        "forgotPasswordScreen"
+      );
+      const dashboard = document.getElementById("dashboard");
+
+      // Auth navigation
+      document
+        .getElementById("showLogin")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          signupScreen.style.display = "none";
+          loginScreen.style.display = "flex";
+        });
+
+      document
+        .getElementById("showSignup")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          loginScreen.style.display = "none";
+          signupScreen.style.display = "flex";
+        });
+
+      document
+        .getElementById("showForgotPassword")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          loginScreen.style.display = "none";
+          forgotPasswordScreen.style.display = "flex";
+        });
+
+      document
+        .getElementById("showLoginFromForgot")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          forgotPasswordScreen.style.display = "none";
+          loginScreen.style.display = "flex";
+        });
+
+      // Form submissions
+      document
+        .getElementById("signupForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          // In a real app, this would send data to server
+          alert(
+            "Account created successfully! Your MEDA ID will be sent to your email."
+          );
+          loginScreen.style.display = "flex";
+          signupScreen.style.display = "none";
+        });
+
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          // In a real app, this would validate credentials
+          authScreens.style.display = "none";
+          dashboard.style.display = "flex";
+
+          // Populate user data
+          document.getElementById("userName").textContent = demoUser.fullName;
+          document.getElementById("medaIdDisplay").textContent =
+            demoUser.medaId;
+          document.getElementById("welcomeUserName").textContent =
+            demoUser.fullName.split(" ")[0];
+          document.getElementById("userAvatar").textContent = demoUser.fullName
+            .split(" ")
+            .map((n) => n[0])
+            .join("")
+            .substring(0, 2);
+          document.getElementById("headerUserAvatar").textContent =
+            demoUser.fullName
+              .split(" ")
+              .map((n) => n[0])
+              .join("")
+              .substring(0, 2);
+        });
+
+      document
+        .getElementById("forgotPasswordForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          alert("Password reset link sent to your email if account exists.");
+          forgotPasswordScreen.style.display = "none";
+          loginScreen.style.display = "flex";
+        });
+
+      // Dashboard functionality
+      document
+        .getElementById("logoutBtn")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          dashboard.style.display = "none";
+          authScreens.style.display = "flex";
+          loginScreen.style.display = "flex";
+        });
+
+      document
+        .getElementById("menuLogout")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          dashboard.style.display = "none";
+          authScreens.style.display = "flex";
+          loginScreen.style.display = "flex";
+        });
+
+      // Loan application modal
+      const loanModal = document.getElementById("loanModal");
+      const loanDetailModal = document.getElementById("loanDetailModal");
+
+      document
+        .getElementById("newLoanBtn")
+        .addEventListener("click", function () {
+          loanModal.classList.add("active");
+        });
+
+      document
+        .getElementById("closeLoanModal")
+        .addEventListener("click", function () {
+          loanModal.classList.remove("active");
+        });
+
+      document
+        .getElementById("cancelLoanBtn")
+        .addEventListener("click", function () {
+          loanModal.classList.remove("active");
+        });
+
+      document
+        .getElementById("submitLoanBtn")
+        .addEventListener("click", function () {
+          // In a real app, this would send data to server
+          alert("Loan application submitted successfully!");
+          loanModal.classList.remove("active");
+
+          // Add to demo data (in real app, this would come from server response)
+          const newLoan = {
+            id: "LN-2025-004",
+            amount: parseInt(document.getElementById("loanAmount").value),
+            date: new Date().toLocaleDateString("en-GB", {
+              day: "numeric",
+              month: "short",
+              year: "numeric",
+            }),
+            status: "pending",
+            purpose: document.getElementById("loanPurpose").value,
+            description: document.getElementById("loanDescription").value,
+            repaymentPlan: document.getElementById("repaymentPlan").value,
+          };
+
+          demoUser.loans.unshift(newLoan);
+          updateLoanTable();
+        });
+
+      // View loan details
+      document.querySelectorAll(".view-loan").forEach((link) => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          const loanId = this.closest("tr").querySelector("td").textContent;
+          const loan = demoUser.loans.find((l) => l.id === loanId);
+
+          let statusClass = "";
+          let statusText = "";
+          let extraInfo = "";
+
+          switch (loan.status) {
+            case "pending":
+              statusClass = "status-pending";
+              statusText = "Pending Review";
+              extraInfo =
+                "<p>Your application is currently being reviewed by our team. You will be notified once a decision is made.</p>";
+              break;
+            case "approved":
+              statusClass = "status-approved";
+              statusText = "Approved";
+              extraInfo = `
+                            <p>Your loan was approved on <strong>${loan.approvalDate}</strong>.</p>
+                            <p>Disbursement is being processed and you will receive funds within 3-5 business days.</p>
+                        `;
+              break;
+            case "disbursed":
+              statusClass = "status-disbursed";
+              statusText = "Disbursed";
+              extraInfo = `
+                            <p>Your loan was disbursed on <strong>${loan.disbursementDate}</strong>.</p>
+                            <p>Funds have been successfully transferred to your account.</p>
+                        `;
+              break;
+          }
+
+          const detailContent = `
+                    <h4>Loan ID: ${loan.id}</h4>
+                    <p><strong>Amount:</strong> ₦${loan.amount.toLocaleString()}</p>
+                    <p><strong>Purpose:</strong> ${loan.purpose}</p>
+                    <p><strong>Description:</strong> ${loan.description}</p>
+                    <p><strong>Repayment Plan:</strong> ${
+                      loan.repaymentPlan
+                    }</p>
+                    <p><strong>Application Date:</strong> ${loan.date}</p>
+                    <p><strong>Status:</strong> <span class="status-badge ${statusClass}">${statusText}</span></p>
+                    ${extraInfo}
+                `;
+
+          document.getElementById("loanDetailContent").innerHTML =
+            detailContent;
+          loanDetailModal.classList.add("active");
+        });
+      });
+
+      document
+        .getElementById("closeLoanDetailModal")
+        .addEventListener("click", function () {
+          loanDetailModal.classList.remove("active");
+        });
+
+      document
+        .getElementById("closeDetailBtn")
+        .addEventListener("click", function () {
+          loanDetailModal.classList.remove("active");
+        });
+
+      // Update loan table
+      function updateLoanTable() {
+        const tbody = document.querySelector("table tbody");
+        tbody.innerHTML = "";
+
+        demoUser.loans.forEach((loan) => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+                    <td>${loan.id}</td>
+                    <td>₦${loan.amount.toLocaleString()}</td>
+                    <td>${loan.date}</td>
+                    <td><span class="status-badge status-${loan.status}">${
+            loan.status.charAt(0).toUpperCase() + loan.status.slice(1)
+          }</span></td>
+                    <td><a href="#" class="view-loan">View</a></td>
+                `;
+          tbody.appendChild(row);
+        });
+
+        // Re-attach event listeners for view buttons
+        document.querySelectorAll(".view-loan").forEach((link) => {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const loanId = this.closest("tr").querySelector("td").textContent;
+            const loan = demoUser.loans.find((l) => l.id === loanId);
+
+            let statusClass = "";
+            let statusText = "";
+            let extraInfo = "";
+
+            switch (loan.status) {
+              case "pending":
+                statusClass = "status-pending";
+                statusText = "Pending Review";
+                extraInfo =
+                  "<p>Your application is currently being reviewed by our team. You will be notified once a decision is made.</p>";
+                break;
+              case "approved":
+                statusClass = "status-approved";
+                statusText = "Approved";
+                extraInfo = `
+                                <p>Your loan was approved on <strong>${loan.approvalDate}</strong>.</p>
+                                <p>Disbursement is being processed and you will receive funds within 3-5 business days.</p>
+                            `;
+                break;
+              case "disbursed":
+                statusClass = "status-disbursed";
+                statusText = "Disbursed";
+                extraInfo = `
+                                <p>Your loan was disbursed on <strong>${loan.disbursementDate}</strong>.</p>
+                                <p>Funds have been successfully transferred to your account.</p>
+                            `;
+                break;
+            }
+
+            const detailContent = `
+                        <h4>Loan ID: ${loan.id}</h4>
+                        <p><strong>Amount:</strong> ₦${loan.amount.toLocaleString()}</p>
+                        <p><strong>Purpose:</strong> ${loan.purpose}</p>
+                        <p><strong>Description:</strong> ${loan.description}</p>
+                        <p><strong>Repayment Plan:</strong> ${
+                          loan.repaymentPlan
+                        }</p>
+                        <p><strong>Application Date:</strong> ${loan.date}</p>
+                        <p><strong>Status:</strong> <span class="status-badge ${statusClass}">${statusText}</span></p>
+                        ${extraInfo}
+                    `;
+
+            document.getElementById("loanDetailContent").innerHTML =
+              detailContent;
+            loanDetailModal.classList.add("active");
+          });
+        });
+      }
+
+      // Sidebar navigation
+      document.querySelectorAll(".sidebar-menu a").forEach((link) => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          document
+            .querySelectorAll(".sidebar-menu a")
+            .forEach((a) => a.classList.remove("active"));
+          this.classList.add("active");
+
+          // Update main content based on menu selection
+          const content = document.getElementById("dashboardContent");
+          const header = document.querySelector(".header h2");
+
+          if (this.id === "menuLoans") {
+            header.textContent = "Loan Applications";
+            content.innerHTML = `
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>My Loan Applications</h3>
+                                <button class="btn btn-accent" id="newLoanBtn">New Application</button>
+                            </div>
+                            <div class="table-responsive">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Loan ID</th>
+                                            <th>Amount</th>
+                                            <th>Date Applied</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        ${demoUser.loans
+                                          .map(
+                                            (loan) => `
+                                            <tr>
+                                                <td>${loan.id}</td>
+                                                <td>₦${loan.amount.toLocaleString()}</td>
+                                                <td>${loan.date}</td>
+                                                <td><span class="status-badge status-${
+                                                  loan.status
+                                                }">${
+                                              loan.status
+                                                .charAt(0)
+                                                .toUpperCase() +
+                                              loan.status.slice(1)
+                                            }</span></td>
+                                                <td><a href="#" class="view-loan">View</a></td>
+                                            </tr>
+                                        `
+                                          )
+                                          .join("")}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    `;
+            document
+              .getElementById("newLoanBtn")
+              .addEventListener("click", function () {
+                loanModal.classList.add("active");
+              });
+            updateLoanTable();
+          } else if (this.id === "menuPrograms") {
+            header.textContent = "My Programs";
+            content.innerHTML = `
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Program Progress</h3>
+                            </div>
+                            <p>You are currently at <strong>Phase 2</strong> of the YOU-LEAP program. Next training session: <strong>Dec 5, 2023</strong>.</p>
+                            <div style="margin-top: 20px; height: 10px; background-color: #eee; border-radius: 5px;">
+                                <div style="width: 60%; height: 100%; background-color: var(--primary-color); border-radius: 5px;"></div>
+                            </div>
+                        </div>
+                    `;
+          } else if (this.id === "menuProfile") {
+            header.textContent = "Profile";
+            content.innerHTML = `
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>My Profile</h3>
+                            </div>
+                            <p><strong>Full Name:</strong> ${demoUser.fullName}</p>
+                            <p><strong>Email:</strong> ${demoUser.email}</p>
+                            <p><strong>Phone:</strong> ${demoUser.phone}</p>
+                            <p><strong>MEDA ID:</strong> ${demoUser.medaId}</p>
+                            <p><strong>Program:</strong> ${demoUser.program}</p>
+                        </div>
+                    `;
+          } else if (this.id === "menuSupport") {
+            header.textContent = "Support";
+            content.innerHTML = `
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Contact Support</h3>
+                            </div>
+                            <p>For any inquiries, please contact our support team at:</p>
+                            <p><strong>Email:</strong> support@meda.org</p>
+                            <p><strong>Phone:</strong> +234 123 456 7890</p>
+                            <p><strong>Working Hours:</strong> Mon-Fri, 9 AM - 5 PM</p>
+                        </div>
+                    `;
+          } else {
+            header.textContent = "Dashboard";
+            content.innerHTML = `
+                        <div class="card welcome-card">
+                            <div class="card-header">
+                                <h3>Welcome back, ${
+                                  demoUser.fullName.split(" ")[0]
+                                }!</h3>
+                            </div>
+                            <p>You're enrolled in the <strong>${
+                              demoUser.program
+                            }</strong> program. Track your loan applications and program progress below.</p>
+                        </div>
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <h4>Active Loans</h4>
+                                <p>${
+                                  demoUser.loans.filter(
+                                    (l) => l.status === "disbursed"
+                                  ).length
+                                }</p>
+                            </div>
+                            <div class="stat-card success">
+                                <h4>Approved Loans</h4>
+                                <p>${
+                                  demoUser.loans.filter(
+                                    (l) => l.status === "approved"
+                                  ).length
+                                }</p>
+                            </div>
+                            <div class="stat-card">
+                                <h4>Total Applications</h4>
+                                <p>${demoUser.loans.length}</p>
+                            </div>
+                            <div class="stat-card warning">
+                                <h4>Pending Applications</h4>
+                                <p>${
+                                  demoUser.loans.filter(
+                                    (l) => l.status === "pending"
+                                  ).length
+                                }</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Recent Loan Applications</h3>
+                                <button class="btn btn-accent" id="newLoanBtn">New Application</button>
+                            </div>
+                            <div class="table-responsive">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Loan ID</th>
+                                            <th>Amount</th>
+                                            <th>Date Applied</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        ${demoUser.loans
+                                          .map(
+                                            (loan) => `
+                                            <tr>
+                                                <td>${loan.id}</td>
+                                                <td>₦${loan.amount.toLocaleString()}</td>
+                                                <td>${loan.date}</td>
+                                                <td><span class="status-badge status-${
+                                                  loan.status
+                                                }">${
+                                              loan.status
+                                                .charAt(0)
+                                                .toUpperCase() +
+                                              loan.status.slice(1)
+                                            }</span></td>
+                                                <td><a href="#" class="view-loan">View</a></td>
+                                            </tr>
+                                        `
+                                          )
+                                          .join("")}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Program Progress</h3>
+                            </div>
+                            <p>You are currently at <strong>Phase 2</strong> of the YOU-LEAP program. Next training session: <strong>Dec 5, 2023</strong>.</p>
+                            <div style="margin-top: 20px; height: 10px; background-color: #eee; border-radius: 5px;">
+                                <div style="width: 60%; height: 100%; background-color: var(--primary-color); border-radius: 5px;"></div>
+                            </div>
+                        </div>
+                    `;
+            document
+              .getElementById("newLoanBtn")
+              .addEventListener("click", function () {
+                loanModal.classList.add("active");
+              });
+            updateLoanTable();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
