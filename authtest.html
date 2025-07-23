@@ -634,7 +634,7 @@
         }
 
         .modal-footer {
-          flex-direction: row; /* Side-by-side buttons */
+          flex-direction: row;
           justify-content: flex-end;
         }
 
@@ -645,13 +645,13 @@
 
       @media (min-width: 768px) {
         .auth-container {
-          flex-direction: row; /* Side-by-side layout */
+          flex-direction: row;
         }
 
         .auth-left,
         .auth-right {
           padding: 60px;
-          min-height: 100vh; /* Full height */
+          min-height: 100vh;
         }
 
         .auth-left h1 {
@@ -659,14 +659,14 @@
         }
 
         .dashboard {
-          flex-direction: row; /* Sidebar + content layout */
+          flex-direction: row;
         }
 
         .sidebar {
           width: 250px;
           padding: 30px 0;
-          flex-direction: column; /* Vertical layout */
-          order: 1; /* Back to first position */
+          flex-direction: column;
+          order: 1;
         }
 
         .sidebar-header {
@@ -675,14 +675,14 @@
         }
 
         .sidebar-menu {
-          display: block; /* Vertical menu */
+          display: block;
           overflow-x: visible;
           width: auto;
           margin-top: 0;
         }
 
         .sidebar-menu li a {
-          flex-direction: row; /* Icon + text side by side */
+          flex-direction: row;
           padding: 12px 20px;
           text-align: left;
           min-width: auto;
@@ -704,7 +704,7 @@
         }
 
         .header {
-          flex-direction: row; /* Horizontal layout */
+          flex-direction: row;
           align-items: center;
         }
 
@@ -718,11 +718,11 @@
         }
 
         .stats-grid {
-          grid-template-columns: repeat(2, 1fr); /* 2 columns */
+          grid-template-columns: repeat(2, 1fr);
         }
 
         .card-header {
-          flex-direction: row; /* Horizontal layout */
+          flex-direction: row;
           align-items: center;
         }
 
@@ -731,34 +731,27 @@
         }
 
         .loan-form .form-row {
-          grid-template-columns: 1fr 1fr; /* 2 columns */
+          grid-template-columns: 1fr 1fr;
         }
       }
 
       @media (min-width: 992px) {
         .stats-grid {
-          grid-template-columns: repeat(
-            auto-fit,
-            minmax(200px, 1fr)
-          ); /* Flexible columns */
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         }
 
         .sidebar-menu li a {
           font-size: 1rem;
-          grid-template-columns: repeat(
-            auto-fit,
-            minmax(50px)
-          ); /* Restore original size */
         }
 
         .card-header h3 {
-          font-size: 1.2rem; /* Restore original size */
+          font-size: 1.2rem;
         }
       }
 
       @media (min-width: 1200px) {
         .auth-left h1 {
-          font-size: 2.8rem; /* Larger heading */
+          font-size: 2.8rem;
         }
 
         .auth-logo {
@@ -766,28 +759,24 @@
         }
 
         .stat-card p {
-          font-size: 1.8rem; /* Restore original size */
+          font-size: 1.8rem;
         }
       }
 
       /* Special cases for very small screens */
       @media (max-width: 360px) {
         .sidebar-menu li a {
-          padding: 8px 10px; /* Even smaller padding */
-          min-width: 70px; /* Smaller minimum width */
-          font-size: 0.8rem; /* Smaller font */
+          padding: 8px 10px;
+          min-width: 70px;
+          font-size: 0.8rem;
         }
 
         .sidebar-menu li a i {
           font-size: 1rem;
-          grid-template-columns: repeat(
-            auto-fit,
-            minmax(50px)
-          ); /* Smaller icons */
         }
 
         .user-dropdown-menu {
-          width: 160px; /* Narrower menu */
+          width: 160px;
         }
       }
     </style>
