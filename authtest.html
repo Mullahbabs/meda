@@ -744,7 +744,11 @@
         }
 
         .sidebar-menu li a {
-          font-size: 1rem; /* Restore original size */
+          font-size: 1rem;
+          grid-template-columns: repeat(
+            auto-fit,
+            minmax(50px)
+          ); /* Restore original size */
         }
 
         .card-header h3 {
@@ -775,7 +779,11 @@
         }
 
         .sidebar-menu li a i {
-          font-size: 1rem; /* Smaller icons */
+          font-size: 1rem;
+          grid-template-columns: repeat(
+            auto-fit,
+            minmax(50px)
+          ); /* Smaller icons */
         }
 
         .user-dropdown-menu {
