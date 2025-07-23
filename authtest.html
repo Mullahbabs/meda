@@ -8,6 +8,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@600&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
         --primary-color: #092a49;
@@ -217,6 +221,7 @@
         justify-content: center;
         margin-right: 10px;
         font-weight: bold;
+        font-size: 1.1rem;
       }
 
       .sidebar-user-info h4 {
@@ -323,6 +328,7 @@
         justify-content: center;
         margin-right: 8px;
         font-weight: bold;
+        font-size: 1rem;
       }
 
       .user-dropdown-menu {
@@ -338,7 +344,8 @@
         display: none;
       }
 
-      .user-dropdown:hover .user-dropdown-menu {
+      .user-dropdown:hover .user-dropdown-menu,
+      .user-dropdown.active .user-dropdown-menu {
         display: block;
       }
 
@@ -476,6 +483,11 @@
         color: #721c24;
       }
 
+      .status-repaid {
+        background-color: #d4edda;
+        color: #155724;
+      }
+
       .loan-form .form-row {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -554,6 +566,7 @@
         border-top: 1px solid #eee;
         display: flex;
         justify-content: flex-end;
+        gap: 10px; /* Added gap for buttons */
       }
 
       /* Responsive */
@@ -574,11 +587,33 @@
         .sidebar {
           width: 100%;
           padding: 20px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap; /* Allow sidebar content to wrap */
+        }
+
+        .sidebar-header {
+          border-bottom: none;
+          padding-bottom: 0;
+          margin-bottom: 0;
+        }
+
+        .sidebar-logo {
+          width: 80px; /* Smaller logo on mobile */
+        }
+
+        .sidebar-user {
+          padding: 0;
+          margin-bottom: 0;
         }
 
         .sidebar-menu {
           display: flex;
           overflow-x: auto;
+          width: 100%;
+          margin-top: 20px;
+          justify-content: center; /* Center menu items */
         }
 
         .sidebar-menu li {
@@ -587,6 +622,14 @@
 
         .sidebar-menu li a {
           padding: 10px 15px;
+          white-space: nowrap; /* Prevent text wrapping in nav items */
+          flex-direction: column; /* Stack icon and text */
+          font-size: 0.8rem;
+        }
+
+        .sidebar-menu li a i {
+          margin-right: 0;
+          margin-bottom: 5px; /* Space between icon and text */
         }
 
         .main-content {
@@ -610,14 +653,61 @@
 
         .header-actions {
           margin-top: 15px;
+          width: 100%;
+          justify-content: space-between; /* Distribute actions */
+        }
+
+        .user-dropdown {
+          flex-grow: 1; /* Allow dropdown to take space */
+          display: flex;
+          justify-content: flex-end;
+        }
+
+        .user-dropdown-menu {
+          top: 45px; /* Adjust dropdown position */
+        }
+      }
+
+      @media (max-width: 480px) {
+        .auth-left h1 {
+          font-size: 2rem;
+        }
+
+        .auth-left,
+        .auth-right {
+          padding: 30px 15px;
+        }
+
+        .auth-logo {
+          width: 100px;
+        }
+
+        .form-control {
+          padding: 10px 12px;
+          font-size: 0.9rem;
+        }
+
+        .btn {
+          padding: 10px 20px;
+          font-size: 0.9rem;
+        }
+
+        .modal-content {
+          width: 95%;
+        }
+
+        .modal-header h3 {
+          font-size: 1.1rem;
+        }
+
+        .modal-close {
+          font-size: 1.3rem;
         }
       }
     </style>
   </head>
   <body>
-    <!-- Auth Screens -->
     <div id="authScreens">
-      <!-- Sign Up Screen -->
       <div class="auth-container" id="signupScreen">
         <div class="auth-left">
           <img src="IMG/loggo9.jpeg" alt="MEDA Logo" class="auth-logo" />
@@ -698,7 +788,6 @@
         </div>
       </div>
 
-      <!-- Login Screen (Hidden Initially) -->
       <div class="auth-container" id="loginScreen" style="display: none">
         <div class="auth-left">
           <img src="img/loggo9.jpeg" alt="MEDA Logo" class="auth-logo" />
@@ -714,13 +803,11 @@
             <p>Enter your credentials to continue</p>
 
             <div class="form-group">
-              <label class="form-label" for="loginUsername"
-                >MEDA ID or Email</label
-              >
+              <label class="form-label" for="loginEmail">Email Address</label>
               <input
-                type="text"
+                type="email"
                 class="form-control"
-                id="loginUsername"
+                id="loginEmail"
                 required
               />
             </div>
@@ -750,7 +837,6 @@
         </div>
       </div>
 
-      <!-- Forgot Password Screen (Hidden Initially) -->
       <div
         class="auth-container"
         id="forgotPasswordScreen"
@@ -769,11 +855,9 @@
             <p>We'll send you a link to reset your password</p>
 
             <div class="form-group">
-              <label class="form-label" for="forgotEmail"
-                >MEDA ID or Email Address</label
-              >
+              <label class="form-label" for="forgotEmail">Email Address</label>
               <input
-                type="text"
+                type="email"
                 class="form-control"
                 id="forgotEmail"
                 required
@@ -793,7 +877,6 @@
       </div>
     </div>
 
-    <!-- Dashboard (Hidden Initially) -->
     <div id="dashboard" style="display: none">
       <div class="sidebar">
         <div class="sidebar-header">
@@ -801,12 +884,10 @@
         </div>
 
         <div class="sidebar-user">
-          <div class="sidebar-user-avatar" id="userAvatar">MU</div>
+          <div class="sidebar-user-avatar" id="userAvatar"></div>
           <div class="sidebar-user-info">
-            <h4 id="userName">MEDA USER</h4>
-            <p id="userId">
-              MEDA-ID: <span id="medaIdDisplay">MEDA123456</span>
-            </p>
+            <h4 id="userName"></h4>
+            <p id="userId">MEDA-ID: <span id="medaIdDisplay"></span></p>
           </div>
         </div>
 
@@ -835,7 +916,7 @@
             >
           </li>
           <li>
-            <a href="#" id="menuLogout"
+            <a href="#" id="logoutBtn"
               ><i class="fas fa-sign-out-alt"></i> Logout</a
             >
           </li>
@@ -844,7 +925,7 @@
 
       <div class="main-content">
         <div class="header">
-          <h2>Dashboard</h2>
+          <h2 id="dashboardTitle">Dashboard</h2>
           <div class="header-actions">
             <a href="#" class="notification-btn">
               <i class="fas fa-bell"></i>
@@ -852,11 +933,13 @@
             </a>
             <div class="user-dropdown">
               <div class="user-dropdown-btn">
-                <div class="user-dropdown-avatar" id="headerUserAvatar">MU</div>
+                <div class="user-dropdown-avatar" id="headerUserAvatar"></div>
                 <i class="fas fa-chevron-down"></i>
               </div>
               <div class="user-dropdown-menu">
-                <a href="#"><i class="fas fa-user"></i> Profile</a>
+                <a href="#" id="dropdownProfile"
+                  ><i class="fas fa-user"></i> Profile</a
+                >
                 <a href="#"><i class="fas fa-cog"></i> Settings</a>
                 <a href="#" id="logoutBtn"
                   ><i class="fas fa-sign-out-alt"></i> Logout</a
@@ -866,38 +949,41 @@
           </div>
         </div>
 
-        <!-- Dashboard Content -->
         <div id="dashboardContent">
           <div class="card welcome-card">
             <div class="card-header">
               <h3>Welcome back, <span id="welcomeUserName">User</span>!</h3>
             </div>
             <p>
-              You're enrolled in the <strong>YOU-LEAP</strong> program. Track
-              your loan applications and program progress below.
+              You're enrolled in the <strong id="userProgram">YOU-LEAP</strong>
+              program. Track your loan applications and program progress below.
             </p>
           </div>
 
           <div class="stats-grid">
             <div class="stat-card">
               <h4>Active Loans</h4>
-              <p>1</p>
+              <p id="activeLoansCount">0</p>
             </div>
             <div class="stat-card success">
               <h4>Approved Loans</h4>
-              <p>2</p>
+              <p id="approvedLoansCount">0</p>
             </div>
             <div class="stat-card">
               <h4>Total Applications</h4>
-              <p>3</p>
+              <p id="totalApplicationsCount">0</p>
             </div>
             <div class="stat-card warning">
               <h4>Pending Applications</h4>
-              <p>1</p>
+              <p id="pendingApplicationsCount">0</p>
+            </div>
+            <div class="stat-card success">
+              <h4>Loans Repaid</h4>
+              <p id="loansRepaidCount">0</p>
             </div>
           </div>
 
-          <div class="card">
+          <div class="card" id="recentLoansCard">
             <div class="card-header">
               <h3>Recent Loan Applications</h3>
               <button class="btn btn-accent" id="newLoanBtn">
@@ -905,7 +991,7 @@
               </button>
             </div>
             <div class="table-responsive">
-              <table>
+              <table id="loansTable">
                 <thead>
                   <tr>
                     <th>Loan ID</th>
@@ -915,48 +1001,19 @@
                     <th>Actions</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td>LN-2025-001</td>
-                    <td>₦150,000</td>
-                    <td>15 Oct 2023</td>
-                    <td>
-                      <span class="status-badge status-disbursed"
-                        >Disbursed</span
-                      >
-                    </td>
-                    <td><a href="#" class="view-loan">View</a></td>
-                  </tr>
-                  <tr>
-                    <td>LN-2025-002</td>
-                    <td>₦75,000</td>
-                    <td>5 Nov 2023</td>
-                    <td>
-                      <span class="status-badge status-approved">Approved</span>
-                    </td>
-                    <td><a href="#" class="view-loan">View</a></td>
-                  </tr>
-                  <tr>
-                    <td>LN-2025-003</td>
-                    <td>₦200,000</td>
-                    <td>20 Nov 2023</td>
-                    <td>
-                      <span class="status-badge status-pending">Pending</span>
-                    </td>
-                    <td><a href="#" class="view-loan">View</a></td>
-                  </tr>
-                </tbody>
+                <tbody></tbody>
               </table>
             </div>
           </div>
 
-          <div class="card">
+          <div class="card" id="programProgressCard">
             <div class="card-header">
               <h3>Program Progress</h3>
             </div>
             <p>
-              You are currently at <strong>Phase 2</strong> of the YOU-LEAP
-              program. Next training session: <strong>Dec 5, 2023</strong>.
+              You are currently at <strong id="programPhase">Phase 2</strong> of
+              the <span id="programName">YOU-LEAP</span> program. Next training
+              session: <strong id="nextTrainingDate">Dec 5, 2023</strong>.
             </p>
             <div
               style="
@@ -967,6 +1024,7 @@
               "
             >
               <div
+                id="programProgressBar"
                 style="
                   width: 60%;
                   height: 100%;
@@ -978,7 +1036,6 @@
           </div>
         </div>
 
-        <!-- Loan Application Modal (Hidden Initially) -->
         <div class="modal" id="loanModal">
           <div class="modal-content">
             <div class="modal-header">
@@ -1049,14 +1106,18 @@
             </div>
             <div class="modal-footer">
               <button class="btn" id="cancelLoanBtn">Cancel</button>
-              <button class="btn btn-accent" id="submitLoanBtn">
+              <button
+                type="submit"
+                class="btn btn-accent"
+                id="submitLoanBtn"
+                form="loanApplicationForm"
+              >
                 Submit Application
               </button>
             </div>
           </div>
         </div>
 
-        <!-- Loan Detail Modal (Hidden Initially) -->
         <div class="modal" id="loanDetailModal">
           <div class="modal-content">
             <div class="modal-header">
@@ -1064,12 +1125,86 @@
               <button class="modal-close" id="closeLoanDetailModal">×</button>
             </div>
             <div class="modal-body">
-              <div id="loanDetailContent">
-                <!-- Content will be loaded here -->
-              </div>
+              <div id="loanDetailContent"></div>
             </div>
             <div class="modal-footer">
               <button class="btn" id="closeDetailBtn">Close</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal" id="profileModal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3>User Profile</h3>
+              <button class="modal-close" id="closeProfileModal">×</button>
+            </div>
+            <div class="modal-body">
+              <form id="profileForm">
+                <div class="form-group">
+                  <label class="form-label" for="profileFullName"
+                    >Full Name</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="profileFullName"
+                    readonly
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="profileEmail"
+                    >Email Address</label
+                  >
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="profileEmail"
+                    readonly
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="profilePhone"
+                    >Phone Number</label
+                  >
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="profilePhone"
+                    readonly
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="profileMedaId">MEDA ID</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="profileMedaId"
+                    readonly
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="profileProgram"
+                    >Enrolled Program</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="profileProgram"
+                    readonly
+                  />
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button class="btn" id="editProfileBtn">Edit Profile</button>
+              <button
+                class="btn btn-accent"
+                id="saveProfileBtn"
+                style="display: none"
+              >
+                Save Changes
+              </button>
             </div>
           </div>
         </div>
@@ -1077,54 +1212,58 @@
     </div>
 
     <script>
-      // Generate MEDA ID
+      // Helper function to generate MEDA ID
       function generateMedaId() {
         const prefix = "MEDA";
         const randomNum = Math.floor(100000 + Math.random() * 900000);
         return prefix + randomNum;
       }
 
-      // Demo user data
-      const demoUser = {
-        fullName: "MEDA USER",
-        email: "meda.user@example.com",
-        phone: "08012345678",
-        medaId: generateMedaId(),
-        program: "YOU-LEAP",
-        loans: [
-          {
-            id: "LN-2025-001",
-            amount: 150000,
-            date: "15 Oct 2025",
-            status: "disbursed",
-            purpose: "Business Expansion",
-            description:
-              "Purchase of additional inventory for my fashion business",
-            repaymentPlan: "6months",
-            disbursementDate: "25 Oct 2023",
-          },
-          {
-            id: "LN-2023-002",
-            amount: 75000,
-            date: "5 Nov 2025",
-            status: "approved",
-            purpose: "Equipment Purchase",
-            description:
-              "Buying a new sewing machine for my tailoring business",
-            repaymentPlan: "3months",
-            approvalDate: "10 Nov 2023",
-          },
-          {
-            id: "LN-2023-003",
-            amount: 200000,
-            date: "20 Nov 2025",
-            status: "pending",
-            purpose: "Inventory Restock",
-            description: "Restocking materials for my shoe making business",
-            repaymentPlan: "6months",
-          },
-        ],
-      };
+      // Function to get initials from full name
+      function getInitials(fullName) {
+        if (!fullName) return "MU"; // MEDA User if no name
+        const names = fullName.split(" ").filter(Boolean); // Filter out empty strings
+        if (names.length === 0) return "MU";
+        if (names.length === 1) return names[0].charAt(0).toUpperCase();
+        return (
+          names[0].charAt(0).toUpperCase() +
+          names[names.length - 1].charAt(0).toUpperCase()
+        );
+      }
+
+      // Function to save user data to local storage
+      function saveUserData(user) {
+        localStorage.setItem("currentUser", JSON.stringify(user));
+      }
+
+      // Function to get user data from local storage
+      function loadUserData() {
+        const userData = localStorage.getItem("currentUser");
+        return userData ? JSON.parse(userData) : null;
+      }
+
+      // Function to save registered users
+      function saveRegisteredUsers(users) {
+        localStorage.setItem("registeredUsers", JSON.stringify(users));
+      }
+
+      // Function to load registered users
+      function loadRegisteredUsers() {
+        const usersData = localStorage.getItem("registeredUsers");
+        return usersData ? JSON.parse(usersData) : [];
+      }
+
+      // Function to update a user in registeredUsers
+      function updateRegisteredUser(updatedUser) {
+        let users = loadRegisteredUsers();
+        const index = users.findIndex(
+          (user) => user.email === updatedUser.email
+        );
+        if (index !== -1) {
+          users[index] = updatedUser;
+          saveRegisteredUsers(users);
+        }
+      }
 
       // DOM Elements
       const authScreens = document.getElementById("authScreens");
@@ -1135,503 +1274,471 @@
       );
       const dashboard = document.getElementById("dashboard");
 
-      // Auth navigation
-      document
-        .getElementById("showLogin")
-        .addEventListener("click", function (e) {
-          e.preventDefault();
-          signupScreen.style.display = "none";
-          loginScreen.style.display = "flex";
-        });
+      const signupForm = document.getElementById("signupForm");
+      const loginForm = document.getElementById("loginForm");
+      const forgotPasswordForm = document.getElementById("forgotPasswordForm");
 
-      document
-        .getElementById("showSignup")
-        .addEventListener("click", function (e) {
-          e.preventDefault();
-          loginScreen.style.display = "none";
+      const showLoginBtn = document.getElementById("showLogin");
+      const showSignupBtn = document.getElementById("showSignup");
+      const showForgotPasswordBtn =
+        document.getElementById("showForgotPassword");
+      const showLoginFromForgotBtn = document.getElementById(
+        "showLoginFromForgot"
+      );
+
+      const userAvatar = document.getElementById("userAvatar");
+      const userName = document.getElementById("userName");
+      const medaIdDisplay = document.getElementById("medaIdDisplay");
+      const welcomeUserName = document.getElementById("welcomeUserName");
+      const userProgram = document.getElementById("userProgram");
+      const headerUserAvatar = document.getElementById("headerUserAvatar");
+      const logoutBtn = document.getElementById("logoutBtn");
+      const dropdownProfileBtn = document.getElementById("dropdownProfile");
+
+      const activeLoansCount = document.getElementById("activeLoansCount");
+      const approvedLoansCount = document.getElementById("approvedLoansCount");
+      const totalApplicationsCount = document.getElementById(
+        "totalApplicationsCount"
+      );
+      const pendingApplicationsCount = document.getElementById(
+        "pendingApplicationsCount"
+      );
+      const loansRepaidCount = document.getElementById("loansRepaidCount"); // New element
+
+      const loansTableBody = document.querySelector("#loansTable tbody");
+      const newLoanBtn = document.getElementById("newLoanBtn");
+
+      const loanModal = document.getElementById("loanModal");
+      const closeLoanModalBtn = document.getElementById("closeLoanModal");
+      const cancelLoanBtn = document.getElementById("cancelLoanBtn");
+      const submitLoanBtn = document.getElementById("submitLoanBtn");
+      const loanApplicationForm = document.getElementById(
+        "loanApplicationForm"
+      );
+
+      const loanDetailModal = document.getElementById("loanDetailModal");
+      const closeLoanDetailModalBtn = document.getElementById(
+        "closeLoanDetailModal"
+      );
+      const closeDetailBtn = document.getElementById("closeDetailBtn");
+      const loanDetailContent = document.getElementById("loanDetailContent");
+
+      const profileModal = document.getElementById("profileModal");
+      const closeProfileModalBtn = document.getElementById("closeProfileModal");
+      const menuProfile = document.getElementById("menuProfile");
+      const profileForm = document.getElementById("profileForm");
+      const editProfileBtn = document.getElementById("editProfileBtn");
+      const saveProfileBtn = document.getElementById("saveProfileBtn");
+
+      let currentUser = loadUserData(); // Load user on script start
+
+      // Function to navigate between auth screens
+      function showScreen(screenToShow) {
+        signupScreen.style.display = "none";
+        loginScreen.style.display = "none";
+        forgotPasswordScreen.style.display = "none";
+        dashboard.style.display = "none";
+
+        if (screenToShow === "signup") {
           signupScreen.style.display = "flex";
-        });
-
-      document
-        .getElementById("showForgotPassword")
-        .addEventListener("click", function (e) {
-          e.preventDefault();
-          loginScreen.style.display = "none";
+        } else if (screenToShow === "login") {
+          loginScreen.style.display = "flex";
+        } else if (screenToShow === "forgotPassword") {
           forgotPasswordScreen.style.display = "flex";
-        });
-
-      document
-        .getElementById("showLoginFromForgot")
-        .addEventListener("click", function (e) {
-          e.preventDefault();
-          forgotPasswordScreen.style.display = "none";
-          loginScreen.style.display = "flex";
-        });
-
-      // Form submissions
-      document
-        .getElementById("signupForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-          // In a real app, this would send data to server
-          alert(
-            "Account created successfully! Your MEDA ID will be sent to your email."
-          );
-          loginScreen.style.display = "flex";
-          signupScreen.style.display = "none";
-        });
-
-      document
-        .getElementById("loginForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-          // In a real app, this would validate credentials
+        } else if (screenToShow === "dashboard") {
           authScreens.style.display = "none";
           dashboard.style.display = "flex";
-
-          // Populate user data
-          document.getElementById("userName").textContent = demoUser.fullName;
-          document.getElementById("medaIdDisplay").textContent =
-            demoUser.medaId;
-          document.getElementById("welcomeUserName").textContent =
-            demoUser.fullName.split(" ")[0];
-          document.getElementById("userAvatar").textContent = demoUser.fullName
-            .split(" ")
-            .map((n) => n[0])
-            .join("")
-            .substring(0, 2);
-          document.getElementById("headerUserAvatar").textContent =
-            demoUser.fullName
-              .split(" ")
-              .map((n) => n[0])
-              .join("")
-              .substring(0, 2);
-        });
-
-      document
-        .getElementById("forgotPasswordForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-          alert("Password reset link sent to your email if account exists.");
-          forgotPasswordScreen.style.display = "none";
-          loginScreen.style.display = "flex";
-        });
-
-      // Dashboard functionality
-      document
-        .getElementById("logoutBtn")
-        .addEventListener("click", function (e) {
-          e.preventDefault();
-          dashboard.style.display = "none";
-          authScreens.style.display = "flex";
-          loginScreen.style.display = "flex";
-        });
-
-      document
-        .getElementById("menuLogout")
-        .addEventListener("click", function (e) {
-          e.preventDefault();
-          dashboard.style.display = "none";
-          authScreens.style.display = "flex";
-          loginScreen.style.display = "flex";
-        });
-
-      // Loan application modal
-      const loanModal = document.getElementById("loanModal");
-      const loanDetailModal = document.getElementById("loanDetailModal");
-
-      document
-        .getElementById("newLoanBtn")
-        .addEventListener("click", function () {
-          loanModal.classList.add("active");
-        });
-
-      document
-        .getElementById("closeLoanModal")
-        .addEventListener("click", function () {
-          loanModal.classList.remove("active");
-        });
-
-      document
-        .getElementById("cancelLoanBtn")
-        .addEventListener("click", function () {
-          loanModal.classList.remove("active");
-        });
-
-      document
-        .getElementById("submitLoanBtn")
-        .addEventListener("click", function () {
-          // In a real app, this would send data to server
-          alert("Loan application submitted successfully!");
-          loanModal.classList.remove("active");
-
-          // Add to demo data (in real app, this would come from server response)
-          const newLoan = {
-            id: "LN-2025-004",
-            amount: parseInt(document.getElementById("loanAmount").value),
-            date: new Date().toLocaleDateString("en-GB", {
-              day: "numeric",
-              month: "short",
-              year: "numeric",
-            }),
-            status: "pending",
-            purpose: document.getElementById("loanPurpose").value,
-            description: document.getElementById("loanDescription").value,
-            repaymentPlan: document.getElementById("repaymentPlan").value,
-          };
-
-          demoUser.loans.unshift(newLoan);
-          updateLoanTable();
-        });
-
-      // View loan details
-      document.querySelectorAll(".view-loan").forEach((link) => {
-        link.addEventListener("click", function (e) {
-          e.preventDefault();
-          const loanId = this.closest("tr").querySelector("td").textContent;
-          const loan = demoUser.loans.find((l) => l.id === loanId);
-
-          let statusClass = "";
-          let statusText = "";
-          let extraInfo = "";
-
-          switch (loan.status) {
-            case "pending":
-              statusClass = "status-pending";
-              statusText = "Pending Review";
-              extraInfo =
-                "<p>Your application is currently being reviewed by our team. You will be notified once a decision is made.</p>";
-              break;
-            case "approved":
-              statusClass = "status-approved";
-              statusText = "Approved";
-              extraInfo = `
-                            <p>Your loan was approved on <strong>${loan.approvalDate}</strong>.</p>
-                            <p>Disbursement is being processed and you will receive funds within 3-5 business days.</p>
-                        `;
-              break;
-            case "disbursed":
-              statusClass = "status-disbursed";
-              statusText = "Disbursed";
-              extraInfo = `
-                            <p>Your loan was disbursed on <strong>${loan.disbursementDate}</strong>.</p>
-                            <p>Funds have been successfully transferred to your account.</p>
-                        `;
-              break;
-          }
-
-          const detailContent = `
-                    <h4>Loan ID: ${loan.id}</h4>
-                    <p><strong>Amount:</strong> ₦${loan.amount.toLocaleString()}</p>
-                    <p><strong>Purpose:</strong> ${loan.purpose}</p>
-                    <p><strong>Description:</strong> ${loan.description}</p>
-                    <p><strong>Repayment Plan:</strong> ${
-                      loan.repaymentPlan
-                    }</p>
-                    <p><strong>Application Date:</strong> ${loan.date}</p>
-                    <p><strong>Status:</strong> <span class="status-badge ${statusClass}">${statusText}</span></p>
-                    ${extraInfo}
-                `;
-
-          document.getElementById("loanDetailContent").innerHTML =
-            detailContent;
-          loanDetailModal.classList.add("active");
-        });
-      });
-
-      document
-        .getElementById("closeLoanDetailModal")
-        .addEventListener("click", function () {
-          loanDetailModal.classList.remove("active");
-        });
-
-      document
-        .getElementById("closeDetailBtn")
-        .addEventListener("click", function () {
-          loanDetailModal.classList.remove("active");
-        });
-
-      // Update loan table
-      function updateLoanTable() {
-        const tbody = document.querySelector("table tbody");
-        tbody.innerHTML = "";
-
-        demoUser.loans.forEach((loan) => {
-          const row = document.createElement("tr");
-          row.innerHTML = `
-                    <td>${loan.id}</td>
-                    <td>₦${loan.amount.toLocaleString()}</td>
-                    <td>${loan.date}</td>
-                    <td><span class="status-badge status-${loan.status}">${
-            loan.status.charAt(0).toUpperCase() + loan.status.slice(1)
-          }</span></td>
-                    <td><a href="#" class="view-loan">View</a></td>
-                `;
-          tbody.appendChild(row);
-        });
-
-        // Re-attach event listeners for view buttons
-        document.querySelectorAll(".view-loan").forEach((link) => {
-          link.addEventListener("click", function (e) {
-            e.preventDefault();
-            const loanId = this.closest("tr").querySelector("td").textContent;
-            const loan = demoUser.loans.find((l) => l.id === loanId);
-
-            let statusClass = "";
-            let statusText = "";
-            let extraInfo = "";
-
-            switch (loan.status) {
-              case "pending":
-                statusClass = "status-pending";
-                statusText = "Pending Review";
-                extraInfo =
-                  "<p>Your application is currently being reviewed by our team. You will be notified once a decision is made.</p>";
-                break;
-              case "approved":
-                statusClass = "status-approved";
-                statusText = "Approved";
-                extraInfo = `
-                                <p>Your loan was approved on <strong>${loan.approvalDate}</strong>.</p>
-                                <p>Disbursement is being processed and you will receive funds within 3-5 business days.</p>
-                            `;
-                break;
-              case "disbursed":
-                statusClass = "status-disbursed";
-                statusText = "Disbursed";
-                extraInfo = `
-                                <p>Your loan was disbursed on <strong>${loan.disbursementDate}</strong>.</p>
-                                <p>Funds have been successfully transferred to your account.</p>
-                            `;
-                break;
-            }
-
-            const detailContent = `
-                        <h4>Loan ID: ${loan.id}</h4>
-                        <p><strong>Amount:</strong> ₦${loan.amount.toLocaleString()}</p>
-                        <p><strong>Purpose:</strong> ${loan.purpose}</p>
-                        <p><strong>Description:</strong> ${loan.description}</p>
-                        <p><strong>Repayment Plan:</strong> ${
-                          loan.repaymentPlan
-                        }</p>
-                        <p><strong>Application Date:</strong> ${loan.date}</p>
-                        <p><strong>Status:</strong> <span class="status-badge ${statusClass}">${statusText}</span></p>
-                        ${extraInfo}
-                    `;
-
-            document.getElementById("loanDetailContent").innerHTML =
-              detailContent;
-            loanDetailModal.classList.add("active");
-          });
-        });
+        }
       }
 
-      // Sidebar navigation
-      document.querySelectorAll(".sidebar-menu a").forEach((link) => {
-        link.addEventListener("click", function (e) {
+      // Update dashboard UI with user data
+      function updateDashboardUI() {
+        if (!currentUser) {
+          showScreen("login");
+          return;
+        }
+
+        const initials = getInitials(currentUser.fullName);
+        userAvatar.textContent = initials;
+        headerUserAvatar.textContent = initials;
+        userName.textContent = currentUser.fullName.toUpperCase();
+        medaIdDisplay.textContent = currentUser.medaId;
+        welcomeUserName.textContent = currentUser.fullName.split(" ")[0];
+        userProgram.textContent = currentUser.program || "No Program Enrolled";
+
+        // Update loan statistics
+        const activeLoans = currentUser.loans.filter(
+          (loan) =>
+            loan.status !== "repaid" &&
+            loan.status !== "rejected" &&
+            loan.status !== "cancelled"
+        ).length;
+        const approvedLoans = currentUser.loans.filter(
+          (loan) => loan.status === "approved" || loan.status === "disbursed"
+        ).length;
+        const totalApplications = currentUser.loans.length;
+        const pendingApplications = currentUser.loans.filter(
+          (loan) => loan.status === "pending"
+        ).length;
+        const loansRepaid = currentUser.loans.filter(
+          (loan) => loan.status === "repaid"
+        ).length; // Count repaid loans
+
+        activeLoansCount.textContent = activeLoans;
+        approvedLoansCount.textContent = approvedLoans;
+        totalApplicationsCount.textContent = totalApplications;
+        pendingApplicationsCount.textContent = pendingApplications;
+        loansRepaidCount.textContent = loansRepaid; // Display repaid loans
+
+        renderLoansTable();
+        showScreen("dashboard");
+      }
+
+      // Render loans table
+      function renderLoansTable() {
+        loansTableBody.innerHTML = "";
+        if (currentUser && currentUser.loans.length > 0) {
+          currentUser.loans.forEach((loan) => {
+            const row = loansTableBody.insertRow();
+            row.innerHTML = `
+                <td>${loan.id}</td>
+                <td>₦${loan.amount.toLocaleString()}</td>
+                <td>${loan.date}</td>
+                <td><span class="status-badge status-${loan.status}">${
+              loan.status.charAt(0).toUpperCase() + loan.status.slice(1)
+            }</span></td>
+                <td><a href="#" class="view-loan" data-loan-id="${
+                  loan.id
+                }">View</a></td>
+            `;
+          });
+
+          document.querySelectorAll(".view-loan").forEach((button) => {
+            button.addEventListener("click", function (e) {
+              e.preventDefault();
+              const loanId = this.dataset.loanId;
+              displayLoanDetails(loanId);
+            });
+          });
+        } else {
+          const row = loansTableBody.insertRow();
+          row.innerHTML = `<td colspan="5" style="text-align: center;">No loan applications yet.</td>`;
+        }
+      }
+
+      // Display loan details in modal
+      function displayLoanDetails(loanId) {
+        const loan = currentUser.loans.find((l) => l.id === loanId);
+        if (loan) {
+          loanDetailContent.innerHTML = `
+            <p><strong>Loan ID:</strong> ${loan.id}</p>
+            <p><strong>Amount:</strong> ₦${loan.amount.toLocaleString()}</p>
+            <p><strong>Date Applied:</strong> ${loan.date}</p>
+            <p><strong>Status:</strong> <span class="status-badge status-${
+              loan.status
+            }">${
+            loan.status.charAt(0).toUpperCase() + loan.status.slice(1)
+          }</span></p>
+            <p><strong>Purpose:</strong> ${loan.purpose}</p>
+            <p><strong>Description:</strong> ${loan.description}</p>
+            <p><strong>Repayment Plan:</strong> ${loan.repaymentPlan}</p>
+            ${
+              loan.disbursementDate
+                ? `<p><strong>Disbursement Date:</strong> ${loan.disbursementDate}</p>`
+                : ""
+            }
+            ${
+              loan.approvalDate
+                ? `<p><strong>Approval Date:</strong> ${loan.approvalDate}</p>`
+                : ""
+            }
+          `;
+          loanDetailModal.classList.add("active");
+        }
+      }
+
+      // Handle sidebar menu clicks
+      document.querySelectorAll(".sidebar-menu a").forEach((item) => {
+        item.addEventListener("click", function (e) {
           e.preventDefault();
           document
             .querySelectorAll(".sidebar-menu a")
-            .forEach((a) => a.classList.remove("active"));
+            .forEach((link) => link.classList.remove("active"));
           this.classList.add("active");
+          const menuId = this.id;
+          document
+            .querySelectorAll(".card")
+            .forEach((card) => (card.style.display = "none"));
 
-          // Update main content based on menu selection
-          const content = document.getElementById("dashboardContent");
-          const header = document.querySelector(".header h2");
-
-          if (this.id === "menuLoans") {
-            header.textContent = "Loan Applications";
-            content.innerHTML = `
-                        <div class="card">
-                            <div class="card-header">
-                                <h3>My Loan Applications</h3>
-                                <button class="btn btn-accent" id="newLoanBtn">New Application</button>
-                            </div>
-                            <div class="table-responsive">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Loan ID</th>
-                                            <th>Amount</th>
-                                            <th>Date Applied</th>
-                                            <th>Status</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        ${demoUser.loans
-                                          .map(
-                                            (loan) => `
-                                            <tr>
-                                                <td>${loan.id}</td>
-                                                <td>₦${loan.amount.toLocaleString()}</td>
-                                                <td>${loan.date}</td>
-                                                <td><span class="status-badge status-${
-                                                  loan.status
-                                                }">${
-                                              loan.status
-                                                .charAt(0)
-                                                .toUpperCase() +
-                                              loan.status.slice(1)
-                                            }</span></td>
-                                                <td><a href="#" class="view-loan">View</a></td>
-                                            </tr>
-                                        `
-                                          )
-                                          .join("")}
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    `;
-            document
-              .getElementById("newLoanBtn")
-              .addEventListener("click", function () {
-                loanModal.classList.add("active");
-              });
-            updateLoanTable();
-          } else if (this.id === "menuPrograms") {
-            header.textContent = "My Programs";
-            content.innerHTML = `
-                        <div class="card">
-                            <div class="card-header">
-                                <h3>Program Progress</h3>
-                            </div>
-                            <p>You are currently at <strong>Phase 2</strong> of the YOU-LEAP program. Next training session: <strong>Dec 5, 2023</strong>.</p>
-                            <div style="margin-top: 20px; height: 10px; background-color: #eee; border-radius: 5px;">
-                                <div style="width: 60%; height: 100%; background-color: var(--primary-color); border-radius: 5px;"></div>
-                            </div>
-                        </div>
-                    `;
-          } else if (this.id === "menuProfile") {
-            header.textContent = "Profile";
-            content.innerHTML = `
-                        <div class="card">
-                            <div class="card-header">
-                                <h3>My Profile</h3>
-                            </div>
-                            <p><strong>Full Name:</strong> ${demoUser.fullName}</p>
-                            <p><strong>Email:</strong> ${demoUser.email}</p>
-                            <p><strong>Phone:</strong> ${demoUser.phone}</p>
-                            <p><strong>MEDA ID:</strong> ${demoUser.medaId}</p>
-                            <p><strong>Program:</strong> ${demoUser.program}</p>
-                        </div>
-                    `;
-          } else if (this.id === "menuSupport") {
-            header.textContent = "Support";
-            content.innerHTML = `
-                        <div class="card">
-                            <div class="card-header">
-                                <h3>Contact Support</h3>
-                            </div>
-                            <p>For any inquiries, please contact our support team at:</p>
-                            <p><strong>Email:</strong> support@meda.org</p>
-                            <p><strong>Phone:</strong> +234 123 456 7890</p>
-                            <p><strong>Working Hours:</strong> Mon-Fri, 9 AM - 5 PM</p>
-                        </div>
-                    `;
-          } else {
-            header.textContent = "Dashboard";
-            content.innerHTML = `
-                        <div class="card welcome-card">
-                            <div class="card-header">
-                                <h3>Welcome back, ${
-                                  demoUser.fullName.split(" ")[0]
-                                }!</h3>
-                            </div>
-                            <p>You're enrolled in the <strong>${
-                              demoUser.program
-                            }</strong> program. Track your loan applications and program progress below.</p>
-                        </div>
-                        <div class="stats-grid">
-                            <div class="stat-card">
-                                <h4>Active Loans</h4>
-                                <p>${
-                                  demoUser.loans.filter(
-                                    (l) => l.status === "disbursed"
-                                  ).length
-                                }</p>
-                            </div>
-                            <div class="stat-card success">
-                                <h4>Approved Loans</h4>
-                                <p>${
-                                  demoUser.loans.filter(
-                                    (l) => l.status === "approved"
-                                  ).length
-                                }</p>
-                            </div>
-                            <div class="stat-card">
-                                <h4>Total Applications</h4>
-                                <p>${demoUser.loans.length}</p>
-                            </div>
-                            <div class="stat-card warning">
-                                <h4>Pending Applications</h4>
-                                <p>${
-                                  demoUser.loans.filter(
-                                    (l) => l.status === "pending"
-                                  ).length
-                                }</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header">
-                                <h3>Recent Loan Applications</h3>
-                                <button class="btn btn-accent" id="newLoanBtn">New Application</button>
-                            </div>
-                            <div class="table-responsive">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Loan ID</th>
-                                            <th>Amount</th>
-                                            <th>Date Applied</th>
-                                            <th>Status</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        ${demoUser.loans
-                                          .map(
-                                            (loan) => `
-                                            <tr>
-                                                <td>${loan.id}</td>
-                                                <td>₦${loan.amount.toLocaleString()}</td>
-                                                <td>${loan.date}</td>
-                                                <td><span class="status-badge status-${
-                                                  loan.status
-                                                }">${
-                                              loan.status
-                                                .charAt(0)
-                                                .toUpperCase() +
-                                              loan.status.slice(1)
-                                            }</span></td>
-                                                <td><a href="#" class="view-loan">View</a></td>
-                                            </tr>
-                                        `
-                                          )
-                                          .join("")}
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header">
-                                <h3>Program Progress</h3>
-                            </div>
-                            <p>You are currently at <strong>Phase 2</strong> of the YOU-LEAP program. Next training session: <strong>Dec 5, 2023</strong>.</p>
-                            <div style="margin-top: 20px; height: 10px; background-color: #eee; border-radius: 5px;">
-                                <div style="width: 60%; height: 100%; background-color: var(--primary-color); border-radius: 5px;"></div>
-                            </div>
-                        </div>
-                    `;
-            document
-              .getElementById("newLoanBtn")
-              .addEventListener("click", function () {
-                loanModal.classList.add("active");
-              });
-            updateLoanTable();
+          if (menuId === "menuDashboard") {
+            document.getElementById("dashboardTitle").textContent = "Dashboard";
+            document.getElementById("welcomeUserName").textContent =
+              currentUser.fullName.split(" ")[0];
+            document.getElementById("userProgram").textContent =
+              currentUser.program || "No Program Enrolled";
+            document.getElementById("recentLoansCard").style.display = "block";
+            document.getElementById("programProgressCard").style.display =
+              "block";
+            document.querySelector(".stats-grid").style.display = "grid";
+          } else if (menuId === "menuLoans") {
+            document.getElementById("dashboardTitle").textContent =
+              "Loan Applications";
+            document.getElementById("recentLoansCard").style.display = "block";
+            // Hide stats and program progress for loans page
+            document.querySelector(".stats-grid").style.display = "none";
+            document.getElementById("programProgressCard").style.display =
+              "none";
+          } else if (menuId === "menuPrograms") {
+            document.getElementById("dashboardTitle").textContent =
+              "My Programs";
+            document.getElementById("programProgressCard").style.display =
+              "block";
+            // Hide stats and recent loans for programs page
+            document.querySelector(".stats-grid").style.display = "none";
+            document.getElementById("recentLoansCard").style.display = "none";
+          } else if (menuId === "menuProfile") {
+            openProfileModal();
+          } else if (menuId === "menuSupport") {
+            document.getElementById("dashboardTitle").textContent = "Support";
+            // Add support content or link here
+            document.querySelector(".stats-grid").style.display = "none";
+            document.getElementById("recentLoansCard").style.display = "none";
+            document.getElementById("programProgressCard").style.display =
+              "none";
+          } else if (menuId === "menuLogout") {
+            handleLogout();
           }
         });
+      });
+
+      // Auth navigation event listeners
+      showLoginBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        showScreen("login");
+      });
+
+      showSignupBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        showScreen("signup");
+      });
+
+      showForgotPasswordBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        showScreen("forgotPassword");
+      });
+
+      showLoginFromForgotBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        showScreen("login");
+      });
+
+      // Signup Form Submission
+      signupForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const fullName = document.getElementById("signupFullName").value;
+        const email = document.getElementById("signupEmail").value;
+        const phone = document.getElementById("signupPhone").value;
+        const password = document.getElementById("signupPassword").value;
+        const confirmPassword = document.getElementById(
+          "signupConfirmPassword"
+        ).value;
+
+        if (password !== confirmPassword) {
+          alert("Passwords do not match!");
+          return;
+        }
+
+        let registeredUsers = loadRegisteredUsers();
+        if (registeredUsers.some((user) => user.email === email)) {
+          alert("An account with this email already exists. Please log in.");
+          return;
+        }
+
+        const medaId = generateMedaId();
+        const newUser = {
+          fullName,
+          email,
+          phone,
+          password, // In a real app, hash this password!
+          medaId,
+          program: "YOU-LEAP", // Default program
+          loans: [],
+        };
+        registeredUsers.push(newUser);
+        saveRegisteredUsers(registeredUsers);
+
+        alert(
+          `Account created successfully! Your MEDA ID is ${medaId}. Please log in.`
+        );
+        signupForm.reset();
+        showScreen("login");
+      });
+
+      // Login Form Submission
+      loginForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const loginEmail = document.getElementById("loginEmail").value;
+        const loginPassword = document.getElementById("loginPassword").value;
+
+        const registeredUsers = loadRegisteredUsers();
+        const user = registeredUsers.find(
+          (u) => u.email === loginEmail && u.password === loginPassword
+        ); // Simplified for demo
+
+        if (user) {
+          currentUser = user;
+          saveUserData(currentUser); // Persist logged-in user
+          updateDashboardUI();
+        } else {
+          alert("Invalid email or password.");
+        }
+      });
+
+      // Forgot Password Form Submission
+      forgotPasswordForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const forgotEmail = document.getElementById("forgotEmail").value;
+        // In a real application, you would send a reset link to the email.
+        alert(
+          `If an account with ${forgotEmail} exists, a password reset link has been sent.`
+        );
+        forgotPasswordForm.reset();
+        showScreen("login");
+      });
+
+      // Logout functionality
+      function handleLogout() {
+        currentUser = null;
+        localStorage.removeItem("currentUser");
+        showScreen("login");
+        document.getElementById("menuDashboard").classList.add("active"); // Reset active menu
+      }
+      logoutBtn.addEventListener("click", handleLogout);
+      document
+        .getElementById("dropdownProfile")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          openProfileModal();
+        });
+
+      // New Loan Application Modal
+      newLoanBtn.addEventListener("click", () => {
+        loanApplicationForm.reset();
+        document.getElementById("loanTerms").checked = false; // Ensure checkbox is unchecked
+        loanModal.classList.add("active");
+      });
+
+      closeLoanModalBtn.addEventListener("click", () => {
+        loanModal.classList.remove("active");
+      });
+
+      cancelLoanBtn.addEventListener("click", () => {
+        loanModal.classList.remove("active");
+      });
+
+      submitLoanBtn.addEventListener("click", function (e) {
+        e.preventDefault(); // Prevent default form submission
+        if (!loanApplicationForm.checkValidity()) {
+          loanApplicationForm.reportValidity(); // Show native validation errors
+          return;
+        }
+
+        const loanAmount = document.getElementById("loanAmount").value;
+        const loanPurpose = document.getElementById("loanPurpose").value;
+        const loanDescription =
+          document.getElementById("loanDescription").value;
+        const repaymentPlan = document.getElementById("repaymentPlan").value;
+
+        const newLoan = {
+          id: `LN-${new Date().getFullYear()}-${String(
+            currentUser.loans.length + 1
+          ).padStart(3, "0")}`,
+          amount: parseFloat(loanAmount),
+          date: new Date().toLocaleDateString("en-GB", {
+            day: "numeric",
+            month: "short",
+            year: "numeric",
+          }),
+          status: "pending",
+          purpose: loanPurpose,
+          description: loanDescription,
+          repaymentPlan: repaymentPlan,
+        };
+
+        currentUser.loans.push(newLoan);
+        saveUserData(currentUser); // Save updated loans to current user
+        updateRegisteredUser(currentUser); // Update user in overall registered users
+        updateDashboardUI();
+        loanModal.classList.remove("active");
+        alert("Loan application submitted successfully!");
+      });
+
+      // Loan Detail Modal
+      closeLoanDetailModalBtn.addEventListener("click", () => {
+        loanDetailModal.classList.remove("active");
+      });
+
+      closeDetailBtn.addEventListener("click", () => {
+        loanDetailModal.classList.remove("active");
+      });
+
+      // Profile Modal
+      function openProfileModal() {
+        if (currentUser) {
+          document.getElementById("profileFullName").value =
+            currentUser.fullName;
+          document.getElementById("profileEmail").value = currentUser.email;
+          document.getElementById("profilePhone").value = currentUser.phone;
+          document.getElementById("profileMedaId").value = currentUser.medaId;
+          document.getElementById("profileProgram").value =
+            currentUser.program || "N/A";
+
+          // Set fields to readonly initially
+          document.getElementById("profileFullName").readOnly = true;
+          document.getElementById("profileEmail").readOnly = true;
+          document.getElementById("profilePhone").readOnly = true;
+          document.getElementById("profileProgram").readOnly = true; // Program can't be edited by user
+          editProfileBtn.style.display = "block";
+          saveProfileBtn.style.display = "none";
+          profileModal.classList.add("active");
+        }
+      }
+
+      closeProfileModalBtn.addEventListener("click", () => {
+        profileModal.classList.remove("active");
+      });
+
+      menuProfile.addEventListener("click", (e) => {
+        e.preventDefault();
+        openProfileModal();
+      });
+
+      editProfileBtn.addEventListener("click", () => {
+        document.getElementById("profileFullName").readOnly = false;
+        document.getElementById("profileEmail").readOnly = false;
+        document.getElementById("profilePhone").readOnly = false;
+        editProfileBtn.style.display = "none";
+        saveProfileBtn.style.display = "block";
+      });
+
+      saveProfileBtn.addEventListener("click", () => {
+        currentUser.fullName = document.getElementById("profileFullName").value;
+        currentUser.email = document.getElementById("profileEmail").value;
+        currentUser.phone = document.getElementById("profilePhone").value;
+        saveUserData(currentUser); // Update current user in local storage
+        updateRegisteredUser(currentUser); // Update in the list of registered users
+        updateDashboardUI(); // Refresh dashboard with new info
+        profileModal.classList.remove("active");
+        alert("Profile updated successfully!");
+      });
+
+      // Initialize the app
+      document.addEventListener("DOMContentLoaded", () => {
+        if (currentUser) {
+          updateDashboardUI();
+        } else {
+          showScreen("signup"); // Show signup if no user logged in
+        }
       });
     </script>
   </body>
