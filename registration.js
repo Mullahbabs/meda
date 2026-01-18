@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
           });
         }
       });
-  
+    
       if (isValid) {
         // Show success message
         const successMsg = document.createElement('div');
